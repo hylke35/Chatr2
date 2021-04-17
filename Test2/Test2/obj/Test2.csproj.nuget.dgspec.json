@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hwest\\source\\repos\\Test2\\Test2\\Test2.csproj": {}
+    "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\Test2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hwest\\source\\repos\\Test2\\Test2\\Test2.csproj": {
+    "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\Test2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hwest\\source\\repos\\Test2\\Test2\\Test2.csproj",
+        "projectUniqueName": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\Test2.csproj",
         "projectName": "Test2",
-        "projectPath": "C:\\Users\\hwest\\source\\repos\\Test2\\Test2\\Test2.csproj",
+        "projectPath": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\Test2.csproj",
         "packagesPath": "C:\\Users\\hwest\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hwest\\source\\repos\\Test2\\Test2\\obj\\",
+        "outputPath": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -40,6 +40,18 @@
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.10, )"
+            },
+            "System.Security.Permissions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "VideoLibrary": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "YoutubeExtractor": {
+              "target": "Package",
+              "version": "[0.10.11, )"
             }
           },
           "imports": [
