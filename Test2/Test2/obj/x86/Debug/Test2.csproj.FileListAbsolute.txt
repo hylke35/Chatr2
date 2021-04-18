@@ -57,3 +57,8 @@ C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\BlankPage1.x
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Nito.AsyncEx.Context.dll
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Nito.AsyncEx.Tasks.dll
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Nito.Disposables.dll
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage2.xbf
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\BlankPage2.g.i.cs
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\BlankPage2.g.cs
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\BlankPage2.xaml
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\BlankPage2.xbf

@@ -8,6 +8,7 @@ using Windows.Foundation.Collections;
 using Windows.Media.Core;
 using Windows.Storage;
 using Windows.UI.Xaml;
+using System.Linq;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
@@ -32,20 +33,92 @@ namespace Test2
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        DBConnect connection;
+
         public MainPage()
         {
             this.InitializeComponent();
+
             setMediaPlayer();
-            
-            
+
+            mediaPlayer.CurrentStateChanged += media_change;
+            mediaPlayer.MediaEnded += media_ended;
+            //updateVideoState();
+        }
+
+        public void media_ended(object sender, RoutedEventArgs e)
+        {
+            // Next video
+        }
+
+        public void media_change(object sender, RoutedEventArgs e)
+        {
+
+            switch (mediaPlayer.CurrentState)
+            {
+                case MediaElementState.Buffering:
+                    break;
+                case MediaElementState.Closed:
+                    Debug.WriteLine("Closed");
+                    break;
+                case MediaElementState.Opening:
+                    break;
+                case MediaElementState.Paused:
+                    updateVideoState("paused");
+                    break;
+                case MediaElementState.Playing:
+                    updateVideoState("playing");
+                    break;
+                case MediaElementState.Stopped:
+                    Debug.WriteLine("stopped");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+        public async void updateVideoState(string status)
+        {
+
+            var asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=DESKTOP-4TP64DH;Initial Catalog=ChatrTestDB;Integrated Security=True").ToString();
+
+
+            using (SqlConnection connection = new SqlConnection(asyncConnectionString))
+            {
+                await connection.OpenAsync();
+                SqlCommand command = connection.CreateCommand();
+
+                try
+                {
+                    var isPaused = 1;
+                    if (status == "playing")
+                    {
+                        isPaused = 0;
+                    }
+                    else if (status == "paused")
+                    {
+                        isPaused = 1;
+                    }
+                    command.CommandText =
+                        String.Format("UPDATE Video SET isPaused = {0} WHERE videoID = 2", isPaused);
+                    await command.ExecuteNonQueryAsync();
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Something went wrong: {0}", ex.Message);
+                }
+            }
         }
 
         private bool isPlaying()
         {
-            if ( mediaPlayer.CurrentState.ToString() == "Playing") {
-                return true;               
-            } else {
+            if (mediaPlayer.CurrentState.ToString() == "Playing")
+            {
+                return true;
+            }
+            else
+            {
                 return false;
             }
         }
@@ -70,7 +143,7 @@ namespace Test2
             var path = GetTemporaryDirectory() + "/test.mp4";
             var youTube = YouTube.Default; // starting point for YouTube actions
             var video = youTube.GetVideo(link); // gets a Video object with info about the video
-            
+
             File.WriteAllBytes(path, video.GetBytes());
 
             return path;
@@ -83,7 +156,9 @@ namespace Test2
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(isPlaying());
+
         }
+
+
     }
 }

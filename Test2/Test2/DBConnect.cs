@@ -9,7 +9,8 @@ namespace Test2
 {
     public class DBConnect
     {
-        string ConnectionString = @"data source=DESKTOP-4TP64DH;initial catalog=ChatrTestDB;trusted_connection=true;MultipleActiveResultSets=true";
+        string ConnectionString = @"Data Source=DESKTOP-4TP64DH;Initial Catalog=ChatrTestDB;Integrated Security=True";
+                                    //Data Source = DESKTOP - 4TP64DH;Initial Catalog = ChatrTestDB; Integrated Security = True
         SqlConnection con;
 
         public SqlConnection getCon()
