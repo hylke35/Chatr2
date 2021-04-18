@@ -31,6 +31,15 @@
     <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\newtonsoft.json\12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\nito.asyncex.context\5.1.0\lib\netstandard2.0\Nito.AsyncEx.Context.dll">
+      <PackagePath>Nito.AsyncEx.Context.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\nito.asyncex.tasks\5.1.0\lib\netstandard2.0\Nito.AsyncEx.Tasks.dll">
+      <PackagePath>Nito.AsyncEx.Tasks.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\nito.disposables\2.2.0\lib\netstandard2.0\Nito.Disposables.dll">
+      <PackagePath>Nito.Disposables.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.10\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
     </AppxPackagedFile>
@@ -84,6 +93,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage1.xbf">
+      <PackagePath>BlankPage1.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>

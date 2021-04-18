@@ -49,3 +49,11 @@ C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\libvideo.dll
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\YoutubeExtractor.dll
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\System.Security.Permissions.dll
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\FxResources.System.Security.Permissions.SR.resw
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage1.xbf
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\BlankPage1.g.i.cs
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\BlankPage1.g.cs
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\BlankPage1.xaml
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\BlankPage1.xbf
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Nito.AsyncEx.Context.dll
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Nito.AsyncEx.Tasks.dll
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Nito.Disposables.dll
