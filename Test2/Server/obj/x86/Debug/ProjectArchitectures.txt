@@ -1,0 +1,1 @@
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Server\Server.csproj;x86

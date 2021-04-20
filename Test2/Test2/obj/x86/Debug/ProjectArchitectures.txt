@@ -1,1 +1,1 @@
-C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Test2.csproj;x86
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Test2.csproj;x86
