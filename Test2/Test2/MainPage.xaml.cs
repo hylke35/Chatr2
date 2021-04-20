@@ -33,7 +33,7 @@ namespace Test2
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        DBConnect connection = new DBConnect();
         public MainPage()
         {
             this.InitializeComponent();
@@ -44,6 +44,7 @@ namespace Test2
             mediaPlayer.MediaEnded += media_ended;
             //updateVideoState();
         }
+
 
         public void media_ended(object sender, RoutedEventArgs e)
         {
@@ -77,51 +78,28 @@ namespace Test2
         }
 
 
-        public async void updateVideoState(string status)
+        public void updateVideoState(string status)
         {
 
-            var asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=DESKTOP-4TP64DH;Initial Catalog=ChatrTestDB;Integrated Security=True").ToString();
-
-
-            using (SqlConnection connection = new SqlConnection(asyncConnectionString))
+            var isPaused = 1;
+            if (status == "playing")
             {
-                await connection.OpenAsync();
-                SqlCommand command = connection.CreateCommand();
-
-                try
-                {
-                    var isPaused = 1;
-                    if (status == "playing")
-                    {
-                        isPaused = 0;
-                    }
-                    else if (status == "paused")
-                    {
-                        isPaused = 1;
-                    }
-                    command.CommandText =
-                        String.Format("UPDATE Video SET isPaused = {0} WHERE videoID = 2", isPaused);
-                    await command.ExecuteNonQueryAsync();
-
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("Something went wrong: {0}", ex.Message);
-                }
+                isPaused = 0;
             }
+            else if (status == "paused")
+            {
+                isPaused = 1;
+            }
+
+            IDictionary<string, object> p = new Dictionary<string, object>();
+            p.Add("@isPaused", isPaused);
+            p.Add("@videoID", 1);
+
+            connection.runQueryAsync("UPDATE Video SET isPaused = @isPaused WHERE videoID = @videoID", p);
+
         }
 
-        private bool isPlaying()
-        {
-            if (mediaPlayer.CurrentState.ToString() == "Playing")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+
 
         public string GetTemporaryDirectory()
         {

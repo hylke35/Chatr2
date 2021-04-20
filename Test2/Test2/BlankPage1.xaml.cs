@@ -41,7 +41,7 @@ namespace Test2
             await view.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 var frame = new Frame();
-                frame.Navigate(typeof(MainPage), null);
+                frame.Navigate(typeof(VideoLobby), null);
                 Window.Current.Content = frame;
                 Window.Current.Activate();
                 id = ApplicationView.GetForCurrentView().Id;
