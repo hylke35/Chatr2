@@ -11,7 +11,7 @@ namespace Test2
 {
     public class DBConnect
     {
-        string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=DESKTOP-SE6V62U,1433;Initial Catalog=ChatrTestDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
+        string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=DESKTOP-4TP64DH;Initial Catalog=ChatrTestDB;Integrated Security=True").ToString();
 
         public string getConnectionString()
         {
@@ -114,8 +114,6 @@ namespace Test2
                 UserId = int.Parse(reader["userID"].ToString()),
                 Username = reader["username"].ToString(),
                 Password = reader["password"].ToString(),
-                InLobby = int.Parse(reader["inLobby"].ToString()),
-                IsReady = int.Parse(reader["isReady"].ToString())
             };
         }
 
@@ -146,8 +144,6 @@ namespace Test2
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public int InLobby { get; set; }
-        public int IsReady { get; set; }
     }
 
     public class Video

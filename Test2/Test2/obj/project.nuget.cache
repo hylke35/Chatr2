@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eAltjBxfgH54lfj7TLWXnUwlwunC10ZWsQIurWg7gLNzwmWYlihNFmTzJhEYaVeKeO4W+87U482Q+rZ6ENzBCA==",
+  "dgSpecHash": "Iu0ymKl1MwG/BEZV3sNBOA9Xt337qyEF51Dl/ofY6neQ+ZovUKI8BCKrgX3EA3wjsvMFeGTes+v4wHHgKNkuzQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\Test2.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hwest\\.nuget\\packages\\easyencryption\\1.0.2\\easyencryption.1.0.2.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.8-rel-28605-00\\microsoft.net.native.compiler.2.2.8-rel-28605-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.10\\microsoft.net.uwpcoreruntimesdk.2.2.10.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
@@ -37,5 +38,16 @@
     "C:\\Users\\hwest\\.nuget\\packages\\videolibrary\\3.1.1\\videolibrary.3.1.1.nupkg.sha512",
     "C:\\Users\\hwest\\.nuget\\packages\\youtubeextractor\\0.10.11\\youtubeextractor.0.10.11.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'EasyEncryption 1.0.2' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework 'UAP,Version=v10.0.17763'. This package may not be fully compatible with your project.",
+      "libraryId": "EasyEncryption",
+      "targetGraphs": [
+        "UAP,Version=v10.0.17763"
+      ]
+    }
+  ]
 }

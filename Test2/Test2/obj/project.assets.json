@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "UAP,Version=v10.0.17763": {
+      "EasyEncryption/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/EasyEncryption.dll": {}
+        },
+        "runtime": {
+          "lib/EasyEncryption.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.8-rel-28605-00": {
         "type": "package",
         "dependencies": {
@@ -415,6 +424,15 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-arm": {
+      "EasyEncryption/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/EasyEncryption.dll": {}
+        },
+        "runtime": {
+          "lib/EasyEncryption.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.8-rel-28605-00": {
         "type": "package",
         "dependencies": {
@@ -1001,6 +1019,15 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-arm-aot": {
+      "EasyEncryption/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/EasyEncryption.dll": {}
+        },
+        "runtime": {
+          "lib/EasyEncryption.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.8-rel-28605-00": {
         "type": "package",
         "dependencies": {
@@ -1588,6 +1615,15 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-arm64-aot": {
+      "EasyEncryption/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/EasyEncryption.dll": {}
+        },
+        "runtime": {
+          "lib/EasyEncryption.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.8-rel-28605-00": {
         "type": "package",
         "dependencies": {
@@ -2175,6 +2211,15 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-x64": {
+      "EasyEncryption/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/EasyEncryption.dll": {}
+        },
+        "runtime": {
+          "lib/EasyEncryption.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.8-rel-28605-00": {
         "type": "package",
         "dependencies": {
@@ -2761,6 +2806,15 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-x64-aot": {
+      "EasyEncryption/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/EasyEncryption.dll": {}
+        },
+        "runtime": {
+          "lib/EasyEncryption.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.8-rel-28605-00": {
         "type": "package",
         "dependencies": {
@@ -3348,6 +3402,15 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-x86": {
+      "EasyEncryption/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/EasyEncryption.dll": {}
+        },
+        "runtime": {
+          "lib/EasyEncryption.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.8-rel-28605-00": {
         "type": "package",
         "dependencies": {
@@ -3934,6 +3997,15 @@
       }
     },
     "UAP,Version=v10.0.17763/win10-x86-aot": {
+      "EasyEncryption/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/EasyEncryption.dll": {}
+        },
+        "runtime": {
+          "lib/EasyEncryption.dll": {}
+        }
+      },
       "Microsoft.Net.Native.Compiler/2.2.8-rel-28605-00": {
         "type": "package",
         "dependencies": {
@@ -4522,6 +4594,20 @@
     }
   },
   "libraries": {
+    "EasyEncryption/1.0.2": {
+      "sha512": "Rs/YqbsOAscUbx8zVfhqp22P73oFJyQNcrVr/6dhs2xwQ3H+JgBCo7GIyybJ4b3s5vNzrC1bO7YtnocnC4Gqqg==",
+      "type": "package",
+      "path": "easyencryption/1.0.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "easyencryption.1.0.2.nupkg.sha512",
+        "easyencryption.nuspec",
+        "lib/EasyEncryption.dll",
+        "tools/init.ps1"
+      ]
+    },
     "Microsoft.Net.Native.Compiler/2.2.8-rel-28605-00": {
       "sha512": "JmPpJFTBZz+IW2iMf9C2uSBEJouDt3zaeqURRFah3gJ0xEMd/Gd3iu3HQYwfTsbx/f+C8n8pTAqiXPMpIci/iw==",
       "type": "package",
@@ -9167,6 +9253,7 @@
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.17763": [
+      "EasyEncryption >= 1.0.2",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.10",
       "Nito.AsyncEx.Context >= 5.1.0",
       "System.Security.Permissions >= 5.0.0",
@@ -9211,6 +9298,10 @@
     "frameworks": {
       "uap10.0.17763": {
         "dependencies": {
+          "EasyEncryption": {
+            "target": "Package",
+            "version": "[1.0.2, )"
+          },
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.10, )"
@@ -9262,5 +9353,17 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'EasyEncryption 1.0.2' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework 'UAP,Version=v10.0.17763'. This package may not be fully compatible with your project.",
+      "libraryId": "EasyEncryption",
+      "targetGraphs": [
+        "UAP,Version=v10.0.17763"
+      ]
+    }
+  ]
 }

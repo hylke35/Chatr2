@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" FocusVisualSecondaryBrush="#93000000">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -14,12 +14,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <RelativePanel Grid.Column="0" Background="#0077b6">
-            <Image Source="Assets/images/logo.png"
+            <Image Source="Assets/logo.png"
                    MaxHeight="300"
                    RelativePanel.AlignHorizontalCenterWithPanel="True"
                    RelativePanel.AlignVerticalCenterWithPanel="True"/>
         </RelativePanel>
-        <ScrollViewer Grid.Column="1" Background="#fff" Foreground="Black" FontFamily="Century Gothic">
+        <ScrollViewer Grid.Column="1" Background="White" Foreground="Black" FontFamily="Century Gothic">
             <StackPanel>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -37,35 +37,35 @@
                                
                                Text="LOGIN"
                                Margin="50"
-                               FontWeight="Bold"
+                               FontWeight="Bold" SelectionHighlightColor="#FF0077B6"
                                
                                />
                     <TextBlock Grid.Row="1"
                                Text="Username"
                                FontSize="25"
-                               Margin="50,0,0,0"/>
+                               Margin="50,0,0,0" SelectionHighlightColor="#FF0077B6"/>
                     <TextBox x:Name="userBox" Grid.Row="2"
                              FontSize="25"
                              Margin="50,0,50,20"
                              BorderThickness="0,0,0,3"
-                             BorderBrush="black" FocusVisualSecondaryBrush="#99FFFFFF" Background="#66FFFFFF"/>
+                             BorderBrush="black" Background="White" Foreground="Black" SelectionHighlightColor="#FF0077B6"/>
                     <TextBlock Grid.Row="3"
                                Text="Password"
                                FontSize="25"
-                               Margin="50,0,0,0"/>
+                               Margin="50,0,0,0" SelectionHighlightColor="#FF0077B6"/>
                     <PasswordBox x:Name="passBox" Grid.Row="4"
                              FontSize="25"
                              Margin="50,0,50,20"
                              BorderThickness="0,0,0,3"
-                             BorderBrush="Black" Background="#66FFFFFF" FocusVisualSecondaryBrush="#99FFFFFF"  />
-                    <Button Grid.Row="5"
+                             BorderBrush="Black" Background="White" Foreground="Black" SelectionHighlightColor="#FF0077B6"/>
+                    <Button x:Name="loginButton" Grid.Row="5"
                             Margin="50,0,0,0"
                             Content="Login"
                             FontSize="21"
                             Foreground="white"
                             Background="#0077b6"
                             CornerRadius="5"
-                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" Click="Button_Click">
+                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" Click="loginButton_Click">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
@@ -81,14 +81,14 @@
                             </ResourceDictionary>
                         </Button.Resources>
                     </Button>
-                    <Button Grid.Row="5"
+                    <Button x:Name="registerButton" Grid.Row="5"
                             Margin="250,0,0,0"
                             Content="Register"
                             FontSize="21"
                             Foreground="white"
                             Background="#0077b6"
                             CornerRadius="5"
-                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" Click="Button_Click_1">
+                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" Click="registerButton_Click">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
@@ -104,6 +104,9 @@
                             </ResourceDictionary>
                         </Button.Resources>
                     </Button>
+                    <TextBlock x:Name="statusBox" Margin="50,53,421,-146" Grid.Row="7" FontSize="16" FontWeight="Bold" SelectionHighlightColor="#FF0077B6">
+                        
+                    </TextBlock>
                 </Grid>
             </StackPanel>
         </ScrollViewer>
