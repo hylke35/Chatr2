@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\Test2\\ServerApp\\ServerApp.csproj": {}
+    "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\ServerApp\\ServerApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\Test2\\ServerApp\\ServerApp.csproj": {
+    "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\ServerApp\\ServerApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\Test2\\ServerApp\\ServerApp.csproj",
+        "projectUniqueName": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\ServerApp\\ServerApp.csproj",
         "projectName": "ServerApp",
-        "projectPath": "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\Test2\\ServerApp\\ServerApp.csproj",
-        "packagesPath": "C:\\Users\\Sytze\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\Test2\\ServerApp\\obj\\",
+        "projectPath": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\ServerApp\\ServerApp.csproj",
+        "packagesPath": "C:\\Users\\hwest\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\ServerApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sytze\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hwest\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,12 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.2, )"
-            }
-          },
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -53,18 +49,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
