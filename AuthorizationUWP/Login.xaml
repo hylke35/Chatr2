@@ -44,7 +44,7 @@
                                Text="Email"
                                FontSize="25"
                                Margin="50,0,0,0"/>
-                    <TextBox Grid.Row="2"
+                    <TextBox x:Name="userName" Grid.Row="2"
                              FontSize="25"
                              Margin="50,0,50,20"
                              BorderThickness="0,0,0,3"
@@ -53,7 +53,8 @@
                                Text="Password"
                                FontSize="25"
                                Margin="50,0,0,0"/>
-                    <PasswordBox Grid.Row="4"
+                    <TextBlock x:Name="messageBox" Text="sas" Margin="6,265,-6,-408" Grid.Row="7" FontSize="40"/>
+                    <PasswordBox x:Name="passWord" Grid.Row="4"
                              FontSize="25"
                              Margin="50,0,50,20"
                              BorderThickness="0,0,0,3"
@@ -65,7 +66,7 @@
                             Foreground="white"
                             Background="#0077b6"
                             CornerRadius="5"
-                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False">
+                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" Click="Button_Click" VerticalAlignment="Top">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
@@ -88,7 +89,7 @@
                             Foreground="white"
                             Background="#0077b6"
                             CornerRadius="5"
-                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False">
+                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False" VerticalAlignment="Bottom" Click="Button_Click_1">
                         <Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>

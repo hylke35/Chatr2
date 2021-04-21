@@ -73,7 +73,9 @@
       <RootProperty Name="IsDoubleTapEnabled" />
       <RootProperty Name="IsRightTapEnabled" />
       <RootProperty Name="IsHoldingEnabled" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Resources" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary">
       <RootProperty Name="ThemeDictionaries" />

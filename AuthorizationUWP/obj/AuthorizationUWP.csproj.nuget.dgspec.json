@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\AuthorizationUWP\\AuthorizationUWP\\AuthorizationUWP.csproj": {}
+    "C:\\Users\\patri\\Downloads\\AuthorizationUWP (1)\\AuthorizationUWP\\AuthorizationUWP\\AuthorizationUWP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\AuthorizationUWP\\AuthorizationUWP\\AuthorizationUWP.csproj": {
+    "C:\\Users\\patri\\Downloads\\AuthorizationUWP (1)\\AuthorizationUWP\\AuthorizationUWP\\AuthorizationUWP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\AuthorizationUWP\\AuthorizationUWP\\AuthorizationUWP.csproj",
+        "projectUniqueName": "C:\\Users\\patri\\Downloads\\AuthorizationUWP (1)\\AuthorizationUWP\\AuthorizationUWP\\AuthorizationUWP.csproj",
         "projectName": "AuthorizationUWP",
-        "projectPath": "C:\\Users\\User\\source\\repos\\AuthorizationUWP\\AuthorizationUWP\\AuthorizationUWP.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\AuthorizationUWP\\AuthorizationUWP\\obj\\",
+        "projectPath": "C:\\Users\\patri\\Downloads\\AuthorizationUWP (1)\\AuthorizationUWP\\AuthorizationUWP\\AuthorizationUWP.csproj",
+        "packagesPath": "C:\\Users\\patri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\patri\\Downloads\\AuthorizationUWP (1)\\AuthorizationUWP\\AuthorizationUWP\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -19,7 +19,7 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\patri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -42,6 +42,10 @@
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.11, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
             }
           },
           "imports": [
