@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IhADacAXw5ARRdRhEWX27RcwjkhPI4HOAaLU78Rg69FduRR5j0/wuOF9KrIcbGyUlIQqIwJrg0/HD45woz8iww==",
+  "dgSpecHash": "3oTz++PqRRcZHUY5v9JbmMTfWf4jc8tv2xve8OML3qddEz61qrxnFhXgnxCs+fjOff90r6BQGWPeT4ubG5fY8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\source\\repos\\VideoList\\VideoList\\VideoList.csproj",
+  "projectFilePath": "C:\\xampp\\htdocs\\Chatr2\\VideoList\\VideoList.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.9-rel-29512-01\\microsoft.net.native.compiler.2.2.9-rel-29512-01.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.11\\microsoft.net.uwpcoreruntimesdk.2.2.11.nupkg.sha512",

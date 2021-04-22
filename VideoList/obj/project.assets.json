@@ -8166,11 +8166,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\VideoList\\VideoList\\VideoList.csproj",
+      "projectUniqueName": "C:\\xampp\\htdocs\\Chatr2\\VideoList\\VideoList.csproj",
       "projectName": "VideoList",
-      "projectPath": "C:\\Users\\User\\source\\repos\\VideoList\\VideoList\\VideoList.csproj",
+      "projectPath": "C:\\xampp\\htdocs\\Chatr2\\VideoList\\VideoList.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\VideoList\\VideoList\\obj\\",
+      "outputPath": "C:\\xampp\\htdocs\\Chatr2\\VideoList\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

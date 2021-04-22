@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>d8d2c569-05d7-4a04-a45b-0cb8de558d8e</PackageIdentityName>
     <PackageIdentityPublisher>CN=User</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\User\source\repos\VideoList\VideoList\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\xampp\htdocs\Chatr2\VideoList\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\User\source\repos\VideoList\VideoList\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\xampp\htdocs\Chatr2\VideoList\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\User\source\repos\VideoList\VideoList\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\xampp\htdocs\Chatr2\VideoList\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\bin\x86\Debug\VideoList.exe">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\bin\x86\Debug\VideoList.exe">
       <PackagePath>entrypoint\VideoList.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.11\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
@@ -34,55 +34,55 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\Assets\bg.png">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\Assets\bg.png">
       <PackagePath>Assets\bg.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\bin\x86\Debug\VideoList.xr.xml">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\bin\x86\Debug\VideoList.xr.xml">
       <PackagePath>VideoList.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\User\source\repos\VideoList\VideoList\bin\x86\Debug\Core\VideoList.exe">
+    <AppxPackagedFile Include="C:\xampp\htdocs\Chatr2\VideoList\bin\x86\Debug\Core\VideoList.exe">
       <PackagePath>VideoList.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
