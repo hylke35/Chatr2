@@ -9,8 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button x:Name="sendButton" Content="Send" Margin="511,516,0,0" VerticalAlignment="Top" Click="sendButton_Click"/>
-        <TextBox x:Name="sendBox" Text="" TextWrapping="Wrap" Margin="165,370,804,172" PlaceholderText="Type here!"/>
+        <Button x:Name="sendButton" Content="Send" Margin="761,462,0,0" VerticalAlignment="Top" Click="sendButton_Click"/>
+        <TextBox x:Name="sendBox" Text="" TextWrapping="Wrap" Margin="10,462,524,226" PlaceholderText="Type here!"/>
+        <ListBox x:Name="listBox" Margin="0,0,468,263"/>
 
     </Grid>
 </Page>
