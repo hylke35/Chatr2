@@ -44,11 +44,7 @@ namespace Test2
             _client.Connect("127.0.0.1", 54000);
 
             // Start reading the socket and receive any incoming messages
-            _client.GetStream().BeginRead(_buffer,
-                                            0,
-                                            _buffer.Length,
-                                            Server_MessageReceived,
-                                            null);
+            _client.GetStream().BeginRead(_buffer, 0, _buffer.Length, Server_MessageReceived, null);
         }
 
         private async void Server_MessageReceived(IAsyncResult ar)
@@ -70,8 +66,7 @@ namespace Test2
                     // on the main thread. This method is being called on a worker
                     // thread so using the form's BeginInvoke() method is vital to
                     // ensure that the action is performed on the main thread.
-                    //Task task = this.BeginInvoke((Action)(() =>
-                    //{
+
                     await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                     () =>
                     {
@@ -79,16 +74,11 @@ namespace Test2
                         listBox.SelectedIndex = listBox.Items.Count - 1;
                     }
                     );
-                    //}));
                 }
 
                 // Clear the buffer and start listening again
                 Array.Clear(_buffer, 0, _buffer.Length);
-                _client.GetStream().BeginRead(_buffer,
-                                                0,
-                                                _buffer.Length,
-                                                Server_MessageReceived,
-                                                null);
+                _client.GetStream().BeginRead(_buffer, 0, _buffer.Length, Server_MessageReceived, null);
             }
         }
 
