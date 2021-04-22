@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,46 +26,80 @@ namespace Test2
     /// </summary>
     public sealed partial class Chat : Page
     {
-        string username = "bob";
-        string message;
-        DateTime time;
+        TcpClient _client;
+        byte[] _buffer = new byte[4096];
 
         public Chat()
         {
             this.InitializeComponent();
+            _client = new TcpClient();
         }
 
-        static void Connect(string server, string message, int userID, string username, DateTime time)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            try
-            {
-                Int32 port = 5000;
-                TcpClient client = new TcpClient(server, port);
-                NetworkStream stream = client.GetStream();
+            base.OnNavigatedTo(e);
 
-                // Translate the Message into ASCII.
-                Byte[] data = Encoding.ASCII.GetBytes(message);
-                // Send the message to the connected TcpServer. 
-                stream.Write(data, 0, data.Length);
-                Console.WriteLine("Sent: {0}", message);
-                Thread.Sleep(2000);
-                stream.Close();
-                client.Close();
-            }
-            catch (Exception e)
+            // Connect to the remote server. The IP address and port # could be
+            // picked up from a settings file.
+            _client.Connect("127.0.0.1", 54000);
+
+            // Start reading the socket and receive any incoming messages
+            _client.GetStream().BeginRead(_buffer,
+                                            0,
+                                            _buffer.Length,
+                                            Server_MessageReceived,
+                                            null);
+        }
+
+        private async void Server_MessageReceived(IAsyncResult ar)
+        {
+            if (ar.IsCompleted)
             {
-                Console.WriteLine("Exception: {0}", e);
+                // End the stream read
+                var bytesIn = _client.GetStream().EndRead(ar);
+                if (bytesIn > 0)
+                {
+                    // Create a string from the received data. For this server 
+                    // our data is in the form of a simple string, but it could be
+                    // binary data or a JSON object. Payload is your choice.
+                    var tmp = new byte[bytesIn];
+                    Array.Copy(_buffer, 0, tmp, 0, bytesIn);
+                    var str = Encoding.ASCII.GetString(tmp);
+
+                    // Any actions that involve interacting with the UI must be done
+                    // on the main thread. This method is being called on a worker
+                    // thread so using the form's BeginInvoke() method is vital to
+                    // ensure that the action is performed on the main thread.
+                    //Task task = this.BeginInvoke((Action)(() =>
+                    //{
+                    await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                    () =>
+                    {
+                        listBox.Items.Add(str);
+                        listBox.SelectedIndex = listBox.Items.Count - 1;
+                    }
+                    );
+                    //}));
+                }
+
+                // Clear the buffer and start listening again
+                Array.Clear(_buffer, 0, _buffer.Length);
+                _client.GetStream().BeginRead(_buffer,
+                                                0,
+                                                _buffer.Length,
+                                                Server_MessageReceived,
+                                                null);
             }
-            Console.Read();
         }
 
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Connecting to server");
-            message = sendBox.Text;
-            time = DateTime.Now;
-            Connect("127.0.0.1", message, 1, username, time);
-            Console.WriteLine("Connected");
+            // Encode the message and send it out to the server.
+            var msg = Encoding.ASCII.GetBytes(sendBox.Text);
+            _client.GetStream().Write(msg, 0, msg.Length);
+
+            // Clear the text box and set it's focus
+            sendBox.Text = "";
         }
     }
 }
