@@ -17,12 +17,6 @@ namespace Test2
             this.DataContext = (Application.Current as App).ChatVM;
         }
 
-        private void send_Click(object sender, RoutedEventArgs e)
-        {
-            (Application.Current as App).Broadcast(new ChatMessage { Username = "user1" , Message = text.Text });
-            text.Text = "";
-        }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -30,5 +24,13 @@ namespace Test2
             userID = parameters.UserID;
             username = parameters.UserName;
         }
+
+        private void send_Click(object sender, RoutedEventArgs e)
+        {
+            (Application.Current as App).Broadcast(new ChatMessage { Username = username , Message = text.Text });
+            text.Text = "";
+        }
+
+        
     }
 }
