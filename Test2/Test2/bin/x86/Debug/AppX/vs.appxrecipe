@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-24T12:07:13.127</Modified>
+      <Modified>2021-04-24T12:17:18.175</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Test2.exe">
       <PackagePath>entrypoint\Test2.exe</PackagePath>
-      <Modified>2021-04-24T12:07:12.679</Modified>
+      <Modified>2021-04-24T12:17:17.452</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\easyencryption\1.0.2\lib\EasyEncryption.dll">
       <PackagePath>EasyEncryption.dll</PackagePath>
@@ -134,27 +134,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-04-24T12:07:12.517</Modified>
+      <Modified>2021-04-24T12:17:17.268</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage1.xbf">
       <PackagePath>BlankPage1.xbf</PackagePath>
-      <Modified>2021-04-24T12:07:12.517</Modified>
+      <Modified>2021-04-24T12:17:17.268</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Chat.xbf">
       <PackagePath>Chat.xbf</PackagePath>
-      <Modified>2021-04-24T12:07:12.517</Modified>
+      <Modified>2021-04-24T12:17:17.268</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf">
       <PackagePath>Login.xbf</PackagePath>
-      <Modified>2021-04-24T12:07:12.517</Modified>
+      <Modified>2021-04-24T12:17:17.268</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\VideoLobby.xbf">
       <PackagePath>VideoLobby.xbf</PackagePath>
-      <Modified>2021-04-24T12:07:12.518</Modified>
+      <Modified>2021-04-24T12:17:17.269</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-04-24T12:07:12.518</Modified>
+      <Modified>2021-04-24T12:17:17.269</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -166,7 +166,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Core\Test2.exe">
       <PackagePath>Test2.exe</PackagePath>
-      <Modified>2021-04-24T12:07:13.122</Modified>
+      <Modified>2021-04-24T12:17:18.169</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

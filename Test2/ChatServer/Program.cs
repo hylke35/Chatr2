@@ -2,6 +2,7 @@
 using Microsoft.Owin.Hosting;
 using Owin;
 using System;
+using System.Threading.Tasks;
 
 namespace ChatServer
 {
@@ -28,10 +29,10 @@ namespace ChatServer
 
     public class MyHub : Hub
     {
+        private static int _userCount = 0;
         public void Send(ChatMessage message)
         {
             Clients.All.broadcastMessage(message);
-            Console.WriteLine(message);
         }
     }
 }
