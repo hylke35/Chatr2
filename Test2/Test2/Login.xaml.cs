@@ -36,6 +36,7 @@ namespace Test2
 
             string databasePassword = null;
             int userID = 0;
+
             foreach (User l in list1)
             {
                 databasePassword = l.Password;
@@ -48,9 +49,9 @@ namespace Test2
                 statusBox.Text = "Success, you will be redirected to the chat";
 
                 var parameters = new LoginParams();
-                parameters.UserId = userID;
-                Debug.WriteLine(parameters.UserId);
-                Frame.Navigate(typeof(VideoLobby), parameters);
+                parameters.UserName = username;
+                parameters.UserID = userID;
+                Frame.Navigate(typeof(Chat), parameters);
             }
             else
             {
@@ -78,7 +79,6 @@ namespace Test2
                 checkUsername = l.Username;
             }
 
-
             if (checkUsername != username)
             {
                 IDictionary<string, object> c = new Dictionary<string, object>();
@@ -101,9 +101,10 @@ namespace Test2
                 }
 
                 var parameters = new LoginParams();
-                parameters.UserId = userID;
-                Debug.WriteLine(parameters.UserId);
-                Frame.Navigate(typeof(VideoLobby), parameters);
+                parameters.UserName = username;
+                parameters.UserID = userID;
+                Debug.WriteLine(parameters.UserName);
+                Frame.Navigate(typeof(Chat), parameters);
             }
             else
             {
@@ -118,7 +119,6 @@ namespace Test2
 
         private static bool PasswordsMatch(string userInput, string passwordString)
         {
-            //Debug.WriteLine(userInput);
             string hashedInput = HashPassword(userInput);
             bool doPasswordsMatch = string.Equals(hashedInput, passwordString);
             return doPasswordsMatch;
@@ -128,7 +128,7 @@ namespace Test2
     public class LoginParams
     {
         public LoginParams() { }
-        public string LobbyCode { get; set; }
-        public int UserId { get; set; }
+        public string UserName { get; set; }
+        public int UserID { get; set; }
     }
 }

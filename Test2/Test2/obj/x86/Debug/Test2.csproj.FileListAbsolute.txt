@@ -220,3 +220,6 @@ C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\EasyEncryption.
 C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Microsoft.AspNet.SignalR.Client.dll
 C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Microsoft.AspNet.SignalR.Client.pdb
 C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\obj\x86\Debug\Microsoft.AspNet.SignalR.Client\en-US\Microsoft.AspNet.SignalR.Client.Resources.resw
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Microsoft.AspNet.SignalR.Client.pdb
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\Microsoft.AspNet.SignalR.Client\en-US\Microsoft.AspNet.SignalR.Client.Resources.resw
