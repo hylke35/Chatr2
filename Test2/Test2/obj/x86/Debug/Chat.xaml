@@ -9,9 +9,24 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button x:ConnectionId='2' x:Name="sendButton" Content="Send" Margin="511,516,0,0" VerticalAlignment="Top"                         />
-        <TextBox x:ConnectionId='3' x:Name="sendBox" Text="" TextWrapping="Wrap" Margin="165,370,804,172" PlaceholderText="Type here!"/>
+        <ListView x:ConnectionId='2' x:Name="lv" ItemsSource="{Binding Messages}" Margin="70,50,260,135">
+                <ListView.ItemTemplate>
+                    <DataTemplate                               >
+                        <StackPanel x:ConnectionId='6' Orientation="Horizontal">
+                            <TextBlock>
+                        <Run x:ConnectionId='7'                         ></Run>
+                        <Run Text=": "></Run>
+                        <Run x:ConnectionId='8'                        ></Run>
+                            </TextBlock>
 
+                        </StackPanel>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+            
+                <TextBox x:ConnectionId='3' x:Name="text" Margin="70,630,260,58"></TextBox>
+            <Button x:ConnectionId='4' x:Name="send" Content="Send"                    Margin="1110,630,0,0" VerticalAlignment="Top"></Button>
     </Grid>
 </Page>
 

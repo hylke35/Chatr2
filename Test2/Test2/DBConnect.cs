@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace Test2
 {
@@ -43,7 +40,7 @@ namespace Test2
 
                     if (addwithvalue != null)
                     {
-                        foreach(KeyValuePair<string, object> kvp in addwithvalue)
+                        foreach (KeyValuePair<string, object> kvp in addwithvalue)
                         {
                             command.Parameters.AddWithValue(kvp.Key, kvp.Value);
                         }
@@ -70,7 +67,7 @@ namespace Test2
             {
                 await connection.OpenAsync();
                 SqlCommand command = connection.CreateCommand();
-                
+
                 try
                 {
                     command.CommandText = query;
@@ -88,11 +85,12 @@ namespace Test2
                             if (table == "Video")
                             {
                                 results.Add(videoBuilder(reader));
-                            } else if (table == "Users")
+                            }
+                            else if (table == "Users")
                             {
                                 results.Add(userBuilder(reader));
                             }
-                 
+
                         }
                         //return reader.Select(r => employeeBuilder(r)).ToList();
                     }

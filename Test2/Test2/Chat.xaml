@@ -9,8 +9,23 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button x:Name="sendButton" Content="Send" Margin="511,516,0,0" VerticalAlignment="Top" Click="sendButton_Click"/>
-        <TextBox x:Name="sendBox" Text="" TextWrapping="Wrap" Margin="165,370,804,172" PlaceholderText="Type here!"/>
+        <ListView x:Name="lv" ItemsSource="{Binding Messages}" Margin="70,50,260,135">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ChatMessage">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>
+                        <Run Text="{x:Bind Username}"></Run>
+                        <Run Text=": "></Run>
+                        <Run Text="{x:Bind Message}"></Run>
+                            </TextBlock>
 
+                        </StackPanel>
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+            </ListView>
+            
+                <TextBox x:Name="text" Margin="70,630,260,58"></TextBox>
+            <Button x:Name="send" Content="Send" Click="send_Click" Margin="1110,630,0,0" VerticalAlignment="Top"></Button>
     </Grid>
 </Page>

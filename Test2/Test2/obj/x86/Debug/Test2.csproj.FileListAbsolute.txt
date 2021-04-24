@@ -210,3 +210,13 @@ C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\VideoLobby.xbf
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885238160000000.json
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\EasyEncryption.dll
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\obj\x86\Debug\Login.g.i.cs
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\obj\x86\Debug\Login.g.cs
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\obj\x86\Debug\Login.xaml
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\obj\x86\Debug\Login.xbf
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Assets\logo.png
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\EasyEncryption.dll
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Microsoft.AspNet.SignalR.Client.pdb
+C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\obj\x86\Debug\Microsoft.AspNet.SignalR.Client\en-US\Microsoft.AspNet.SignalR.Client.Resources.resw

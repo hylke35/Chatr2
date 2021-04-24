@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using Microsoft.AspNet.SignalR.Client;
+using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace Test2
@@ -22,14 +14,35 @@ namespace Test2
     /// </summary>
     sealed partial class App : Application
     {
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
+        public ChatMessageViewModel ChatVM { get; set; } = new ChatMessageViewModel();
+        public HubConnection conn { get; set; }
+        public IHubProxy proxy { get; set; }
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            SignalR();
+        }
+
+        public void SignalR()
+        {
+            conn = new HubConnection("http://localhost:5000");
+            proxy = conn.CreateHubProxy("MyHub");
+            conn.Start();
+
+            proxy.On<ChatMessage>("broadcastMessage", OnMessage);
+
+        }
+        public void Broadcast(ChatMessage msg)
+        {
+            proxy.Invoke("Send", msg);
+        }
+        private async void OnMessage(ChatMessage msg)
+        {
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                ChatVM.Messages.Add(msg);
+            });
         }
 
         /// <summary>
@@ -66,7 +79,7 @@ namespace Test2
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(Login), e.Arguments);
+                    rootFrame.Navigate(typeof(Chat), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

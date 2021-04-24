@@ -2,20 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Security.Cryptography;
-using System.Text;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -83,7 +72,7 @@ namespace Test2
             List<object> list1 = selectUserList1.ToList();
 
             string checkUsername = null;
-             
+
             foreach (User l in list1)
             {
                 checkUsername = l.Username;
@@ -123,15 +112,15 @@ namespace Test2
 
         }
         private static string HashPassword(string input)
-        { 
-            return SHA.ComputeSHA256Hash(input); 
+        {
+            return SHA.ComputeSHA256Hash(input);
         }
 
         private static bool PasswordsMatch(string userInput, string passwordString)
         {
             //Debug.WriteLine(userInput);
             string hashedInput = HashPassword(userInput);
-            bool doPasswordsMatch = string.Equals(hashedInput, passwordString); 
+            bool doPasswordsMatch = string.Equals(hashedInput, passwordString);
             return doPasswordsMatch;
         }
     }

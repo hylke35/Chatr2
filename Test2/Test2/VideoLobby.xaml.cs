@@ -1,22 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using System.Net;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Windows.UI.Core;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -32,7 +20,7 @@ namespace Test2
         string lobbyCode;
         DBConnect connection = new DBConnect();
 
-        
+
         public VideoLobby()
         {
             this.InitializeComponent();
@@ -40,7 +28,7 @@ namespace Test2
             SqlDependency.Start(connection.getConnectionString());
             changedState();
             changedStateUsers();
-            
+
         }
 
         public void changedState()
@@ -86,7 +74,7 @@ namespace Test2
                     //Execute the command.
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                            
+
                     }
                 }
                 conn.Close();
