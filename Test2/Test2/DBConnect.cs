@@ -96,6 +96,9 @@ namespace Test2
                                 case "User_Lobby":
                                     results.Add(UserLobbyBuilder(reader));
                                     break;
+                                case "Lobby":
+                                    results.Add(LobbyBuilder(reader));
+                                    break;
                             }
 
                         }
@@ -148,6 +151,15 @@ namespace Test2
             };
         }
 
+        private Lobby LobbyBuilder(SqlDataReader reader)
+        {
+            return new Lobby
+            {
+                LobbyCode = reader["lobbyCode"].ToString(),
+                InProgress = int.Parse(reader["inProgress"].ToString()),
+            };
+        }
+
         /*        public object ShowDataInGridView(string Query_)
                 {
                     SqlDataAdapter dr = new SqlDataAdapter(Query_, ConnectionString);
@@ -156,6 +168,12 @@ namespace Test2
                     object dataum = ds.Tables[0];
                     return dataum;
                 }*/
+    }
+
+    public class Lobby
+    {
+        public string LobbyCode { get; set; }
+        public int InProgress { get; set; }
     }
 
     public class User

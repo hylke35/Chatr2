@@ -24,6 +24,8 @@ using Windows.UI.WebUI;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using Windows.UI.ViewManagement;
+using Windows.ApplicationModel.Core;
 
 
 
@@ -66,7 +68,8 @@ namespace Test2
             // Show video name in both lists [X]
             // CHeck if link is already in list [X]
             // Create/Join lobby [ ]
-            // Open lobby via new window [ ]
+            // Leave lobby [ ]
+            // Open lobby via new window [X]
 
             ListInit();
             changedState();
@@ -263,6 +266,11 @@ namespace Test2
 
                 if (allReady)
                 {
+                    IDictionary<string, object> f = new Dictionary<string, object>();
+                    f.Add("@code", lobbyCode);
+
+                    connection.runQueryAsync("UPDATE Lobby SET inProgress = 1 WHERE lobbyCode = @code", f);
+
                     await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                     () =>
                     {
@@ -401,6 +409,8 @@ namespace Test2
                 await dialog.ShowAsync();
             }
 
+            linkBox.Text = "";
+
         }
 
         private void readyButton_Click(object sender, RoutedEventArgs e)
@@ -463,7 +473,13 @@ namespace Test2
 
             connection.runQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", p2);
 
+            SqlDependency.Stop(connection.getConnectionString());
 
+
+           
+            Window.Current.Close();
+  
+            
         }
     }
 

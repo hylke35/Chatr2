@@ -32,6 +32,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Width" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Background" />
@@ -42,7 +43,6 @@
       <RootProperty Name="IsRightTapEnabled" />
       <RootProperty Name="IsHoldingEnabled" />
       <RootProperty Name="Resources" />
-      <RootProperty Name="Width" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Test2.BlankPage1" />

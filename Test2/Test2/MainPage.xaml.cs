@@ -232,8 +232,13 @@ namespace Test2
             else
             {
                 // Go back to lobby screen
+                IDictionary<string, object> f = new Dictionary<string, object>();
+                f.Add("@code", lobbyCode);
+
+                connection.runQueryAsync("UPDATE Lobby SET inProgress = 0 WHERE lobbyCode = @code", f);
+
                 var parameters = new Params();
-                parameters.LobbyCode = "h3K5Lr";
+                parameters.LobbyCode = lobbyCode;
                 parameters.UserId = userID;
                 Frame.Navigate(typeof(VideoLobby), parameters);
             }
