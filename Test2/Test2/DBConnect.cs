@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Test2
 {
     public class DBConnect
     {
-        string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=DESKTOP-4TP64DH;Initial Catalog=ChatrTestDB;Integrated Security=True").ToString();
+        string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=20.52.146.90,1433;Initial Catalog=ChatrTestDB;User ID=hemran;Password=TestPassword!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
 
         public string getConnectionString()
         {
@@ -46,12 +49,12 @@ namespace Test2
                         }
                     }
 
-                    await command.ExecuteNonQueryAsync();
+                    await command.ExecuteNonQueryAsync().ConfigureAwait(false);
 
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("Something went wrong: {0}", ex.Message);
+                    Debug.WriteLine("Something went wrong:" + ex.Message);
                 }
             }
         }
@@ -82,13 +85,17 @@ namespace Test2
                     {
                         while (reader.Read())
                         {
-                            if (table == "Video")
+                            switch (table)
                             {
-                                results.Add(videoBuilder(reader));
-                            }
-                            else if (table == "Users")
-                            {
-                                results.Add(userBuilder(reader));
+                                case "Video":
+                                    results.Add(VideoBuilder(reader));
+                                    break;
+                                case "Users":
+                                    results.Add(UserBuilder(reader));
+                                    break;
+                                case "User_Lobby":
+                                    results.Add(UserLobbyBuilder(reader));
+                                    break;
                             }
 
                         }
@@ -97,7 +104,7 @@ namespace Test2
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("Something went wrong: {0}", ex.Message);
+                    Debug.WriteLine("Something went wrong: " + ex.Message + " - " + ex.ToString() + " - " + ex.Source + " - " + ex.InnerException + " - " + ex.Data);
                 }
             }
 
@@ -105,25 +112,39 @@ namespace Test2
         }
 
 
-        private User userBuilder(SqlDataReader reader)
+        private User UserBuilder(SqlDataReader reader)
         {
             return new User
             {
                 UserId = int.Parse(reader["userID"].ToString()),
                 Username = reader["username"].ToString(),
                 Password = reader["password"].ToString(),
+                InLobby = int.Parse(reader["inLobby"].ToString()),
+                IsReady = int.Parse(reader["isReady"].ToString())
             };
         }
 
-        private Video videoBuilder(SqlDataReader reader)
+        private Video VideoBuilder(SqlDataReader reader)
         {
             return new Video
             {
                 VideoId = int.Parse(reader["videoID"].ToString()),
+                Title = reader["title"].ToString(),
                 Link = reader["link"].ToString(),
-                RunTime = reader["runTime"].ToString(),
-                CurrentTime = reader["currentTime"].ToString(),
-                IsPaused = bool.Parse(reader["isPaused"].ToString())
+                SyncTime = double.Parse(reader["syncTime"].ToString()),
+                IsPaused = int.Parse(reader["isPaused"].ToString())
+            };
+        }
+
+        private UserLobby UserLobbyBuilder(SqlDataReader reader)
+        {
+            return new UserLobby
+            {
+                UserLobbyId = int.Parse(reader["userLobbyID"].ToString()),
+                userId = int.Parse(reader["userID"].ToString()),
+                LobbyCode = reader["lobbyCode"].ToString(),
+                isReady = int.Parse(reader["isReady"].ToString()),
+                isLoaded = int.Parse(reader["isLoaded"].ToString()),
             };
         }
 
@@ -142,14 +163,25 @@ namespace Test2
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public int InLobby { get; set; }
+        public int IsReady { get; set; }
     }
 
     public class Video
     {
         public int VideoId { get; set; }
+        public string Title { get; set; }
         public string Link { get; set; }
-        public object RunTime { get; set; }
-        public object CurrentTime { get; set; }
-        public bool IsPaused { get; set; }
+        public double SyncTime { get; set; }
+        public int IsPaused { get; set; }
+    }
+
+    public class UserLobby
+    {
+        public int UserLobbyId { get; set; }
+        public int userId { get; set; }
+        public string LobbyCode { get; set; }
+        public int isReady { get; set; }
+        public int isLoaded { get; set; }
     }
 }

@@ -2,6 +2,8 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Messages" />
+    <RootPropertyPathName Name="Position" />
+    <RootPropertyPathName Name="TotalSeconds" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -9,6 +11,9 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Content" />
       <RootProperty Name="FocusVisualSecondaryBrush" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootEvent Name="Loaded" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
@@ -16,6 +21,7 @@
       <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
       <RootMethod Name="GetRow" />
@@ -59,7 +65,10 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="ElementName" />
+      <RootProperty Name="Path" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
     </RootType>
@@ -77,6 +86,8 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Documents.Run">
       <RootProperty Name="Text" />
@@ -125,14 +136,41 @@
     <RootType FullName="Test2.Login" />
     <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
       <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Width" />
+      <RootProperty Name="IsDoubleTapEnabled" />
       <RootProperty Name="Height" />
+      <RootEvent Name="DoubleTapped" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Test2.VideoLobby" />
     <RootType FullName="Windows.UI.Xaml.Controls.MediaElement">
-      <RootProperty Name="Width" />
       <RootProperty Name="AutoPlay" />
       <RootProperty Name="AreTransportControlsEnabled" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="TransportControls" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Canvas">
+      <RootMethod Name="GetZIndex" />
+      <RootMethod Name="SetZIndex" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Slider">
+      <RootProperty Name="Value" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MediaTransportControls">
+      <RootProperty Name="IsZoomButtonVisible" />
+      <RootProperty Name="IsSeekEnabled" />
+      <RootProperty Name="IsSeekBarVisible" />
+      <RootProperty Name="IsZoomEnabled" />
+      <RootProperty Name="IsPlaybackRateButtonVisible" />
+      <RootProperty Name="IsFullWindowButtonVisible" />
+      <RootProperty Name="IsFullWindowEnabled" />
+      <RootProperty Name="IsPlaybackRateEnabled" />
     </RootType>
     <RootType FullName="Test2.MainPage" />
   </Roots.RootTypes>

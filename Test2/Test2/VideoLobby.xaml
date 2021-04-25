@@ -6,15 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="600">
 
-    <Grid Height="715">
-        <TextBox x:Name="linkBox" HorizontalAlignment="Left" Margin="170,55,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="724"/>
-        <Button x:Name="addButton" Content="Button" Margin="913,55,0,0" VerticalAlignment="Top" Click="addButton_Click" Width="229"/>
-        <ListBox x:Name="userList" Margin="815,224,138,95"/>
-        <ListBox x:Name="videoList" Margin="170,224,810,91" Width="300" Height="400"/>
-        <TextBlock HorizontalAlignment="Left" Margin="170,182,0,0" Text="Video List" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Margin="815,182,0,0" Text="Lobby" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
+    <Grid Height="600">
+        <TextBox x:Name="linkBox" HorizontalAlignment="Left" Margin="137,75,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="724"/>
+        <Button x:Name="addButton" Content="Add" Margin="880,75,0,0" VerticalAlignment="Top" Click="addButton_Click" Width="229"/>
+        <ListBox x:Name="userList" Margin="781,179,0,136" HorizontalAlignment="Left" Width="327"/>
+        <ListBox x:Name="videoList" Margin="139,179,0,136" IsDoubleTapEnabled="True" DoubleTapped="videoList_DoubleTapped" Width="576" HorizontalAlignment="Left"/>
+        <TextBlock HorizontalAlignment="Left" Margin="136,137,0,0" Text="Video List" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
+        <TextBlock HorizontalAlignment="Left" Margin="781,137,0,0" Text="Lobby" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
+        <Button x:Name="readyButton" Content="Not ready" Margin="995,514,0,0" VerticalAlignment="Top" Click="readyButton_Click" Width="229"/>
+        <TextBlock HorizontalAlignment="Left" Margin="101,516,0,0" Text="Lobby Code:" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" FontSize="20"/>
+        <TextBlock x:Name="lobbyCodeLabel" HorizontalAlignment="Left" Margin="216,516,0,0" Text="-" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.431,-2.912" FontSize="20"/>
+        <Button x:Name="leaveButton" Content="Leave" Margin="727,514,0,0" VerticalAlignment="Top" Click="leaveButton_Click" Width="229"/>
 
     </Grid>
 </Page>
