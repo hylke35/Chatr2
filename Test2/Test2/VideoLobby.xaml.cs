@@ -26,6 +26,8 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Windows.UI.ViewManagement;
 using Windows.ApplicationModel.Core;
+using System.ComponentModel;
+using Windows.UI.Core.Preview;
 
 
 
@@ -56,8 +58,7 @@ namespace Test2
             userID = parameters.UserId;
             lobbyCode = parameters.LobbyCode;
 
-            // TODO
-
+            // TODO: Hemran
             // Lobby Code Label bigger [X]
             // Check if youtube link is valid[X]
             // If player closes lobby -> remove from table [X]
@@ -67,16 +68,49 @@ namespace Test2
             // Delete lobby from database if you are the last user to close lobby [X]
             // Show video name in both lists [X]
             // CHeck if link is already in list [X]
-            // Create/Join lobby [ ]
-            // Leave lobby [ ]
+            // Create/Join lobby [X]
+            // Leave lobby [X]
+            // Only create or join lobby if user is not in User_Lobby [X]
             // Open lobby via new window [X]
+            // Clean up code (VideoLobby, MainPage, Chat) [ ]
 
+            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.testi;
             ListInit();
             changedState();
             changedStateUsers();
             changedStateReady();
 
             lobbyCodeLabel.Text = this.lobbyCode;
+        }
+
+        public async void testi(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        {
+            IDictionary<string, object> p = new Dictionary<string, object>();
+            p.Add("@code", this.lobbyCode);
+
+            IEnumerable<object> list2 = await connection.DataReader("SELECT * FROM dbo.User_Lobby WHERE lobbyCode = @code", "User_Lobby", p);
+
+            List<object> test2 = list2.ToList();
+
+            // If last one
+            if (test2.Count == 1)
+            {
+                IDictionary<string, object> p3 = new Dictionary<string, object>();
+                p3.Add("@code", this.lobbyCode);
+
+                connection.runQueryAsync("DELETE FROM dbo.Lobby WHERE lobbyCode = @code", p3);
+            } else
+            {
+                IDictionary<string, object> p2 = new Dictionary<string, object>();
+                p2.Add("@userID", userID);
+                p2.Add("@code", this.lobbyCode);
+
+                connection.runQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", p2);
+            }
+
+
+
+            SqlDependency.Stop(connection.getConnectionString());
         }
 
         public async void ListInit()
@@ -266,19 +300,44 @@ namespace Test2
 
                 if (allReady)
                 {
-                    IDictionary<string, object> f = new Dictionary<string, object>();
-                    f.Add("@code", lobbyCode);
-
-                    connection.runQueryAsync("UPDATE Lobby SET inProgress = 1 WHERE lobbyCode = @code", f);
-
-                    await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                    () =>
+                    if (videoList.Items.Count > 0)
                     {
-                        var parameters = new Params();
-                        parameters.LobbyCode = this.lobbyCode;
-                        parameters.UserId = this.userID;
-                        Frame.Navigate(typeof(MainPage), parameters);
-                    }).AsTask();
+
+
+                        IDictionary<string, object> p5 = new Dictionary<string, object>();
+                        p5.Add("@code", this.lobbyCode);
+
+                        IEnumerable<object> list5 = await connection.DataReader("SELECT * FROM Lobby WHERE lobbyCode = @code", "Lobby", p5);
+
+                        Lobby test5 = (Lobby) list5.ToList().First();
+
+                        if (test5.InProgress != 1)
+                        {
+                            IDictionary<string, object> f = new Dictionary<string, object>();
+                            f.Add("@code", lobbyCode);
+
+                            connection.runQueryAsync("UPDATE Lobby SET inProgress = 1 WHERE lobbyCode = @code", f);
+                        }
+
+                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                        () =>
+                        {
+                            var parameters = new Params();
+                            parameters.LobbyCode = this.lobbyCode;
+                            parameters.UserId = this.userID;
+                            Frame.Navigate(typeof(MainPage), parameters);
+                        }).AsTask();
+                    } else
+                    {
+                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                        async () =>
+                        {
+                            var dialog = new MessageDialog("Video list is empty!", "Error");
+                            await dialog.ShowAsync();
+
+                        });
+                    }
+
 
                 }
 
@@ -465,13 +524,16 @@ namespace Test2
                 p3.Add("@code", this.lobbyCode);
 
                 connection.runQueryAsync("DELETE FROM dbo.Lobby WHERE lobbyCode = @code", p3);
+            } else
+            {
+                IDictionary<string, object> p2 = new Dictionary<string, object>();
+                p2.Add("@userID", userID);
+                p2.Add("@code", this.lobbyCode);
+
+                connection.runQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", p2);
             }
 
-            IDictionary<string, object> p2 = new Dictionary<string, object>();
-            p2.Add("@userID", userID);
-            p2.Add("@code", this.lobbyCode);
 
-            connection.runQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", p2);
 
             SqlDependency.Stop(connection.getConnectionString());
 

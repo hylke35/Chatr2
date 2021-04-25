@@ -24,6 +24,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Collections;
 using Windows.UI.Core;
+using Windows.UI.Core.Preview;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -46,16 +47,46 @@ namespace Test2
 
         public delegate void timerTick();
         DispatcherTimer ticks = new DispatcherTimer();
-        timerTick tick;
 
         public MainPage()
         {
             this.InitializeComponent();
-
             tempDir = SetTemporaryDirectory();
             qt = new Queue();
             mediaPlayer.CurrentStateChanged += media_change;
             mediaPlayer.MediaEnded += media_ended;
+            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.testi;
+        }
+
+        public async void testi(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        {
+            IDictionary<string, object> p = new Dictionary<string, object>();
+            p.Add("@code", this.lobbyCode);
+
+            IEnumerable<object> list2 = await connection.DataReader("SELECT * FROM dbo.User_Lobby WHERE lobbyCode = @code", "User_Lobby", p);
+
+            List<object> test2 = list2.ToList();
+
+            // If last one
+            if (test2.Count == 1)
+            {
+                IDictionary<string, object> p3 = new Dictionary<string, object>();
+                p3.Add("@code", this.lobbyCode);
+
+                connection.runQueryAsync("DELETE FROM dbo.Lobby WHERE lobbyCode = @code", p3);
+            }
+            else
+            {
+                IDictionary<string, object> p2 = new Dictionary<string, object>();
+                p2.Add("@userID", userID);
+                p2.Add("@code", this.lobbyCode);
+
+                connection.runQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", p2);
+            }
+
+
+
+            SqlDependency.Stop(connection.getConnectionString());
         }
 
 
