@@ -11,7 +11,7 @@ using Windows.UI.Xaml.Controls;
 namespace Test2
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// This page is used to register accounts and login to the chat application.
     /// </summary>
     public sealed partial class Login : Page
     {
@@ -25,29 +25,32 @@ namespace Test2
         {
             string username = userBox.Text;
             string password = passBox.Password.ToString();
+
+            //Hashing password entered in password textbox
             string hashedPassword = HashPassword(password);
 
-            IDictionary<string, object> p = new Dictionary<string, object>();
-            p.Add("@username", username);
-            p.Add("@password", hashedPassword);
-            IEnumerable<object> selectUserList1 = await connection.DataReader("SELECT * FROM dbo.Users WHERE username = @username AND password = @password", "Users", p);
+            IDictionary<string, object> passwordDict = new Dictionary<string, object>();
+            passwordDict.Add("@username", username);
+            passwordDict.Add("@password", hashedPassword);
+            IEnumerable<object> passwordEnumerable = await connection.DataReader("SELECT * FROM dbo.Users WHERE username = @username AND password = @password", "Users", passwordDict);
 
-            List<object> list1 = selectUserList1.ToList();
+            List<object> passwordList = passwordEnumerable.ToList();
 
             string databasePassword = null;
             int userID = 0;
 
-            foreach (User l in list1)
+            foreach (User u in passwordList)
             {
-                databasePassword = l.Password;
-                userID = l.UserId;
+                databasePassword = u.Password;
+                userID = u.UserId;
             }
 
-            Debug.WriteLine(databasePassword);
+            //Compare hashed password saved in database to password textbox password converted to hash
             if (PasswordsMatch(password, databasePassword))
             {
                 statusBox.Text = "Success, you will be redirected to the chat";
 
+                //Setting parameters prior to entering "Chat" page and then navigating to "Chat"
                 var parameters = new LoginParams();
                 parameters.UserName = username;
                 parameters.UserID = userID;
@@ -64,46 +67,46 @@ namespace Test2
             string username = userBox.Text;
             string password = passBox.Password.ToString();
             string hashedPassword = HashPassword(password);
-            Debug.WriteLine(username + password);
 
-            IDictionary<string, object> p = new Dictionary<string, object>();
-            p.Add("@username", username);
-            IEnumerable<object> selectUserList1 = await connection.DataReader("SELECT * FROM dbo.Users WHERE username = @username", "Users", p);
+            IDictionary<string, object> userNameDict = new Dictionary<string, object>();
+            userNameDict.Add("@username", username);
+            IEnumerable<object> userNameEnumerable = await connection.DataReader("SELECT * FROM dbo.Users WHERE username = @username", "Users", userNameDict);
 
-            List<object> list1 = selectUserList1.ToList();
+            List<object> userNameList = userNameEnumerable.ToList();
 
             string checkUsername = null;
 
-            foreach (User l in list1)
+            foreach (User u in userNameList)
             {
-                checkUsername = l.Username;
+                checkUsername = u.Username;
             }
 
+            //Compare username in username textbox to already exisiting users in database
             if (checkUsername != username)
             {
-                IDictionary<string, object> c = new Dictionary<string, object>();
-                c.Add("@username", username);
-                c.Add("@password", hashedPassword);
-                connection.runQueryAsync("INSERT INTO dbo.Users (username, password) VALUES (@username, @password)", c);
+                IDictionary<string, object> insertUserDict = new Dictionary<string, object>();
+                insertUserDict.Add("@username", username);
+                insertUserDict.Add("@password", hashedPassword);
+                connection.runQueryAsync("INSERT INTO dbo.Users (username, password) VALUES (@username, @password)", insertUserDict);
                 statusBox.Text = "Success, account with this username has been created!";
 
-                IDictionary<string, object> b = new Dictionary<string, object>();
-                b.Add("@username", username);
-                IEnumerable<object> selectUserList2 = await connection.DataReader("SELECT * FROM dbo.Users WHERE username = @username", "Users", b);
+                IDictionary<string, object> selectUserDict = new Dictionary<string, object>();
+                selectUserDict.Add("@username", username);
+                IEnumerable<object> selectUserEnumerable = await connection.DataReader("SELECT * FROM dbo.Users WHERE username = @username", "Users", selectUserDict);
 
-                List<object> list2 = selectUserList2.ToList();
+                List<object> list2 = selectUserEnumerable.ToList();
 
                 int userID = 0;
 
-                foreach (User l in list2)
+                foreach (User u in list2)
                 {
-                    userID = l.UserId;
+                    userID = u.UserId;
                 }
 
+                //Setting parameters prior to entering "Chat" page and then navigating to "Chat"
                 var parameters = new LoginParams();
                 parameters.UserName = username;
                 parameters.UserID = userID;
-                Debug.WriteLine(parameters.UserName);
                 Frame.Navigate(typeof(Chat), parameters);
             }
             else
@@ -112,11 +115,14 @@ namespace Test2
             }
 
         }
+
+        //Convert input into SHA256 Hash
         private static string HashPassword(string input)
         {
             return SHA.ComputeSHA256Hash(input);
         }
 
+        //Compare 2 inputs
         private static bool PasswordsMatch(string userInput, string passwordString)
         {
             string hashedInput = HashPassword(userInput);
