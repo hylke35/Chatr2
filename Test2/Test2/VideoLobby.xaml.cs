@@ -72,7 +72,7 @@ namespace Test2
             // Leave lobby [X]
             // Only create or join lobby if user is not in User_Lobby [X]
             // Open lobby via new window [X]
-            // When leaving MainPage, delete videos [ ]
+            // When leaving MainPage, delete videos [X]
             // implement Design [X]
             // Clean up code (VideoLobby, MainPage, Chat) [ ]
 
