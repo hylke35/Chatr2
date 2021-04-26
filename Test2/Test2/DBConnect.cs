@@ -29,16 +29,6 @@ namespace Test2
 
                 try
                 {
-                    //var isPaused = 1;
-                    //if (status == "playing")
-                    //{
-                    //    isPaused = 0;
-                    //}
-                    //else if (status == "paused")
-                    //{
-                    //    isPaused = 1;
-                    //}
-
                     command.CommandText = query;
 
                     if (addwithvalue != null)

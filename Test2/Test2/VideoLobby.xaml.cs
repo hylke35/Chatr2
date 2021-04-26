@@ -72,6 +72,7 @@ namespace Test2
             // Leave lobby [X]
             // Only create or join lobby if user is not in User_Lobby [X]
             // Open lobby via new window [X]
+            // implement Design [ ]
             // Clean up code (VideoLobby, MainPage, Chat) [ ]
 
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.testi;
