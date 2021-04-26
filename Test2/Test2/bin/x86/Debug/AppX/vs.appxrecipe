@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-25T21:56:07.298</Modified>
+      <Modified>2021-04-26T18:40:06.416</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Test2.exe">
       <PackagePath>entrypoint\Test2.exe</PackagePath>
-      <Modified>2021-04-25T21:56:06.815</Modified>
+      <Modified>2021-04-26T18:40:05.956</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\.nuget\packages\easyencryption\1.0.2\lib\EasyEncryption.dll">
       <PackagePath>EasyEncryption.dll</PackagePath>
@@ -84,77 +84,81 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\logo.png">
       <PackagePath>Assets\logo.png</PackagePath>
-      <Modified>2021-04-25T09:35:56.022</Modified>
+      <Modified>2021-04-26T16:26:17.524</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\bg.png">
+      <PackagePath>Assets\bg.png</PackagePath>
+      <Modified>2021-04-26T16:32:55.302</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2021-04-19T11:11:32.499</Modified>
+      <Modified>2021-04-26T16:26:17.525</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-19T11:11:32.500</Modified>
+      <Modified>2021-04-26T16:26:17.524</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-19T11:11:32.501</Modified>
+      <Modified>2021-04-26T16:26:17.657</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-19T11:11:32.503</Modified>
+      <Modified>2021-04-26T16:26:17.662</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-19T11:11:32.526</Modified>
+      <Modified>2021-04-26T16:26:17.615</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-19T11:11:32.524</Modified>
+      <Modified>2021-04-26T16:26:17.662</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-19T11:11:32.503</Modified>
+      <Modified>2021-04-26T16:26:17.656</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\test720.mp4">
       <PackagePath>Assets\test720.mp4</PackagePath>
-      <Modified>2021-04-19T11:11:33.875</Modified>
+      <Modified>2021-04-26T16:26:18.984</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2021-04-19T11:11:32.964</Modified>
+      <Modified>2021-04-26T16:26:17.998</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Test2.xr.xml">
       <PackagePath>Test2.xr.xml</PackagePath>
-      <Modified>2021-04-25T10:00:57.221</Modified>
+      <Modified>2021-04-26T18:38:17.656</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-04-25T21:56:06.651</Modified>
+      <Modified>2021-04-26T18:40:05.828</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage1.xbf">
       <PackagePath>BlankPage1.xbf</PackagePath>
-      <Modified>2021-04-25T21:56:06.651</Modified>
+      <Modified>2021-04-26T18:40:05.828</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Chat.xbf">
       <PackagePath>Chat.xbf</PackagePath>
-      <Modified>2021-04-25T21:56:06.651</Modified>
+      <Modified>2021-04-26T18:40:05.828</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf">
       <PackagePath>Login.xbf</PackagePath>
-      <Modified>2021-04-25T21:56:06.652</Modified>
+      <Modified>2021-04-26T18:40:05.828</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\VideoLobby.xbf">
       <PackagePath>VideoLobby.xbf</PackagePath>
-      <Modified>2021-04-25T21:56:06.652</Modified>
+      <Modified>2021-04-26T18:40:05.828</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-04-25T21:56:06.652</Modified>
+      <Modified>2021-04-26T18:40:05.829</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -162,11 +166,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-04-25T17:58:30.794</Modified>
+      <Modified>2021-04-26T17:03:19.022</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Core\Test2.exe">
       <PackagePath>Test2.exe</PackagePath>
-      <Modified>2021-04-25T21:56:07.292</Modified>
+      <Modified>2021-04-26T18:40:06.412</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -5,20 +5,125 @@
     xmlns:local="using:Test2"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="600">
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/bg.png"/>
+    </Page.Background>
+    <Grid Padding="50,0">
 
-    <Grid Height="600">
-        <TextBox x:Name="linkBox" HorizontalAlignment="Left" Margin="137,75,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="724"/>
-        <Button x:Name="addButton" Content="Add" Margin="880,75,0,0" VerticalAlignment="Top" Click="addButton_Click" Width="229"/>
-        <ListBox x:Name="userList" Margin="781,179,0,136" HorizontalAlignment="Left" Width="327"/>
-        <ListBox x:Name="videoList" Margin="139,179,0,136" IsDoubleTapEnabled="True" DoubleTapped="videoList_DoubleTapped" Width="576" HorizontalAlignment="Left"/>
-        <TextBlock HorizontalAlignment="Left" Margin="136,137,0,0" Text="Video List" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Margin="781,137,0,0" Text="Lobby" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"/>
-        <Button x:Name="readyButton" Content="Not ready" Margin="995,514,0,0" VerticalAlignment="Top" Click="readyButton_Click" Width="229"/>
-        <TextBlock HorizontalAlignment="Left" Margin="101,516,0,0" Text="Lobby Code:" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" FontSize="20"/>
-        <TextBlock x:Name="lobbyCodeLabel" HorizontalAlignment="Left" Margin="216,516,0,0" Text="-" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.431,-2.912" FontSize="20"/>
-        <Button x:Name="leaveButton" Content="Leave" Margin="727,514,0,0" VerticalAlignment="Top" Click="leaveButton_Click" Width="229"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="#0077b6" >
+            <TextBlock x:Name="lobbyCodeLabel" Text="-" FontFamily="Century Gothic"
+                       FontSize="30"
+                       Foreground="white"
+                       TextAlignment="Center"
+                       />
+        </StackPanel>
+        <Grid Grid.Row="1" Background="Transparent" Margin="0,110,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="linkBox" Grid.Column="0"
+                     Height="35"
+                     FontSize="15"
+                     BorderThickness="0,0,0,1"
+                     BorderBrush="Black" 
+                     Background="#66FFFFFF" 
+                     FocusVisualSecondaryBrush="#99FFFFFF"
+                     />
+            <Button x:Name="addButton" Grid.Column="1" Click="addButton_Click"
+                     Margin="10,0,0,0"
+                     Content="Add"
+                     FontSize="21"
+                     Width="220"
+                     Foreground="white"
+                     Background="#0077b6"
+                     Padding="15,5,15,5"
+                     
+                     FocusVisualPrimaryBrush="White" FocusVisualSecondaryBrush="White" />
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0"
+                        Background="Transparent"
+                        Padding="20"
+                        >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Background="#0077b6" >
+                    <TextBlock Text="Video List" FontFamily="Century Gothic"
+                       FontSize="30"
+                       Foreground="white"
+                       TextAlignment="Center"
+                       Margin="10"
+                       />
+                </StackPanel>
+                <ListBox x:Name="videoList" Grid.Row="1" IsDoubleTapEnabled="True" DoubleTapped="videoList_DoubleTapped"/>
+
+
+
+            </Grid>
+
+            <Grid Grid.Column="1"
+                        Background="Transparent"
+                        Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Background="#0077b6" >
+                    <TextBlock Text="Lobby" FontFamily="Century Gothic"
+                       FontSize="30"
+                       Foreground="white"
+                       TextAlignment="Center"
+                       Margin="10"
+                       />
+                </StackPanel>
+                <ListBox x:Name="userList" Grid.Row="1"/>
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Row="3" Margin="100,0,100,0" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="readyButton" Grid.Row="2"
+                     Margin="350,0,0,0"
+                     Content="Not Ready"
+                     FontSize="21"
+                     Width="300"
+                     Foreground="white"
+                     Background="#0077b6"
+                     Click="readyButton_Click"
+                     CornerRadius="5"
+                     Padding="15,5,15,5" 
+                     FocusVisualPrimaryBrush="Black" VerticalAlignment="Top" Grid.RowSpan="2" />
+            <Button x:Name="leaveButton" Grid.Row="2"
+                     Content="Leave"
+                     FontSize="21"
+                     Width="300"
+                     Foreground="white"
+                     Background="#0077b6"
+                     Click="leaveButton_Click"
+                     CornerRadius="5"
+                     Padding="15,5,15,5" 
+                     FocusVisualPrimaryBrush="Black" VerticalAlignment="Top" Grid.RowSpan="2" />
+        </Grid>
+
+
 
     </Grid>
 </Page>
