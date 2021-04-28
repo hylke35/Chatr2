@@ -76,7 +76,11 @@ namespace Test2
                 connection.runQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", p2);
             }
 
-
+            foreach(string file in qt)
+            {
+                File.Delete(file);
+            }
+            
 
             SqlDependency.Stop(connection.getConnectionString());
         }

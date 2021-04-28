@@ -30,13 +30,21 @@
     <AppXManifest Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:19:32.548</Modified>
+=======
+      <Modified>2021-04-26T18:43:25.387</Modified>
+>>>>>>> main
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Test2.exe">
       <PackagePath>entrypoint\Test2.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:19:31.897</Modified>
+=======
+      <Modified>2021-04-26T18:43:24.823</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\easyencryption\1.0.2\lib\EasyEncryption.dll">
       <PackagePath>EasyEncryption.dll</PackagePath>
@@ -84,77 +92,149 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\logo.png">
       <PackagePath>Assets\logo.png</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-22T12:33:17.158</Modified>
+=======
+      <Modified>2021-04-26T16:26:17.524</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\bg.png">
+      <PackagePath>Assets\bg.png</PackagePath>
+      <Modified>2021-04-26T16:32:55.302</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-20T11:04:28.094</Modified>
+=======
+      <Modified>2021-04-26T16:26:17.525</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2021-04-20T11:04:28.096</Modified>
+=======
+      <Modified>2021-04-26T16:26:17.524</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2021-04-20T11:04:28.096</Modified>
+=======
+      <Modified>2021-04-26T16:26:17.657</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2021-04-20T11:04:28.094</Modified>
+=======
+      <Modified>2021-04-26T16:26:17.662</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2021-04-20T11:04:28.095</Modified>
+=======
+      <Modified>2021-04-26T16:26:17.615</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2021-04-20T11:04:28.096</Modified>
+=======
+      <Modified>2021-04-26T16:26:17.662</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2021-04-20T11:04:28.101</Modified>
+=======
+      <Modified>2021-04-26T16:26:17.656</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\test720.mp4">
       <PackagePath>Assets\test720.mp4</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-20T11:04:28.620</Modified>
+=======
+      <Modified>2021-04-26T16:26:18.984</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-20T11:04:28.218</Modified>
+=======
+      <Modified>2021-04-26T16:26:17.998</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Test2.xr.xml">
       <PackagePath>Test2.xr.xml</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:16:02.267</Modified>
+=======
+      <Modified>2021-04-26T18:38:17.656</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:19:31.680</Modified>
+=======
+      <Modified>2021-04-26T18:43:24.698</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage1.xbf">
       <PackagePath>BlankPage1.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:19:31.680</Modified>
+=======
+      <Modified>2021-04-26T18:43:24.698</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Chat.xbf">
       <PackagePath>Chat.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:19:31.681</Modified>
+=======
+      <Modified>2021-04-26T18:43:24.698</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf">
       <PackagePath>Login.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:19:31.681</Modified>
+=======
+      <Modified>2021-04-26T18:43:24.698</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\VideoLobby.xbf">
       <PackagePath>VideoLobby.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:19:31.681</Modified>
+=======
+      <Modified>2021-04-26T18:43:24.698</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:19:31.681</Modified>
+=======
+      <Modified>2021-04-26T18:43:24.699</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -162,11 +242,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:16:02.924</Modified>
+=======
+      <Modified>2021-04-26T17:03:19.022</Modified>
+>>>>>>> main
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Core\Test2.exe">
       <PackagePath>Test2.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2021-04-28T15:19:32.542</Modified>
+=======
+      <Modified>2021-04-26T18:43:25.382</Modified>
+>>>>>>> main
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

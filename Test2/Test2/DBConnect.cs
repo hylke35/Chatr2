@@ -8,8 +8,8 @@ namespace Test2
 {
     public class DBConnect
     {
-        string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=20.52.146.90,1433;Initial Catalog=ChatrTestDB;User ID=hemran;Password=TestPassword!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
-
+        //string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=20.52.146.90,1433;Initial Catalog=ChatrTestDB;User ID=hemran;Password=TestPassword!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
+        string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=DESKTOP-SE6V62U;Initial Catalog=ChatrTestDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
         public string getConnectionString()
         {
             return asyncConnectionString;
@@ -26,16 +26,6 @@ namespace Test2
 
                 try
                 {
-                    //var isPaused = 1;
-                    //if (status == "playing")
-                    //{
-                    //    isPaused = 0;
-                    //}
-                    //else if (status == "paused")
-                    //{
-                    //    isPaused = 1;
-                    //}
-
                     command.CommandText = query;
 
                     if (addwithvalue != null)
@@ -156,15 +146,6 @@ namespace Test2
                 InProgress = int.Parse(reader["inProgress"].ToString()),
             };
         }
-
-        /*        public object ShowDataInGridView(string Query_)
-                {
-                    SqlDataAdapter dr = new SqlDataAdapter(Query_, ConnectionString);
-                    DataSet ds = new DataSet();
-                    dr.Fill(ds);
-                    object dataum = ds.Tables[0];
-                    return dataum;
-                }*/
     }
 
     public class Lobby
