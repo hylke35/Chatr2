@@ -1,33 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using System.Net;
+using System.Text;
+using Windows.UI.Core;
+using Windows.UI.Core.Preview;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using System.Net;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Windows.UI.Core;
-using System.Net.Http.Headers;
-using Windows.UI.Popups;
-using System.Net.Http;
-using Windows.UI.WebUI;
-using System.Text;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using Windows.UI.ViewManagement;
-using Windows.ApplicationModel.Core;
-using System.ComponentModel;
-using Windows.UI.Core.Preview;
 
 
 
@@ -99,7 +85,8 @@ namespace Test2
                 p3.Add("@code", this.lobbyCode);
 
                 connection.runQueryAsync("DELETE FROM dbo.Lobby WHERE lobbyCode = @code", p3);
-            } else
+            }
+            else
             {
                 IDictionary<string, object> p2 = new Dictionary<string, object>();
                 p2.Add("@userID", userID);
@@ -309,7 +296,7 @@ namespace Test2
 
                         IEnumerable<object> list5 = await connection.DataReader("SELECT * FROM Lobby WHERE lobbyCode = @code", "Lobby", p5);
 
-                        Lobby test5 = (Lobby) list5.ToList().First();
+                        Lobby test5 = (Lobby)list5.ToList().First();
 
                         if (test5.InProgress != 1)
                         {
@@ -327,7 +314,8 @@ namespace Test2
                             parameters.UserId = this.userID;
                             Frame.Navigate(typeof(MainPage), parameters);
                         }).AsTask();
-                    } else
+                    }
+                    else
                     {
                         await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                         async () =>
@@ -524,7 +512,8 @@ namespace Test2
                 p3.Add("@code", this.lobbyCode);
 
                 connection.runQueryAsync("DELETE FROM dbo.Lobby WHERE lobbyCode = @code", p3);
-            } else
+            }
+            else
             {
                 IDictionary<string, object> p2 = new Dictionary<string, object>();
                 p2.Add("@userID", userID);
@@ -538,10 +527,10 @@ namespace Test2
             SqlDependency.Stop(connection.getConnectionString());
 
 
-           
+
             Window.Current.Close();
-  
-            
+
+
         }
     }
 

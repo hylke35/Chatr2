@@ -27,21 +27,38 @@ namespace Test2
         public void SignalR()
         {
             conn = new HubConnection("http://localhost:5000");
-            proxy = conn.CreateHubProxy("MyHub");
+            proxy = conn.CreateHubProxy("MessageHub");
             conn.Start();
 
+            proxy.On<User>("Connect", OnUser);
             proxy.On<ChatMessage>("broadcastMessage", OnMessage);
-
+            proxy.On<ChatMessage>("broadcastPrivateMessage", OnMessage);
         }
-        public void Broadcast(ChatMessage msg)
+
+        public void Connect(User username)
         {
-            proxy.Invoke("Send", msg);
+            proxy.Invoke("Connect", username);
+        }
+        public void BroadcastMessage(ChatMessage msg)
+        {
+            proxy.Invoke("SendMessage", msg);
+        }
+        public void BroadcastPrivateMessage(PrivateMessage msg)
+        {
+            proxy.Invoke("SendPrivateMessage", msg);
         }
         private async void OnMessage(ChatMessage msg)
         {
             await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 ChatVM.Messages.Add(msg);
+            });
+        }
+        private async void OnUser(User username)
+        {
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                ChatVM.Users.Add(username);
             });
         }
 
@@ -79,7 +96,7 @@ namespace Test2
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(Login), e.Arguments);
+                    rootFrame.Navigate(typeof(Chat), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

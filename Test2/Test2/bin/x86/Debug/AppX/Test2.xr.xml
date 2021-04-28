@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Users" />
     <RootPropertyPathName Name="Messages" />
     <RootPropertyPathName Name="Position" />
     <RootPropertyPathName Name="TotalSeconds" />

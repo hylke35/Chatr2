@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNet.SignalR;
-using Microsoft.Owin.Hosting;
+﻿using Microsoft.Owin.Hosting;
 using Owin;
 using System;
-using System.Threading.Tasks;
 
 namespace ChatServer
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -19,19 +17,11 @@ namespace ChatServer
         }
     }
 
-    class Startup
+    public class Startup
     {
         public void Configuration(IAppBuilder MyApp)
         {
             MyApp.MapSignalR();
-        }
-    }
-
-    public class MyHub : Hub
-    {
-        public void Send(ChatMessage message)
-        {
-            Clients.All.broadcastMessage(message);
         }
     }
 }

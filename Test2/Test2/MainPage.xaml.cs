@@ -1,30 +1,22 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Media.Core;
-using Windows.Storage;
+using System.Threading;
+using System.Threading.Tasks;
+using VideoLibrary;
+using Windows.UI.Core;
+using Windows.UI.Core.Preview;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using VideoLibrary;
-using System.Security;
-using System.Security.Permissions;
-using Windows.UI.Popups;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Threading;
-using System.Collections;
-using Windows.UI.Core;
-using Windows.UI.Core.Preview;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 

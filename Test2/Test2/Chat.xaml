@@ -29,5 +29,6 @@
         <Button x:Name="send" Content="Send" Click="send_Click" Margin="1110,630,0,0" VerticalAlignment="Top"></Button>
         <Button x:Name="createLobby" Content="Create Lobby" Margin="1094,144,0,0" VerticalAlignment="Top" Width="109" Click="createLobby_Click"/>
         <Button x:Name="joinLobby" Content="Join Lobby" Margin="1094,215,0,0" VerticalAlignment="Top" Width="109" Click="joinLobby_Click"/>
+        <ListView x:Name="usersList" ItemsSource="{Binding Users}" Margin="1094,292,77,135"/>
     </Grid>
 </Page>

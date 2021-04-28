@@ -1,15 +1,14 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Core;
-using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using Windows.UI.ViewManagement;
-using Windows.ApplicationModel.Core;
-using Windows.UI.Popups;
-using System.Threading.Tasks;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,7 +28,7 @@ namespace Test2
         {
             this.InitializeComponent();
             this.DataContext = (Application.Current as App).ChatVM;
-            
+            onConnection();
         }
 
         private void Setup()
@@ -38,9 +37,9 @@ namespace Test2
             inputBox.Height = 32;
             inputBox.Width = 300;
             inputBox.MaxLength = 6;
-/*            inputBox.TextChanging += TextChangingHandler;*/
+            /*            inputBox.TextChanging += TextChangingHandler;*/
             dialogInput.Content = inputBox;
-  
+
             dialogInput.Title = "Join Lobby";
             dialogInput.IsPrimaryButtonEnabled = true;
             dialogInput.IsSecondaryButtonEnabled = true;
@@ -118,7 +117,8 @@ namespace Test2
                     var dialog = new MessageDialog("Lobby does not exist!", "Error");
                     await dialog.ShowAsync();
                 }
-            } else
+            }
+            else
             {
                 var dialog = new MessageDialog("You already joined a Video Party!", "Error");
                 await dialog.ShowAsync();
@@ -139,14 +139,18 @@ namespace Test2
 
         private void send_Click(object sender, RoutedEventArgs e)
         {
-            (Application.Current as App).Broadcast(new ChatMessage { Username = username , Message = text.Text });
+            (Application.Current as App).BroadcastMessage(new ChatMessage { Username = username, Message = text.Text });
             text.Text = "";
         }
+        private void onConnection()
+        {
+            (Application.Current as App).Connect(new User { Username = username });
+        }
 
-        
+
         public static string RandomString(int length)
         {
-             Random random = new Random();
+            Random random = new Random();
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
@@ -195,7 +199,8 @@ namespace Test2
                             currentAV.Id,
                             ViewSizePreference.UseMinimum);
                     });
-            } else
+            }
+            else
             {
                 var dialog = new MessageDialog("You already joined a Video Party!", "Error");
                 await dialog.ShowAsync();
