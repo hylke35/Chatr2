@@ -8,7 +8,7 @@ namespace ChatServer
     {
         static void Main(string[] args)
         {
-            string url = "http://localhost:5000";
+            string url = "http://51.116.224.130:5000";
             using (WebApp.Start<Startup>(url))
             {
                 Console.WriteLine("The Server URL is: {0}", url);

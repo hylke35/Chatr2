@@ -128,13 +128,16 @@ namespace Test2
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            Setup();
+            onConnection();
+
             base.OnNavigatedTo(e);
             var parameters = (LoginParams)e.Parameter;
             userID = parameters.UserID;
             username = parameters.UserName;
 
-            Setup();
-            onConnection();
+            
+            
         }
 
         private void send_Click(object sender, RoutedEventArgs e)
