@@ -130,8 +130,6 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PrivateMessage.cs" />
-    <Compile Include="Users.cs" />
     <Compile Include="VideoLobby.xaml.cs">
       <DependentUpon>VideoLobby.xaml</DependentUpon>
     </Compile>

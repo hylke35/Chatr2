@@ -16,7 +16,6 @@ namespace Test2
         }
 
 
-
         public async void runQueryAsync(string query, IDictionary<string, object> addwithvalue = null)
         {
             using (SqlConnection connection = new SqlConnection(asyncConnectionString))

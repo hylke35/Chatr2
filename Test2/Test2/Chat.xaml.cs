@@ -128,28 +128,19 @@ namespace Test2
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //base.OnNavigatedTo(e);
+            //var parameters = (LoginParams)e.Parameter;
+            //userID = parameters.UserID;
+            //username = parameters.UserName;
+
             Setup();
-            //onConnection();
-
-            base.OnNavigatedTo(e);
-            var parameters = (LoginParams)e.Parameter;
-            userID = parameters.UserID;
-            username = parameters.UserName;
-
-            
-            
         }
 
         private void send_Click(object sender, RoutedEventArgs e)
         {
-            (Application.Current as App).BroadcastMessage(new ChatMessage { Username = username, Message = text.Text });
+            (Application.Current as App).Broadcast(new ChatMessage { Username = "bob", Message = text.Text });
             text.Text = "";
         }
-/*        private void onConnection()
-        {
-            (Application.Current as App).Connect(new Users { Username = username, ConnectionId = userID});
-        }*/
-
 
         public static string RandomString(int length)
         {
