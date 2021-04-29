@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+<<<<<<< HEAD
     <Machine>DESKTOP-SE6V62U</Machine>
     <WindowsUser>Hemran</WindowsUser>
+=======
+    <Machine>DESKTOP-4TP64DH</Machine>
+    <WindowsUser>hwest</WindowsUser>
+>>>>>>> main
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,21 +15,33 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>f83e4742-5b69-45e0-92c1-a5b7047c2beb</PackageIdentityName>
     <PackageIdentityPublisher>CN=hwest</PackageIdentityPublisher>
+<<<<<<< HEAD
     <IntermediateOutputPath>C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\obj\x86\Debug\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\</IntermediateOutputPath>
+>>>>>>> main
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+<<<<<<< HEAD
     <LayoutDir>C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Core\AppxManifest.xml">
+=======
+    <LayoutDir>C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\AppX</LayoutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Core\AppxManifest.xml">
+>>>>>>> main
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Test2.exe">
       <PackagePath>entrypoint\Test2.exe</PackagePath>
     </AppxPackagedFile>
@@ -44,11 +61,33 @@
       <PackagePath>Nito.AsyncEx.Tasks.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\.nuget\packages\nito.disposables\2.2.0\lib\netstandard2.0\Nito.Disposables.dll">
+=======
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Test2.exe">
+      <PackagePath>entrypoint\Test2.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\easyencryption\1.0.2\lib\EasyEncryption.dll">
+      <PackagePath>EasyEncryption.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\microsoft.aspnet.signalr.client\2.4.1\lib\netstandard2.0\Microsoft.AspNet.SignalR.Client.dll">
+      <PackagePath>Microsoft.AspNet.SignalR.Client.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\newtonsoft.json\12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\nito.asyncex.context\5.1.0\lib\netstandard2.0\Nito.AsyncEx.Context.dll">
+      <PackagePath>Nito.AsyncEx.Context.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\nito.asyncex.tasks\5.1.0\lib\netstandard2.0\Nito.AsyncEx.Tasks.dll">
+      <PackagePath>Nito.AsyncEx.Tasks.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\nito.disposables\2.2.0\lib\netstandard2.0\Nito.Disposables.dll">
+>>>>>>> main
       <PackagePath>Nito.Disposables.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.10\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Hemran\.nuget\packages\system.security.permissions\5.0.0\lib\netstandard2.0\System.Security.Permissions.dll">
       <PackagePath>System.Security.Permissions.dll</PackagePath>
     </AppxPackagedFile>
@@ -56,11 +95,21 @@
       <PackagePath>libvideo.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\.nuget\packages\youtubeextractor\0.10.11\lib\portable-net45+win8+wpa81+wp8\YoutubeExtractor.dll">
+=======
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\system.security.permissions\5.0.0\lib\netstandard2.0\System.Security.Permissions.dll">
+      <PackagePath>System.Security.Permissions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\videolibrary\3.1.1\lib\netstandard1.1\libvideo.dll">
+      <PackagePath>libvideo.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\youtubeextractor\0.10.11\lib\portable-net45+win8+wpa81+wp8\YoutubeExtractor.dll">
+>>>>>>> main
       <PackagePath>YoutubeExtractor.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Assets\logo.png">
       <PackagePath>Assets\logo.png</PackagePath>
     </AppxPackagedFile>
@@ -119,15 +168,95 @@
       <PackagePath>VideoLobby.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\MainPage.xbf">
+=======
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\bg.png">
+      <PackagePath>Assets\bg.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\logo.png">
+      <PackagePath>Assets\logo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Test2.xr.xml">
+      <PackagePath>Test2.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage1.xbf">
+      <PackagePath>BlankPage1.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Chat.xbf">
+      <PackagePath>Chat.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf">
+      <PackagePath>Login.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\VideoLobby.xbf">
+      <PackagePath>VideoLobby.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\MainPage.xbf">
+>>>>>>> main
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Core\Test2.exe">
+=======
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Core\Test2.exe">
+>>>>>>> main
       <PackagePath>Test2.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

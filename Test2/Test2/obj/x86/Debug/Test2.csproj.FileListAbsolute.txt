@@ -43,7 +43,6 @@ C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\qualifiers.t
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885274160000000.json
-C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Assets\test720.mp4
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Newtonsoft.Json.dll
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\libvideo.dll
 C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\YoutubeExtractor.dll

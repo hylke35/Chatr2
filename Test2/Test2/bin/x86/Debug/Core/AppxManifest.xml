@@ -27,7 +27,7 @@
     <Application Id="App" Executable="Test2.exe" EntryPoint="Test2.App">
       <uap:VisualElements DisplayName="Test2" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Test2" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#0077B6" />
       </uap:VisualElements>
     </Application>
   </Applications>
@@ -48,8 +48,13 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="16.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2019" />
+<<<<<<< HEAD
     <build:Item Name="OperatingSystem" Version="10.0.19041.320 (WinBuild.160101.0800)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="16.0.31130.442" />
+=======
+    <build:Item Name="OperatingSystem" Version="10.0.19041.1 (WinBuild.160101.0800)" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="16.0.30804.86" />
+>>>>>>> main
     <build:Item Name="ProjectGUID" Value="{83EA8ED8-99AF-49E1-AEF0-2C64257DA8C9}" />
     <build:Item Name="OptimizingToolset" Value="None" />
     <build:Item Name="TargetRuntime" Value="Managed" />

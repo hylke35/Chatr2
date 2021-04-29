@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using Test2.DB;
@@ -19,6 +20,7 @@ namespace Test2
     {
         int userID;
         string username;
+        List<string> lobbyList = new List<string>();
         DBConnect connection = new DBConnect();
         ContentDialog dialogInput = new ContentDialog();
         TextBox inputBox = new TextBox();

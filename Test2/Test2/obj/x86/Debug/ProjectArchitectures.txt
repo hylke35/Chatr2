@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\Test2.csproj;x86
+=======
+C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Test2.csproj;x86
+>>>>>>> main
