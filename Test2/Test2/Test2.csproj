@@ -127,6 +127,11 @@
     </Compile>
     <Compile Include="ChatMessage.cs" />
     <Compile Include="ChatMessageViewModel.cs" />
+    <Compile Include="DB\DBConnect.cs" />
+    <Compile Include="DB\Lobby.cs" />
+    <Compile Include="DB\User.cs" />
+    <Compile Include="DB\UserLobby.cs" />
+    <Compile Include="DB\Video.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -211,9 +216,7 @@
       <Version>0.10.11</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
