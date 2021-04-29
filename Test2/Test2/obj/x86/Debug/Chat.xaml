@@ -5,30 +5,117 @@
     xmlns:local="using:Test2"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/bg.png"/>
+    </Page.Background>
 
     <Grid>
-        <ListView x:ConnectionId='2' x:Name="lv" ItemsSource="{Binding Messages}" Margin="70,50,260,135">
-            <ListView.ItemTemplate>
-                <DataTemplate                               >
-                    <StackPanel x:ConnectionId='8' Orientation="Horizontal">
-                        <TextBlock>
-                        <Run x:ConnectionId='9'                         ></Run>
-                        <Run Text=": "></Run>
-                        <Run x:ConnectionId='10'                        ></Run>
-                        </TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <RelativePanel Grid.Column="0" >
+            <Button x:ConnectionId='7' x:Name="createLobby" Grid.Row="0"
+                            Margin="50,0,0,0"
+                            Content="Create Lobby"
+                            FontSize="21"
+                            Foreground="white"
+                            Background="#0077b6"
+                            CornerRadius="5"
+                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False"                          >
+                <Button.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.ThemeDictionaries>
+                            <ResourceDictionary x:Key="Dark">
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
+                            </ResourceDictionary>
+                            <ResourceDictionary x:Key="Light">
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
+                            </ResourceDictionary>
+                        </ResourceDictionary.ThemeDictionaries>
+                    </ResourceDictionary>
+                </Button.Resources>
+            </Button>
+            <Button x:ConnectionId='8' x:Name="joinLobby" Grid.Row="5"
+                            Margin="250,0,0,0"
+                            Content="Join Lobby"
+                            FontSize="21"
+                            Foreground="white"
+                            Background="#0077b6"
+                            CornerRadius="5"
+                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False"                        >
+                <Button.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.ThemeDictionaries>
+                            <ResourceDictionary x:Key="Dark">
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
+                            </ResourceDictionary>
+                            <ResourceDictionary x:Key="Light">
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
+                            </ResourceDictionary>
+                        </ResourceDictionary.ThemeDictionaries>
+                    </ResourceDictionary>
+                </Button.Resources>
+            </Button>
+        </RelativePanel>
+        <RelativePanel Grid.Column="1">
+            <ListView x:ConnectionId='4' x:Name="lv" ItemsSource="{Binding Messages}" Margin="70,50,260,135" Background="#FF4A4848">
+                <ListView.ItemTemplate>
+                    <DataTemplate                               >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Username}" 
+                           Margin="10"
+                           FontSize="18" 
+                           FontStyle="Italic" 
+                           FontWeight="SemiBold"
+                           Foreground="White" />
+                            <TextBlock Text="{Binding Message}" 
+                           Margin="10"
+                           FontSize="16"
+                           Foreground="AntiqueWhite" 
+                           Opacity="0.8" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
 
-                    </StackPanel>
-                </DataTemplate>
+        <RelativePanel Grid.Column="3">
+            <TextBox x:ConnectionId='2' x:Name="text" Grid.Row="1"
+                             FontSize="25"
+                             Margin="50,0,50,20"
+                             BorderThickness="0,0,0,3"
+                             BorderBrush="black" Background="White" Foreground="Black" SelectionHighlightColor="#FF0077B6"/>
+            <Button x:ConnectionId='3' x:Name="send" Grid.Row="2"
+                            Margin="50,0,0,0"
+                            Content="Send"
+                            FontSize="21"
+                            Foreground="white"
+                            Background="#0077b6"
+                            CornerRadius="5"
+                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False"                   >
+                <Button.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.ThemeDictionaries>
+                            <ResourceDictionary x:Key="Dark">
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
+                            </ResourceDictionary>
+                            <ResourceDictionary x:Key="Light">
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
+                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
+                            </ResourceDictionary>
+                        </ResourceDictionary.ThemeDictionaries>
+                    </ResourceDictionary>
+                </Button.Resources>
+            </Button>
+        </RelativePanel>
 
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <TextBox x:ConnectionId='3' x:Name="text" Margin="70,630,260,58"></TextBox>
-        <Button x:ConnectionId='4' x:Name="send" Content="Send"                    Margin="1018,630,0,0" VerticalAlignment="Top"></Button>
-        <Button x:ConnectionId='5' x:Name="createLobby" Content="Create Lobby" Margin="1027,141,0,0" VerticalAlignment="Top" Width="109"                          />
-        <Button x:ConnectionId='6' x:Name="joinLobby" Content="Join Lobby" Margin="1027,208,0,0" VerticalAlignment="Top" Width="109"                        />
     </Grid>
 </Page>
 

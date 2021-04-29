@@ -5,28 +5,35 @@
     xmlns:local="using:Test2"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/bg.png"/>
+    </Page.Background>
 
     <Grid>
-        <ListView x:Name="lv" ItemsSource="{Binding Messages}" Margin="70,50,260,135">
+        <ListView x:Name="lv" ItemsSource="{Binding Messages}" Margin="70,50,260,135" Background="#FF4A4848">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:ChatMessage">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock>
-                        <Run Text="{x:Bind Username}"></Run>
-                        <Run Text=": "></Run>
-                        <Run Text="{x:Bind Message}"></Run>
-                        </TextBlock>
-
+                        <TextBlock Text="{Binding Username}" 
+                           Margin="10"
+                           FontSize="18" 
+                           FontStyle="Italic" 
+                           FontWeight="SemiBold"
+                           Foreground="White" />
+                        <TextBlock Text="{Binding Message}" 
+                           Margin="10"
+                           FontSize="14"
+                           Foreground="DarkGray" 
+                           Opacity="0.8" />
                     </StackPanel>
                 </DataTemplate>
 
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBox x:Name="text" Margin="70,630,260,58"></TextBox>
-        <Button x:Name="send" Content="Send" Click="send_Click" Margin="1018,630,0,0" VerticalAlignment="Top"></Button>
+        <TextBox x:Name="text" Margin="70,630,260,58" Background="#66FFFFFF"></TextBox>
+        <Button x:Name="send" Content="Send" Click="send_Click" Margin="1056,630,0,0" VerticalAlignment="Top"></Button>
         <Button x:Name="createLobby" Content="Create Lobby" Margin="1027,141,0,0" VerticalAlignment="Top" Width="109" Click="createLobby_Click"/>
         <Button x:Name="joinLobby" Content="Join Lobby" Margin="1027,208,0,0" VerticalAlignment="Top" Width="109" Click="joinLobby_Click"/>
     </Grid>

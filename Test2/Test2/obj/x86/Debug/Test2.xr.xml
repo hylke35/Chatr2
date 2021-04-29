@@ -2,6 +2,8 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Messages" />
+    <RootPropertyPathName Name="Message" />
+    <RootPropertyPathName Name="Username" />
     <RootPropertyPathName Name="Position" />
     <RootPropertyPathName Name="TotalSeconds" />
   </Roots.PropertyPathNames>
@@ -38,7 +40,6 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Width" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Background" />
@@ -49,18 +50,29 @@
       <RootProperty Name="IsRightTapEnabled" />
       <RootProperty Name="IsHoldingEnabled" />
       <RootProperty Name="Resources" />
+      <RootProperty Name="Width" />
       <RootProperty Name="FocusVisualSecondaryBrush" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Test2.BlankPage1" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="ItemTemplate" />
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="ImageSource" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
+      <RootProperty Name="Children" />
+      <RootProperty Name="Background" />
+      <RootMethod Name="GetAlignHorizontalCenterWithPanel" />
+      <RootMethod Name="SetAlignHorizontalCenterWithPanel" />
+      <RootMethod Name="GetAlignVerticalCenterWithPanel" />
+      <RootMethod Name="SetAlignVerticalCenterWithPanel" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="Margin" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Background" />
@@ -68,6 +80,18 @@
       <RootProperty Name="SelectionHighlightColor" />
       <RootProperty Name="Height" />
       <RootProperty Name="FocusVisualSecondaryBrush" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.ResourceDictionary">
+      <RootProperty Name="ThemeDictionaries" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
+      <RootProperty Name="Color" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="ItemTemplate" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="ElementName" />
@@ -82,32 +106,18 @@
       <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="Inlines" />
-      <RootProperty Name="FontSize" />
       <RootProperty Name="Text" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="FontStyle" />
       <RootProperty Name="FontWeight" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Opacity" />
       <RootProperty Name="SelectionHighlightColor" />
       <RootProperty Name="FontFamily" />
-      <RootProperty Name="Foreground" />
       <RootProperty Name="TextAlignment" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Documents.Run">
-      <RootProperty Name="Text" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
     <RootType FullName="Test2.Chat" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
-      <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
-      <RootProperty Name="Background" />
-      <RootProperty Name="Children" />
-      <RootMethod Name="GetAlignHorizontalCenterWithPanel" />
-      <RootMethod Name="SetAlignHorizontalCenterWithPanel" />
-      <RootMethod Name="GetAlignVerticalCenterWithPanel" />
-      <RootMethod Name="SetAlignVerticalCenterWithPanel" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
@@ -127,21 +137,11 @@
       <RootProperty Name="SelectionHighlightColor" />
       <RootProperty Name="RenderTransformOrigin" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.ResourceDictionary">
-      <RootProperty Name="ThemeDictionaries" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
-      <RootProperty Name="Color" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="MaxHeight" />
     </RootType>
     <RootType FullName="Test2.Login" />
-    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
-      <RootProperty Name="Stretch" />
-      <RootProperty Name="ImageSource" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
       <RootProperty Name="IsDoubleTapEnabled" />
       <RootProperty Name="Margin" />
