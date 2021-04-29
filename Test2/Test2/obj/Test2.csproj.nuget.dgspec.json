@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\Test2.csproj": {}
   },
   "projects": {
@@ -13,19 +12,6 @@
         "projectPath": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\Test2.csproj",
         "packagesPath": "C:\\Users\\Hemran\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\obj\\",
-=======
-    "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\Test2.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\Test2.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\Test2.csproj",
-        "projectName": "Test2",
-        "projectPath": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\Test2.csproj",
-        "packagesPath": "C:\\Users\\hwest\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\obj\\",
->>>>>>> main
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -33,12 +19,8 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\Hemran\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\hwest\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> main
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
