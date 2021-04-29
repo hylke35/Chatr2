@@ -1,1 +1,1 @@
-C:\Users\User\source\repos\ChatPage\ChatPage\ChatPage.csproj;x86
+C:\Users\Sytze\Documents\Github\Chatr2\ChatPage\ChatPage.csproj;x86

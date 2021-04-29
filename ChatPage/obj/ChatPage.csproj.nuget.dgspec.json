@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\ChatPage\\ChatPage\\ChatPage.csproj": {}
+    "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\ChatPage\\ChatPage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\ChatPage\\ChatPage\\ChatPage.csproj": {
+    "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\ChatPage\\ChatPage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\ChatPage\\ChatPage\\ChatPage.csproj",
+        "projectUniqueName": "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\ChatPage\\ChatPage.csproj",
         "projectName": "ChatPage",
-        "projectPath": "C:\\Users\\User\\source\\repos\\ChatPage\\ChatPage\\ChatPage.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\ChatPage\\ChatPage\\obj\\",
+        "projectPath": "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\ChatPage\\ChatPage.csproj",
+        "packagesPath": "C:\\Users\\Sytze\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sytze\\Documents\\Github\\Chatr2\\ChatPage\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Sytze\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

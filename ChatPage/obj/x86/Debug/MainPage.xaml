@@ -64,23 +64,18 @@
                 <ImageBrush Stretch="None" ImageSource="Assets/images/bg.png"/>
             </Grid.Background>
             <Grid.RowDefinitions>
-                <RowDefinition Height="500"/>
+                
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <!-- Video block -->
-            <StackPanel Grid.Row="0"
-                        Background="White">
-                <TextBlock Text="Space for video"
-                           Foreground="black"
-                           FontSize="40px"
-                           TextAlignment="Center"></TextBlock>
-            </StackPanel>
+           
             <!-- End of Video block -->
             <!-- Chat block -->
-            <ScrollViewer Grid.Row="1">
+            <ScrollViewer Grid.Row="0">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <!-- Rows of messages -->
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -91,7 +86,7 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    
+                    <!-- Messages -->
                     <TextBlock Grid.Row="0"
                                    Text="Message"
                                    Foreground="white"
@@ -107,7 +102,7 @@
 
 
 
-                    <TextBlock Grid.Row="2"
+                    <TextBlock Grid.Row="1"
                                    Text="Message"
                                    Foreground="white"
                                    TextAlignment="right"
@@ -123,6 +118,7 @@
             </ScrollViewer>
             <!-- End of Chat block -->
 
+            <!-- Input field -->
             <TextBox Grid.Row="2"
                      Margin="2, 2, 2 ,5"></TextBox>
         </Grid>
