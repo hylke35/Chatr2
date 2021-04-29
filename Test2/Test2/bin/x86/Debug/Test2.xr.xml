@@ -126,6 +126,7 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="SelectionHighlightColor" />
+      <RootProperty Name="RenderTransformOrigin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary">
       <RootProperty Name="ThemeDictionaries" />

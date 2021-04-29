@@ -26,7 +26,7 @@ namespace Test2
 
         public void SignalR()
         {
-            conn = new HubConnection("http://51.116.224.130:5000");
+            conn = new HubConnection("http://localhost:5000");
             proxy = conn.CreateHubProxy("MessageHub");
             conn.Start();
 
