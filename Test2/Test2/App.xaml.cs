@@ -30,23 +30,23 @@ namespace Test2
             proxy = conn.CreateHubProxy("MessageHub");
             conn.Start();
 
-            proxy.On<Users>("Connect", OnUser);
+            //proxy.On<Users>("Connect", OnUser);
             proxy.On<ChatMessage>("broadcastMessage", OnMessage);
-            proxy.On<ChatMessage>("broadcastPrivateMessage", OnMessage);
+            //proxy.On<ChatMessage>("broadcastPrivateMessage", OnMessage);
         }
 
-        public void Connect(Users user)
+        /*public void Connect(Users user)
         {
             proxy.Invoke("Connect", user);
-        }
+        }*/
         public void BroadcastMessage(ChatMessage msg)
         {
             proxy.Invoke("SendMessage", msg);
         }
-        public void BroadcastPrivateMessage(PrivateMessage msg)
+/*        public void BroadcastPrivateMessage(PrivateMessage msg)
         {
             proxy.Invoke("SendPrivateMessage", msg);
-        }
+        }*/
         private async void OnMessage(ChatMessage msg)
         {
             await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
@@ -54,13 +54,13 @@ namespace Test2
                 ChatVM.Messages.Add(msg);
             });
         }
-        private async void OnUser(Users Username)
+/*        private async void OnUser(Users Username)
         {
             await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 ChatVM.Users.Add(Username);
             });
-        }
+        }*/
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

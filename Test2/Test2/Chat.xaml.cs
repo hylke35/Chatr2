@@ -129,7 +129,7 @@ namespace Test2
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Setup();
-            onConnection();
+            //onConnection();
 
             base.OnNavigatedTo(e);
             var parameters = (LoginParams)e.Parameter;
@@ -145,10 +145,10 @@ namespace Test2
             (Application.Current as App).BroadcastMessage(new ChatMessage { Username = username, Message = text.Text });
             text.Text = "";
         }
-        private void onConnection()
+/*        private void onConnection()
         {
             (Application.Current as App).Connect(new Users { Username = username, ConnectionId = userID});
-        }
+        }*/
 
 
         public static string RandomString(int length)
