@@ -9,7 +9,7 @@ namespace Test2
     public class DBConnect
     {
         //string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=20.52.146.90,1433;Initial Catalog=ChatrTestDB;User ID=hemran;Password=TestPassword!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
-        string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=DESKTOP-SE6V62U;Initial Catalog=ChatrTestDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
+        string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=51.116.224.130,1433;Initial Catalog=ChatrTestDB;User ID=chatr;Password=TestPassword1!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
         public string getConnectionString()
         {
             return asyncConnectionString;
