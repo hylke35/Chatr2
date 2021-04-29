@@ -125,11 +125,11 @@
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf">
       <PackagePath>Login.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\VideoParty\VideoLobby.xbf">
-      <PackagePath>VideoParty\VideoLobby.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\VideoParty\MainPage.xbf">
       <PackagePath>VideoParty\MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\VideoParty\VideoLobby.xbf">
+      <PackagePath>VideoParty\VideoLobby.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
