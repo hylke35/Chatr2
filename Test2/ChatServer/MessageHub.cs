@@ -13,7 +13,6 @@ namespace ChatServer
 
             if (ConnectedUsers.Count(x => x.ConnectionId == id) == 0)
             {
-
                 ConnectedUsers.Add(new User { ConnectionId = id, UserName = user });
 
                 Clients.Caller.onConnected(id, user, ConnectedUsers);
