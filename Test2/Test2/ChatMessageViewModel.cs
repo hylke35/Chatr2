@@ -5,6 +5,6 @@ namespace Test2
     public class ChatMessageViewModel
     {
         public ObservableCollection<ChatMessage> Messages { get; set; } = new ObservableCollection<ChatMessage>();
-        public ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>();
+        public ObservableCollection<Users> Users { get; set; } = new ObservableCollection<Users>();
     }
 }

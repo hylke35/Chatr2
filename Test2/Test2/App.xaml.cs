@@ -30,12 +30,12 @@ namespace Test2
             proxy = conn.CreateHubProxy("MessageHub");
             conn.Start();
 
-            proxy.On<User>("Connect", OnUser);
+            proxy.On<Users>("Connect", OnUser);
             proxy.On<ChatMessage>("broadcastMessage", OnMessage);
             proxy.On<ChatMessage>("broadcastPrivateMessage", OnMessage);
         }
 
-        public void Connect(User username)
+        public void Connect(Users username)
         {
             proxy.Invoke("Connect", username);
         }
@@ -54,11 +54,11 @@ namespace Test2
                 ChatVM.Messages.Add(msg);
             });
         }
-        private async void OnUser(User username)
+        private async void OnUser(Users Username)
         {
             await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                ChatVM.Users.Add(username);
+                ChatVM.Users.Add(Username);
             });
         }
 

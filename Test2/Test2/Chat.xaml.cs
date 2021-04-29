@@ -144,7 +144,7 @@ namespace Test2
         }
         private void onConnection()
         {
-            (Application.Current as App).Connect(new User { Username = username });
+            (Application.Current as App).Connect(new Users { Username = username });
         }
 
 

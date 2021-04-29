@@ -9,6 +9,6 @@ namespace Test2
     public class Users
     {
         public string ConnectionId { get; set; }
-        public string UserName { get; set; }
+        public string Username { get; set; }
     }
 }
