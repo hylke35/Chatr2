@@ -2,12 +2,15 @@ WinMetadata\Windows.winmd
 Assets\bg.png
 Assets\LockScreenLogo.scale-200.png
 Assets\logo.png
+Assets\SplashScreen.scale-100.png
+Assets\SplashScreen.scale-125.png
+Assets\SplashScreen.scale-150.png
 Assets\SplashScreen.scale-200.png
+Assets\SplashScreen.scale-400.png
 Assets\Square150x150Logo.scale-200.png
 Assets\Square44x44Logo.scale-200.png
 Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
-Assets\test720.mp4
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
 BlankPage1.xbf
