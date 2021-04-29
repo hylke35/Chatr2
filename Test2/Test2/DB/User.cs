@@ -21,7 +21,7 @@ namespace Test2.DB
             return new User
             {
                 UserId = int.Parse(reader["userID"].ToString()),
-                Username = reader["username"].ToString(),
+                Username = reader["userrname"].ToString(),
                 Password = reader["password"].ToString(),
                 InLobby = int.Parse(reader["inLobby"].ToString()),
                 IsReady = int.Parse(reader["isReady"].ToString())

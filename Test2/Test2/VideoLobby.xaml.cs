@@ -62,6 +62,7 @@ namespace Test2
             // When leaving MainPage, delete videos [X]
             // implement Design [X]
             // Check if inProgress is 0 after done with VideoParty [ ]
+            // Check if inProgress is 0 after video finished [ ]
             // Clean up code (VideoLobby, MainPage, Chat) [ ]
 
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.testi;
