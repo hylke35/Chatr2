@@ -17,10 +17,13 @@
       <RootProperty Name="Width" />
       <RootEvent Name="Loaded" />
     </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="ImageSource" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
-      <RootProperty Name="Children" />
       <RootProperty Name="ColumnDefinitions" />
+      <RootProperty Name="Children" />
       <RootProperty Name="Background" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Padding" />
@@ -36,31 +39,6 @@
       <RootMethod Name="SetColumnSpan" />
       <RootMethod Name="GetRowSpan" />
       <RootMethod Name="SetRowSpan" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="CornerRadius" />
-      <RootProperty Name="Padding" />
-      <RootProperty Name="FocusVisualPrimaryBrush" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="IsDoubleTapEnabled" />
-      <RootProperty Name="IsRightTapEnabled" />
-      <RootProperty Name="IsHoldingEnabled" />
-      <RootProperty Name="Resources" />
-      <RootProperty Name="FocusVisualSecondaryBrush" />
-      <RootEvent Name="Click" />
-    </RootType>
-    <RootType FullName="Test2.BlankPage1" />
-    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
-      <RootProperty Name="Stretch" />
-      <RootProperty Name="ImageSource" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
@@ -79,6 +57,26 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontFamily" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="CornerRadius" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="FocusVisualPrimaryBrush" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="IsDoubleTapEnabled" />
+      <RootProperty Name="IsRightTapEnabled" />
+      <RootProperty Name="IsHoldingEnabled" />
+      <RootProperty Name="Resources" />
+      <RootProperty Name="FocusVisualSecondaryBrush" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="HorizontalAlignment" />
@@ -122,6 +120,7 @@
       <RootProperty Name="SelectionHighlightColor" />
     </RootType>
     <RootType FullName="Test2.Chat" />
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
@@ -157,7 +156,6 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootEvent Name="DoubleTapped" />
-      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Test2.VideoLobby" />
     <RootType FullName="Windows.UI.Xaml.Controls.MediaElement">

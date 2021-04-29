@@ -1,0 +1,133 @@
+﻿<Page
+    x:Class="Test2.VideoLobby"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Test2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/bg.png"/>
+    </Page.Background>
+    <Grid Padding="50,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="607*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="#0077b6" Grid.ColumnSpan="2" Margin="50,0,50,0" >
+            <TextBlock x:Name="lobbyCodeLabel" Text="-" FontFamily="Century Gothic"
+                       FontSize="30"
+                       Foreground="white"
+                       TextAlignment="Center"
+                       />
+        </StackPanel>
+        <Grid Grid.Row="1" Background="Transparent" Margin="50,110,50,0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="linkBox" Grid.Column="0"
+                     Height="35"
+                     FontSize="15"
+                     BorderThickness="0,0,0,1"
+                     BorderBrush="Black" 
+                     Background="#66FFFFFF" 
+                     FocusVisualSecondaryBrush="#99FFFFFF"
+                     />
+            <Button x:Name="addButton" Grid.Column="1" Click="addButton_Click"
+                     Margin="10,0,0,0"
+                     Content="Add"
+                     FontSize="21"
+                     Width="220"
+                     Foreground="white"
+                     Background="#0077b6"
+                     Padding="15,5,15,5"
+                     
+                     FocusVisualPrimaryBrush="White" FocusVisualSecondaryBrush="White" />
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="50,100,50,100" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0"
+                        Background="Transparent"
+                        Padding="20"
+                        >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Background="#0077b6" >
+                    <TextBlock Text="Video List" FontFamily="Century Gothic"
+                       FontSize="30"
+                       Foreground="white"
+                       TextAlignment="Center"
+                       Margin="10"
+                       />
+                </StackPanel>
+                <ListBox x:Name="videoList" Grid.Row="1" IsDoubleTapEnabled="True" DoubleTapped="videoList_DoubleTapped"/>
+
+
+
+            </Grid>
+
+            <Grid Grid.Column="1"
+                        Background="Transparent"
+                        Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Background="#0077b6" >
+                    <TextBlock Text="Lobby" FontFamily="Century Gothic"
+                       FontSize="30"
+                       Foreground="white"
+                       TextAlignment="Center"
+                       Margin="10"
+                       />
+                </StackPanel>
+                <ListBox x:Name="userList" Grid.Row="1"/>
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Row="3" Margin="249,0,0,0" HorizontalAlignment="Left" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="readyButton"
+                     Margin="350,0,0,0"
+                     Content="Not Ready"
+                     FontSize="21"
+                     Width="303"
+                     Foreground="white"
+                     Background="#0077b6"
+                     Click="readyButton_Click"
+                     CornerRadius="5"
+                     Padding="15,5,15,5" 
+                     FocusVisualPrimaryBrush="Black" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+            <Button x:Name="leaveButton" Grid.Row="2"
+                     Content="Leave"
+                     FontSize="21"
+                     Width="300"
+                     Foreground="white"
+                     Background="#0077b6"
+                     Click="leaveButton_Click"
+                     CornerRadius="5"
+                     Padding="15,5,15,5" 
+                     FocusVisualPrimaryBrush="Black" VerticalAlignment="Top" Grid.RowSpan="2" />
+        </Grid>
+
+
+
+    </Grid>
+</Page>

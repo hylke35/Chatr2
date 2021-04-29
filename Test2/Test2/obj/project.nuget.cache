@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F7xywmPafQ7gCxWi92/W4ZxJlOWZP0EOOzb72LfzVE8in/MnfxlUA6UyxtxSwMiU6E8Lt/6gY/zDAjVCNvdnRQ==",
+  "dgSpecHash": "f5cinhHme0nwrOsC23mYUs6Q0XFDmRiR/cYPp82WvKQ/yHpbr9ddrKNBdyN2RRxMT7W6h3PYvUkvACyShKx5rA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\Test2.csproj",
+  "projectFilePath": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\ChatClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hemran\\.nuget\\packages\\easyencryption\\1.0.2\\easyencryption.1.0.2.nupkg.sha512",
     "C:\\Users\\Hemran\\.nuget\\packages\\microsoft.aspnet.signalr.client\\2.4.1\\microsoft.aspnet.signalr.client.2.4.1.nupkg.sha512",
@@ -40,12 +40,6 @@
     "C:\\Users\\Hemran\\.nuget\\packages\\youtubeextractor\\0.10.11\\youtubeextractor.0.10.11.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
     {
       "code": "NU1701",
       "level": "Warning",

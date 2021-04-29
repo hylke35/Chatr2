@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Linq;
 using Test2.DB;
 using Windows.ApplicationModel.Core;
@@ -20,7 +18,6 @@ namespace Test2
     {
         int userID;
         string username;
-        List<string> lobbyList = new List<string>();
         DBConnect connection = new DBConnect();
         ContentDialog dialogInput = new ContentDialog();
         TextBox inputBox = new TextBox();
@@ -84,7 +81,7 @@ namespace Test2
                         IDictionary<string, object> insertUserLobbyDictionary = new Dictionary<string, object>();
                         insertUserLobbyDictionary.Add("@code", input);
                         insertUserLobbyDictionary.Add("@userID", userID);
-                        connection.runQueryAsync("INSERT INTO dbo.User_Lobby(userID, lobbyCode, isReady, isLoaded) VALUES (@userID, @code, 0, 0)", insertUserLobbyDictionary);
+                        connection.RunQueryAsync("INSERT INTO dbo.User_Lobby(userID, lobbyCode, isReady, isLoaded) VALUES (@userID, @code, 0, 0)", insertUserLobbyDictionary);
 
                         // Create new Window and pass lobbyCode and userID
                         Redirect(input, userID);
@@ -193,7 +190,7 @@ namespace Test2
                 IDictionary<string, object> insertUserLobbyDictionary = new Dictionary<string, object>();
                 insertUserLobbyDictionary.Add("@code", code);
                 insertUserLobbyDictionary.Add("@userID", userID);
-                connection.runQueryAsync("INSERT INTO dbo.Lobby(lobbyCode, inProgress) VALUES (@code, 0);INSERT INTO dbo.User_Lobby(userID, lobbyCode, isReady, isLoaded) VALUES (@userID, @code, 0, 0)", insertUserLobbyDictionary);
+                connection.RunQueryAsync("INSERT INTO dbo.Lobby(lobbyCode, inProgress) VALUES (@code, 0);INSERT INTO dbo.User_Lobby(userID, lobbyCode, isReady, isLoaded) VALUES (@userID, @code, 0, 0)", insertUserLobbyDictionary);
 
                 // Create new Window and pass lobbyCode and userID
                 Redirect(code, userID);

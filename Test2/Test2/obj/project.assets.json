@@ -9388,9 +9388,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\Test2.csproj",
-      "projectName": "Test2",
-      "projectPath": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\Test2.csproj",
+      "projectUniqueName": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\ChatClient.csproj",
+      "projectName": "ChatClient",
+      "projectPath": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\ChatClient.csproj",
       "packagesPath": "C:\\Users\\Hemran\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\obj\\",
       "projectStyle": "PackageReference",
@@ -9481,12 +9481,6 @@
     }
   },
   "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
     {
       "code": "NU1701",
       "level": "Warning",

@@ -13,10 +13,9 @@ Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
-BlankPage1.xbf
 Chat.xbf
 Login.xbf
-MainPage.xbf
 Test2.xr.xml
-VideoLobby.xbf
+VideoParty\MainPage.xbf
+VideoParty\VideoLobby.xbf
 Properties\Default.rd.xml

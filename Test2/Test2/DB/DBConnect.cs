@@ -12,7 +12,7 @@ namespace Test2
         // Connection String of SQL Server
         string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=51.116.224.130,1433;Initial Catalog=ChatrTestDB;User ID=chatr;Password=TestPassword1!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
 
-        public string getConnectionString()
+        public string GetConnectionString()
         {
             return asyncConnectionString;
         }
@@ -23,7 +23,7 @@ namespace Test2
         /// </summary>
         /// <param name="query">Used to specify the query.</param>
         /// <param name="addwithvalue">Used to specify variables (optional) that are needed to execute the query.</param>
-        public async void runQueryAsync(string query, IDictionary<string, object> addwithvalue = null)
+        public async void RunQueryAsync(string query, IDictionary<string, object> addwithvalue = null)
         {
             using (SqlConnection connection = new SqlConnection(asyncConnectionString))
             {

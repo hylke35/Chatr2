@@ -119,14 +119,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BlankPage1.xaml.cs">
-      <DependentUpon>BlankPage1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Chat.xaml.cs">
       <DependentUpon>Chat.xaml</DependentUpon>
     </Compile>
     <Compile Include="ChatMessage.cs" />
     <Compile Include="ChatMessageViewModel.cs" />
+    <Compile Include="VideoParty\ClassHelper\WebRequestExtension.cs" />
+    <Compile Include="VideoParty\ClassHelper\YouTubeJSON.cs" />
+    <Compile Include="VideoParty\ClassHelper\Params.cs" />
     <Compile Include="DB\DBConnect.cs" />
     <Compile Include="DB\Lobby.cs" />
     <Compile Include="DB\User.cs" />
@@ -135,11 +135,10 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VideoLobby.xaml.cs">
-      <DependentUpon>VideoLobby.xaml</DependentUpon>
+    <Compile Include="..\..\..\VideoLobby.xaml.cs">
+      <Link>VideoParty\VideoLobby.xaml.cs</Link>
     </Compile>
-    <Compile Include="DBConnect.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="VideoParty\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -172,10 +171,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="BlankPage1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Chat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,11 +179,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VideoLobby.xaml">
+    <Page Include="VideoParty\VideoLobby.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="VideoParty\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

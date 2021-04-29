@@ -111,8 +111,8 @@
             <!-- Input field -->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="240*"/>
-                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <!-- Rows of messages -->

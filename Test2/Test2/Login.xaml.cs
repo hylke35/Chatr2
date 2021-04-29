@@ -87,7 +87,7 @@ namespace Test2
                 IDictionary<string, object> insertUserDict = new Dictionary<string, object>();
                 insertUserDict.Add("@username", username);
                 insertUserDict.Add("@password", hashedPassword);
-                connection.runQueryAsync("INSERT INTO dbo.Users (username, password) VALUES (@username, @password)", insertUserDict);
+                connection.RunQueryAsync("INSERT INTO dbo.Users (username, password) VALUES (@username, @password)", insertUserDict);
                 statusBox.Text = "Success, account with this username has been created!";
 
                 IDictionary<string, object> selectUserDict = new Dictionary<string, object>();

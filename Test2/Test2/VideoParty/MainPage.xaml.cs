@@ -35,58 +35,64 @@ namespace Test2
         int userID;
         IDictionary<int, string> videos;
         int currentVideo = 0;
-        Queue qt;
-
-
+        Queue videoQueue;
         public delegate void timerTick();
         DispatcherTimer ticks = new DispatcherTimer();
+        private DispatcherTimer _timer;
+        private bool _sliderpressed = false;
 
         public MainPage()
         {
             this.InitializeComponent();
             tempDir = SetTemporaryDirectory();
-            qt = new Queue();
-            mediaPlayer.CurrentStateChanged += media_change;
-            mediaPlayer.MediaEnded += media_ended;
-            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.testi;
+            videoQueue = new Queue();
+            mediaPlayer.CurrentStateChanged += Media_Change;
+            mediaPlayer.MediaEnded += Media_Ended;
+            // Add EventHandler to window close Listener
+            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += OnClose;
         }
 
-        public async void testi(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        // Event that gets triggered when closing this page
+        /// <summary>
+        /// Event that gets triggered when closing this page
+        /// </summary>
+        public async void OnClose(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
         {
-            IDictionary<string, object> p = new Dictionary<string, object>();
-            p.Add("@code", this.lobbyCode);
+            // Gets users from Lobby
+            IDictionary<string, object> userLobbySelectDictionary = new Dictionary<string, object>();
+            userLobbySelectDictionary.Add("@code", lobbyCode);
+            IEnumerable<object> userLobbySelect = await connection.DataReader("SELECT * FROM dbo.User_Lobby WHERE lobbyCode = @code", "User_Lobby", userLobbySelectDictionary);
+            List<object> userLobbySelectList = userLobbySelect.ToList();
 
-            IEnumerable<object> list2 = await connection.DataReader("SELECT * FROM dbo.User_Lobby WHERE lobbyCode = @code", "User_Lobby", p);
-
-            List<object> test2 = list2.ToList();
-
-            // If last one
-            if (test2.Count == 1)
+            // If last user
+            if (userLobbySelectList.Count == 1)
             {
-                IDictionary<string, object> p3 = new Dictionary<string, object>();
-                p3.Add("@code", this.lobbyCode);
-
-                connection.runQueryAsync("DELETE FROM dbo.Lobby WHERE lobbyCode = @code", p3);
+                // Delete Lobby from DB
+                IDictionary<string, object> deleteLobbyDictionary = new Dictionary<string, object>();
+                deleteLobbyDictionary.Add("@code", lobbyCode);
+                connection.RunQueryAsync("DELETE FROM dbo.Lobby WHERE lobbyCode = @code", deleteLobbyDictionary);
             }
             else
             {
-                IDictionary<string, object> p2 = new Dictionary<string, object>();
-                p2.Add("@userID", userID);
-                p2.Add("@code", this.lobbyCode);
-
-                connection.runQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", p2);
+                // Delete User from Lobby
+                IDictionary<string, object> deleteUserLobbyDictionary = new Dictionary<string, object>();
+                deleteUserLobbyDictionary.Add("@userID", userID);
+                deleteUserLobbyDictionary.Add("@code", lobbyCode);
+                connection.RunQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", deleteUserLobbyDictionary);
             }
 
-            foreach(string file in qt)
+            // Delete all videos from Storage
+            foreach(string file in videoQueue)
             {
                 File.Delete(file);
             }
-            
-
-            SqlDependency.Stop(connection.getConnectionString());
+            SqlDependency.Stop(connection.GetConnectionString());
         }
 
-
+        // Event that gets triggered when app is navigated to this page
+        /// <summary>
+        ///  Event that gets triggered when app is navigated to this page
+        /// </summary>
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -94,19 +100,25 @@ namespace Test2
             lobbyCode = parameters.LobbyCode;
             userID = parameters.UserId;
 
-            videos = await getURLs();
+            // Get URLs from Lobby and save them in videos var
+            videos = await GetURLs();
             List<string> urls = videos.Values.ToList();
 
-            downloadVideoList(urls);
+            // Download all videos
+            DownloadVideoList(urls);
 
-            changeStateTime();
-            changeStatePause();
-
+            // Initiate listeners
+            ChangeStateTime();
+            ChangeStatePause();
         }
 
-        public void changeStatePause()
+        // Video pause state Listener
+        /// <summary>
+        /// Video pause state Listener
+        /// </summary>
+        public void ChangeStatePause()
         {
-            using (SqlConnection conn = new SqlConnection(connection.getConnectionString()))
+            using (SqlConnection conn = new SqlConnection(connection.GetConnectionString()))
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand("SELECT isPaused FROM dbo.Video WHERE videoID = '" + videos.Keys.ToArray()[currentVideo] + "'", conn))
@@ -129,20 +141,23 @@ namespace Test2
             }
         }
 
+        // Event that gets triggered when video gets paused 
+        /// <summary>
+        /// Event that gets triggered when video gets paused 
+        /// </summary>
         private async void OnDependencyChangeStatePause(object sender, SqlNotificationEventArgs e)
         {
             if (e.Type == SqlNotificationType.Change && e.Info == SqlNotificationInfo.Update)
             {
-                IDictionary<string, object> p = new Dictionary<string, object>();
-                p.Add("@videoID", videos.Keys.ToArray()[currentVideo]);
+                // Gets changed video from DB
+                IDictionary<string, object> selectVideoDictionary = new Dictionary<string, object>();
+                selectVideoDictionary.Add("@videoID", videos.Keys.ToArray()[currentVideo]);
+                IEnumerable<object> selectVideo = await connection.DataReader("SELECT * FROM dbo.Video WHERE videoID = @videoID", "Video", selectVideoDictionary);
+                List<object> selectVideoList = selectVideo.ToList();
 
-                IEnumerable<object> list2 = await connection.DataReader("SELECT * FROM dbo.Video WHERE videoID = @videoID", "Video", p);
-
-                List<object> test2 = list2.ToList();
-
-                foreach (DB.Video l in test2)
+                // Pauses/Plays video depending on DB results
+                foreach (DB.Video l in selectVideoList)
                 {
-                    Debug.WriteLine("Paused: " + l.IsPaused.ToString());
                     await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                     () =>
                     {
@@ -154,20 +169,21 @@ namespace Test2
                         {
                             mediaPlayer.Play();
                         }
-
                     });
-
                 }
-
             }
             SqlDependency dependency = sender as SqlDependency;
-            changeStatePause();
+            ChangeStatePause();
         }
 
-        public void changeStateTime()
+        // Video timeline change
+        /// <summary>
+        ///  Video timeline change
+        /// </summary>
+        public void ChangeStateTime()
         {
             Debug.WriteLine("Sync Time: " + videos.Keys.ToArray()[currentVideo]);
-            using (SqlConnection conn = new SqlConnection(connection.getConnectionString()))
+            using (SqlConnection conn = new SqlConnection(connection.GetConnectionString()))
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand("SELECT syncTime FROM dbo.Video WHERE videoID = '" + videos.Keys.ToArray()[currentVideo] + "'", conn))
@@ -190,19 +206,22 @@ namespace Test2
             }
         }
 
+        // Event that gets triggered when videos timeline changes
+        /// <summary>
+        ///  Event that gets triggered when videos timeline changes
+        /// </summary>
         private async void OnDependencyChangeStateTime(object sender, SqlNotificationEventArgs e)
         {
             if (e.Type == SqlNotificationType.Change && e.Info == SqlNotificationInfo.Update)
             {
+                // Get changed video
+                IDictionary<string, object> selectVideoDictionary = new Dictionary<string, object>();
+                selectVideoDictionary.Add("@videoID", videos.Keys.ToArray()[currentVideo]);
+                IEnumerable<object> selectVideo = await connection.DataReader("SELECT * FROM dbo.Video WHERE videoID = @videoID", "Video", selectVideoDictionary);
+                List<object> selectVideoList = selectVideo.ToList();
 
-                IDictionary<string, object> p = new Dictionary<string, object>();
-                p.Add("@videoID", videos.Keys.ToArray()[currentVideo]);
-
-                IEnumerable<object> list2 = await connection.DataReader("SELECT * FROM dbo.Video WHERE videoID = @videoID", "Video", p);
-
-                List<object> test2 = list2.ToList();
-
-                foreach (DB.Video l in test2)
+                // Synconize local player with DB time
+                foreach (DB.Video l in selectVideoList)
                 {
                     await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                     () =>
@@ -215,56 +234,56 @@ namespace Test2
                         b.Path = new PropertyPath("Position.TotalSeconds");
                         PositionSlider.SetBinding(Slider.ValueProperty, b);
                     });
-
                 }
-
             }
             SqlDependency dependency = sender as SqlDependency;
-            changeStateTime();
+            ChangeStateTime();
         }
 
-
-        public async Task<IDictionary<int, string>> getURLs()
+        // Gets video URLS from Lobby
+        /// <summary>
+        /// Gets videoURLS from Lobby
+        /// </summary>
+        public async Task<IDictionary<int, string>> GetURLs()
         {
             IDictionary<int, string> urls = new Dictionary<int, string>();
-
-            IDictionary<string, object> p = new Dictionary<string, object>();
-            p.Add("@code", this.lobbyCode);
-
-            IEnumerable<object> list2 = await connection.DataReader("SELECT link, videoID, syncTime, isPaused, title FROM dbo.Video WHERE lobbyCode = @code", "Video", p);
-
-            List<object> test2 = list2.ToList();
-
-            foreach (DB.Video l in test2)
+            IDictionary<string, object> getVideoDataDictionary = new Dictionary<string, object>();
+            getVideoDataDictionary.Add("@code", this.lobbyCode);
+            IEnumerable<object> getVideoData = await connection.DataReader("SELECT link, videoID, syncTime, isPaused, title FROM dbo.Video WHERE lobbyCode = @code", "Video", getVideoDataDictionary);
+            List<object> getVideoDataList = getVideoData.ToList();
+            foreach (DB.Video l in getVideoDataList)
             {
                 urls.Add(l.VideoId, l.Link);
             }
-
             return urls;
         }
 
-
-        public async void media_ended(object sender, RoutedEventArgs e)
+        // Event that gets triggered when video ended
+        /// <summary>
+        /// Event that gets triggered when video ended
+        /// </summary>
+        public async void Media_Ended(object sender, RoutedEventArgs e)
         {
             StopTimer();
             PositionSlider.Value = 0.0;
 
-            File.Delete((string)qt.Peek());
-
-            qt.Dequeue();
-            if (qt.Count != 0)
+            // Delete video from storage
+            File.Delete((string)videoQueue.Peek());
+            videoQueue.Dequeue();
+            // If there is still a video in queue
+            if (videoQueue.Count != 0)
             {
-                await setMediaPlayerAsync((string)qt.Peek());
+                await SetMediaPlayerAsync((string)videoQueue.Peek());
                 currentVideo++;
             }
             else
             {
+                // No video in queue
                 // Go back to lobby screen
-                IDictionary<string, object> f = new Dictionary<string, object>();
-                f.Add("@code", lobbyCode);
-
-                connection.runQueryAsync("UPDATE Lobby SET inProgress = 0 WHERE lobbyCode = @code", f);
-
+                IDictionary<string, object> updateInProgressDictionary = new Dictionary<string, object>();
+                updateInProgressDictionary.Add("@code", lobbyCode);
+                connection.RunQueryAsync("UPDATE Lobby SET inProgress = 0 WHERE lobbyCode = @code", updateInProgressDictionary);
+                // Redirect to Lobby
                 var parameters = new Params();
                 parameters.LobbyCode = lobbyCode;
                 parameters.UserId = userID;
@@ -272,22 +291,21 @@ namespace Test2
             }
         }
 
-        // ------------------
-
-        private DispatcherTimer _timer;
-        private bool _sliderpressed = false;
-
+        // Event that gets triggered when page is loaded
+        /// <summary>
+        /// Event that gets triggered when page is loaded
+        /// </summary>
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            PositionSlider.ValueChanged += timelineSlider_ValueChanged;
-
-            PointerEventHandler pointerpressedhandler = new PointerEventHandler(slider_PointerEntered);
+            // Add EventHandlers to Slider Listeners
+            PositionSlider.ValueChanged += TimelineSlider_ValueChanged;
+            PointerEventHandler pointerpressedhandler = new PointerEventHandler(Slider_PointerEntered);
             PositionSlider.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);
-
-            PointerEventHandler pointerreleasedhandler = new PointerEventHandler(slider_PointerCaptureLost);
+            PointerEventHandler pointerreleasedhandler = new PointerEventHandler(Slider_PointerCaptureLost);
             PositionSlider.AddHandler(Control.PointerCaptureLostEvent, pointerreleasedhandler, true);
         }
 
+        // ------------------ Custom TimeLine --------------------
         private void SetupTimer()
         {
             _timer = new DispatcherTimer();
@@ -295,7 +313,7 @@ namespace Test2
             StartTimer();
         }
 
-        private void _timer_Tick(object sender, object e)
+        private void Timer_Tick(object sender, object e)
         {
             if (!_sliderpressed)
             {
@@ -305,16 +323,15 @@ namespace Test2
 
         private void StartTimer()
         {
-            _timer.Tick += _timer_Tick;
+            _timer.Tick += Timer_Tick;
             _timer.Start();
         }
 
         private void StopTimer()
         {
             _timer.Stop();
-            _timer.Tick -= _timer_Tick;
+            _timer.Tick -= Timer_Tick;
         }
-
 
         private double SliderFrequency(TimeSpan timevalue)
         {
@@ -348,23 +365,21 @@ namespace Test2
             return stepfrequency;
         }
 
-
-
-        void slider_PointerEntered(object sender, PointerRoutedEventArgs e)
+        void Slider_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             _sliderpressed = true;
         }
 
-        void slider_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
+        void Slider_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
         {
             // Update Time in DB
             Slider slider = (Slider)sender;
-            IDictionary<string, object> p = new Dictionary<string, object>();
-            p.Add("@currentTime", PositionSlider.Value);
-            p.Add("@videoID", videos.Keys.ToArray()[currentVideo]);
+            IDictionary<string, object> syncTimeDictionary = new Dictionary<string, object>();
+            syncTimeDictionary.Add("@currentTime", PositionSlider.Value);
+            syncTimeDictionary.Add("@videoID", videos.Keys.ToArray()[currentVideo]);
 
-            connection.runQueryAsync("UPDATE dbo.Video SET syncTime = @currentTime WHERE videoID = @videoID", p);
-
+            connection.RunQueryAsync("UPDATE dbo.Video SET syncTime = @currentTime WHERE videoID = @videoID", syncTimeDictionary);
+            // Sync TimeLine with Video
             mediaPlayer.Position = TimeSpan.FromSeconds(PositionSlider.Value);
 
             Binding b = new Binding();
@@ -374,35 +389,21 @@ namespace Test2
             _sliderpressed = false;
         }
 
-        void timelineSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        void TimelineSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
             if (!_sliderpressed)
             {
                 mediaPlayer.Position = TimeSpan.FromSeconds(e.NewValue);
             }
         }
+        // ------------------ Custom TimeLine --------------------
 
 
-        private string GetHresultFromErrorMessage(ExceptionRoutedEventArgs e)
-        {
-            String hr = String.Empty;
-            String token = "HRESULT - ";
-            const int hrLength = 10;     // eg "0xFFFFFFFF"
-
-            int tokenPos = e.ErrorMessage.IndexOf(token, StringComparison.Ordinal);
-            if (tokenPos != -1)
-            {
-                hr = e.ErrorMessage.Substring(tokenPos + token.Length, hrLength);
-            }
-
-            return hr;
-        }
-
-        // -----------------------
-
-
-
-        public void media_change(object sender, RoutedEventArgs e)
+        // Event that gets triggered when video changed
+        /// <summary>
+        /// Event that gets triggered when video changed
+        /// </summary>
+        public void Media_Change(object sender, RoutedEventArgs e)
         {
             if (mediaPlayer.CurrentState == MediaElementState.Playing)
             {
@@ -427,34 +428,24 @@ namespace Test2
                 PositionSlider.Value = 0;
             }
 
-
+            // Invoke method when Player paused/played
             switch (mediaPlayer.CurrentState)
             {
-                case MediaElementState.Buffering:
-                    break;
-                case MediaElementState.Closed:
-                    Debug.WriteLine("Closed");
-                    break;
-                case MediaElementState.Opening:
-                    break;
                 case MediaElementState.Paused:
-                    updateVideoState("paused");
+                    UpdateVideoState("paused");
                     break;
                 case MediaElementState.Playing:
-                    updateVideoState("playing");
-                    break;
-                case MediaElementState.Stopped:
-                    Debug.WriteLine("stopped");
-                    break;
-                default:
+                    UpdateVideoState("playing");
                     break;
             }
         }
 
-
-        public void updateVideoState(string status)
+        // Event that gets triggered when Player gets paused or played
+        /// <summary>
+        /// Event that gets triggered when Player gets paused or played
+        /// </summary>
+        public void UpdateVideoState(string status)
         {
-
             var isPaused = 1;
             if (status == "playing")
             {
@@ -464,25 +455,31 @@ namespace Test2
             {
                 isPaused = 1;
             }
-
-            IDictionary<string, object> p = new Dictionary<string, object>();
-            p.Add("@isPaused", isPaused);
-            p.Add("@videoID", videos.Keys.ToArray()[currentVideo]);
-            connection.runQueryAsync("UPDATE dbo.Video SET isPaused = @isPaused WHERE videoID = @videoID", p);
-
+            //Update state of isPaused in database
+            IDictionary<string, object> updateVideoStateDictionary = new Dictionary<string, object>();
+            updateVideoStateDictionary.Add("@isPaused", isPaused);
+            updateVideoStateDictionary.Add("@videoID", videos.Keys.ToArray()[currentVideo]);
+            connection.RunQueryAsync("UPDATE dbo.Video SET isPaused = @isPaused WHERE videoID = @videoID", updateVideoStateDictionary);
         }
 
-
-
+        // Create and return temp directory for downloaded videos
+        /// <summary>
+        /// Create and return temp directory for downloaded videos
+        /// </summary>
         public string SetTemporaryDirectory()
         {
+            //Sets temp path for download location of videos
             string tempDirectory = Path.Combine(Path.GetTempPath());
             Directory.CreateDirectory(tempDirectory);
             Debug.WriteLine(tempDirectory);
             return tempDirectory;
         }
 
-        public async Task setMediaPlayerAsync(string uri)
+        // Sets the source of the MediaPlayer to the current video
+        /// <summary>
+        /// Sets the source of the MediaPlayer to the current video
+        /// </summary>
+        public async Task SetMediaPlayerAsync(string uri)
         {
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             () =>
@@ -490,36 +487,40 @@ namespace Test2
                 mediaPlayer.Source = new Uri(@"ms-appx:///" + uri);
                 playList.SelectedIndex = currentVideo;
             });
-
-            mediaPlayer.MediaOpened += loaded;
-
+            mediaPlayer.MediaOpened += Media_Loaded;
         }
 
-
-        public void loaded(object sender, RoutedEventArgs e)
+        // Event that gets triggered when video is loaded
+        /// <summary>
+        /// Event that gets triggered when video is loaded
+        /// </summary>
+        public void Media_Loaded(object sender, RoutedEventArgs e)
         {
+            // Update Position of Slider
             double absvalue = (int)Math.Round(
             mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds,
             MidpointRounding.AwayFromZero);
             PositionSlider.Maximum = absvalue;
             PositionSlider.StepFrequency =
-                SliderFrequency(mediaPlayer.NaturalDuration.TimeSpan);
+            SliderFrequency(mediaPlayer.NaturalDuration.TimeSpan);
             SetupTimer();
-
+            // Initiate Listener
             CheckLoadedState();
-
-            IDictionary<string, object> p = new Dictionary<string, object>();
-            p.Add("@userID", userID);
-            p.Add("@lobbyCode", lobbyCode);
-            connection.runQueryAsync("UPDATE dbo.User_Lobby SET isLoaded = 1 WHERE lobbyCode = @lobbyCode AND userID = @userID", p);
-
-
-            changeStateTime();
+            // Change isLoaded column from user in Lobby
+            IDictionary<string, object> setIsLoadedDictionary = new Dictionary<string, object>();
+            setIsLoadedDictionary.Add("@userID", userID);
+            setIsLoadedDictionary.Add("@lobbyCode", lobbyCode);
+            connection.RunQueryAsync("UPDATE dbo.User_Lobby SET isLoaded = 1 WHERE lobbyCode = @lobbyCode AND userID = @userID", setIsLoadedDictionary);
+            ChangeStateTime();
         }
 
+        // isLoaded DB Listener
+        /// <summary>
+        /// EisLoaded DB Listener
+        /// </summary>
         public void CheckLoadedState()
         {
-            using (SqlConnection conn = new SqlConnection(connection.getConnectionString()))
+            using (SqlConnection conn = new SqlConnection(connection.GetConnectionString()))
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand("SELECT isLoaded FROM dbo.User_Lobby WHERE lobbyCode = '" + this.lobbyCode + "'", conn))
@@ -542,19 +543,22 @@ namespace Test2
             }
         }
 
+        // Event that is triggered when isLoaded changed for a user
+        /// <summary>
+        /// Event that is triggered when isLoaded changed for a user
+        /// </summary>
         private async void OnDependencyCheckLoadedState(object sender, SqlNotificationEventArgs e)
         {
             if (e.Type == SqlNotificationType.Change && e.Info == SqlNotificationInfo.Update)
             {
-                IDictionary<string, object> p = new Dictionary<string, object>();
-                p.Add("@code", this.lobbyCode);
-
-                IEnumerable<object> list2 = await connection.DataReader("SELECT * FROM dbo.User_Lobby WHERE lobbyCode = @code", "User_Lobby", p);
-
-                List<object> test2 = list2.ToList();
+                // Gets users in Lobby
+                IDictionary<string, object> selectUserLobbyDictionary = new Dictionary<string, object>();
+                selectUserLobbyDictionary.Add("@code", this.lobbyCode);
+                IEnumerable<object> selectUserLobby = await connection.DataReader("SELECT * FROM dbo.User_Lobby WHERE lobbyCode = @code", "User_Lobby", selectUserLobbyDictionary);
+                List<object> selectUserLobbyList = selectUserLobby.ToList();
 
                 bool allLoaded = true;
-                foreach (UserLobby l in test2)
+                foreach (UserLobby l in selectUserLobbyList)
                 {
                     if (l.isLoaded == 0)
                     {
@@ -562,6 +566,7 @@ namespace Test2
                     }
                 }
 
+                // If everyone is loaded, play the video for everyone
                 if (allLoaded)
                 {
                     await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
@@ -577,42 +582,38 @@ namespace Test2
             CheckLoadedState();
         }
 
-        public string downloadVideo(string link)
+        // Downloads specified Video
+        /// <summary>
+        /// Downloads specified Video and returns saved path
+        /// </summary>
+        public string DownloadVideo(string link)
         {
-            // this.ss.Wait();
-            Debug.WriteLine("Begninn");
+            Debug.WriteLine("Begnin"); // Semaphore Debugging Test
             var youTube = YouTube.Default; // starting point for YouTube actions
             var video = youTube.GetVideo(link); // gets a Video object with info about the video
             var path = tempDir + video.FullName;
-            File.WriteAllBytes(path, video.GetBytes());
-            Debug.WriteLine("END");
-            //Notify the semaphore that there is a space available
-            // this.ss.Release();
-
-
+            File.WriteAllBytes(path, video.GetBytes()); // Saves video
+            Debug.WriteLine("END"); // Semaphore Debugging Test
             return path;
         }
 
-        public async Task<string> downloadVideoAsync(string link)
+        // Downloads specified videoList with a semaphore
+        /// <summary>
+        /// Downloads specified videoList with a semaphore that limits concurrent download of videos
+        /// </summary>
+        public async void DownloadVideoList(List<string> urls)
         {
-            return await Task.Run(() => downloadVideo(link));
-        }
-
-
-
-        public async void downloadVideoList(List<string> urls)
-        {
-
+            //Download videos
             List<Task<string>> trackedTasks = new List<Task<string>>();
             foreach (var item in urls)
             {
+                // Ask semaphore for entrance
                 await ss.WaitAsync().ConfigureAwait(false);
                 trackedTasks.Add(Task.Run(() =>
                 {
-
                     try
                     {
-                        return downloadVideo(item);
+                        return DownloadVideo(item);
                     }
                     catch (Exception e)
                     {
@@ -621,18 +622,23 @@ namespace Test2
                     }
                     finally
                     {
+                        // Release thread/task from semaphore
                         ss.Release();
                     }
                 }));
             }
+
+            // When all tasks are done return into variable
             var results = await Task.WhenAll(trackedTasks);
 
+            // Put all video paths into a queue
             foreach (var r in results)
             {
-                qt.Enqueue(r);
+                videoQueue.Enqueue(r);
             }
 
-            foreach (var q in qt)
+            //Add each video into playlist
+            foreach (var q in videoQueue)
             {
                 var r = q.ToString();
                 var mp4 = r.Substring(r.LastIndexOf('\\') + 1);
@@ -642,15 +648,10 @@ namespace Test2
                 {
                     playList.Items.Add(result);
                 });
-
             }
 
-            await setMediaPlayerAsync(results[0]);
-        }
-
-        private void playList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Debug.WriteLine(playList.SelectedItem);
+            // Set MediaPlayers source to first video
+            await SetMediaPlayerAsync(results[0]);
         }
     }
 }
