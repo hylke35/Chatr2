@@ -288,6 +288,8 @@ namespace Test2
                 updateUserReadyState.Add("@code", lobbyCode);
                 updateUserReadyState.Add("@userID", userID);
                 connection.RunQueryAsync("UPDATE User_Lobby SET isReady = 0, isLoaded = 0 WHERE lobbyCode = @code AND userID = @userID", updateUserReadyState);
+
+
                 // Redirect to Lobby
                 var parameters = new Params();
                 parameters.LobbyCode = lobbyCode;
