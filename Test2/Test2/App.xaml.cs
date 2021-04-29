@@ -35,9 +35,9 @@ namespace Test2
             proxy.On<ChatMessage>("broadcastPrivateMessage", OnMessage);
         }
 
-        public void Connect(Users username)
+        public void Connect(Users user)
         {
-            proxy.Invoke("Connect", username);
+            proxy.Invoke("Connect", user);
         }
         public void BroadcastMessage(ChatMessage msg)
         {
@@ -96,7 +96,7 @@ namespace Test2
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(Chat), e.Arguments);
+                    rootFrame.Navigate(typeof(Login), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

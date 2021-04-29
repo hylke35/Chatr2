@@ -8,7 +8,7 @@ namespace Test2
 {
     public class Users
     {
-        public string ConnectionId { get; set; }
+        public int ConnectionId { get; set; }
         public string Username { get; set; }
     }
 }

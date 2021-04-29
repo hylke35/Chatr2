@@ -28,7 +28,6 @@ namespace Test2
         {
             this.InitializeComponent();
             this.DataContext = (Application.Current as App).ChatVM;
-            onConnection();
         }
 
         private void Setup()
@@ -135,6 +134,7 @@ namespace Test2
             username = parameters.UserName;
 
             Setup();
+            onConnection();
         }
 
         private void send_Click(object sender, RoutedEventArgs e)
@@ -144,7 +144,7 @@ namespace Test2
         }
         private void onConnection()
         {
-            (Application.Current as App).Connect(new Users { Username = username });
+            (Application.Current as App).Connect(new Users { Username = username, ConnectionId = userID});
         }
 
 

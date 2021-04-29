@@ -7,18 +7,18 @@ namespace ChatServer
     {
         static List<User> ConnectedUsers = new List<User>();
         // When connecting to the SignalR server, the user is added to the list of users created above this line.
-        public void Connect(string userName)
+        public void Connect(string user)
         {
             var id = Context.ConnectionId;
 
             if (ConnectedUsers.Count(x => x.ConnectionId == id) == 0)
             {
 
-                ConnectedUsers.Add(new User { ConnectionId = id, UserName = userName });
+                ConnectedUsers.Add(new User { ConnectionId = id, UserName = user });
 
-                Clients.Caller.onConnected(id, userName, ConnectedUsers);
+                Clients.Caller.onConnected(id, user, ConnectedUsers);
 
-                Clients.AllExcept(id).onNewUserConnected(id, userName);
+                Clients.AllExcept(id).onNewUserConnected(id, user);
             }
 
         }
