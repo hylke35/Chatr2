@@ -10,6 +10,10 @@
         <ImageBrush Stretch="UniformToFill" ImageSource="Assets/bg.png"/>
     </Page.Background>
     <Grid Padding="50,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="607*"/>
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -17,14 +21,14 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Background="#0077b6" >
+        <StackPanel Grid.Row="0" Background="#0077b6" Grid.ColumnSpan="2" Margin="50,0,50,0" >
             <TextBlock x:ConnectionId='8' x:Name="lobbyCodeLabel" Text="-" FontFamily="Century Gothic"
                        FontSize="30"
                        Foreground="white"
                        TextAlignment="Center"
                        />
         </StackPanel>
-        <Grid Grid.Row="1" Background="Transparent" Margin="0,110,0,0">
+        <Grid Grid.Row="1" Background="Transparent" Margin="50,110,50,0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="250"/>
@@ -49,7 +53,7 @@
                      FocusVisualPrimaryBrush="White" FocusVisualSecondaryBrush="White" />
         </Grid>
 
-        <Grid Grid.Row="2" Margin="0,100">
+        <Grid Grid.Row="2" Margin="50,100,50,100" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="2*"/>
@@ -95,7 +99,7 @@
             </Grid>
 
         </Grid>
-        <Grid Grid.Row="3" Margin="100,0,100,0" HorizontalAlignment="Center">
+        <Grid Grid.Row="3" Margin="249,0,0,0" HorizontalAlignment="Left" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="2*"/>

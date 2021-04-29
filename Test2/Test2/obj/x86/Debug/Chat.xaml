@@ -12,110 +12,123 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
-        <RelativePanel Grid.Column="0" >
-            <Button x:ConnectionId='7' x:Name="createLobby" Grid.Row="0"
-                            Margin="50,0,0,0"
-                            Content="Create Lobby"
-                            FontSize="21"
-                            Foreground="white"
-                            Background="#0077b6"
-                            CornerRadius="5"
-                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False"                          >
-                <Button.Resources>
-                    <ResourceDictionary>
-                        <ResourceDictionary.ThemeDictionaries>
-                            <ResourceDictionary x:Key="Dark">
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
-                            </ResourceDictionary>
-                            <ResourceDictionary x:Key="Light">
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
-                            </ResourceDictionary>
-                        </ResourceDictionary.ThemeDictionaries>
-                    </ResourceDictionary>
-                </Button.Resources>
-            </Button>
-            <Button x:ConnectionId='8' x:Name="joinLobby" Grid.Row="5"
-                            Margin="250,0,0,0"
-                            Content="Join Lobby"
-                            FontSize="21"
-                            Foreground="white"
-                            Background="#0077b6"
-                            CornerRadius="5"
-                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False"                        >
-                <Button.Resources>
-                    <ResourceDictionary>
-                        <ResourceDictionary.ThemeDictionaries>
-                            <ResourceDictionary x:Key="Dark">
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
-                            </ResourceDictionary>
-                            <ResourceDictionary x:Key="Light">
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
-                            </ResourceDictionary>
-                        </ResourceDictionary.ThemeDictionaries>
-                    </ResourceDictionary>
-                </Button.Resources>
-            </Button>
-        </RelativePanel>
-        <RelativePanel Grid.Column="1">
-            <ListView x:ConnectionId='4' x:Name="lv" ItemsSource="{Binding Messages}" Margin="70,50,260,135" Background="#FF4A4848">
-                <ListView.ItemTemplate>
-                    <DataTemplate                               >
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Username}" 
+
+        <StackPanel Background="#0077b6" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40px"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                           FontSize="20"
+                           FontFamily="Century Gothic"
                            Margin="10"
+                           TextAlignment="Center"
+                           Foreground="white"
+                           Text="Welcome Name!"/>
+                <Button x:ConnectionId='7' x:Name="joinLobby" Grid.Row="1"
+                        Content=" Join Lobby"
+                                               
+                        FontSize="12"
+                        Margin="5"
+                        Width="115"
+                        Foreground="white"
+                        HorizontalAlignment="left"
+                        CornerRadius="5"
+                        Padding="15,5,15,5" 
+                        FocusVisualPrimaryBrush="Black"  />
+                <Button x:ConnectionId='8' x:Name="createLobby" Grid.Row="1"
+                        Content=" Create Lobby"
+                                                 
+                        FontSize="12"
+                        Margin="5"
+                        HorizontalAlignment="Right"
+                        Width="115"
+                        Foreground="white"
+                        CornerRadius="5"
+                        Padding="15,5,15,5" 
+                        FocusVisualPrimaryBrush="Black"  />
+                <TextBlock Grid.Row="2"
+                           FontSize="20"
+                           FontFamily="Century Gothic"
+                           Margin="10"
+                           TextAlignment="left"
+                           Foreground="white"
+                           Text="Active lobbies:"/>
+            </Grid>
+
+        </StackPanel>
+        <Grid Grid.Column="1" >
+            <Grid.Background>
+                <ImageBrush Stretch="None" ImageSource="Assets/images/bg.png"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <!-- Video block -->
+
+            <!-- End of Video block -->
+            <!-- Chat block -->
+            <ScrollViewer Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <!-- Rows of messages -->
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <!-- Messages -->
+                    <ListView x:ConnectionId='4' x:Name="lv" ItemsSource="{Binding Messages}" MinHeight="600" Background="White"  Grid.RowSpan="9">
+                        <ListView.ItemTemplate>
+                            <DataTemplate                               >
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Username}" 
+                           Margin="10"                    
+                           TextAlignment="right"
                            FontSize="18" 
                            FontStyle="Italic" 
                            FontWeight="SemiBold"
-                           Foreground="White" />
-                            <TextBlock Text="{Binding Message}" 
+                           Foreground="Black" />
+                                    <TextBlock Text="{Binding Message}" 
                            Margin="10"
-                           FontSize="16"
-                           Foreground="AntiqueWhite" 
+                           FontSize="14"
+                           Foreground="Black" 
                            Opacity="0.8" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </RelativePanel>
+                                </StackPanel>
+                            </DataTemplate>
 
-        <RelativePanel Grid.Column="3">
-            <TextBox x:ConnectionId='2' x:Name="text" Grid.Row="1"
-                             FontSize="25"
-                             Margin="50,0,50,20"
-                             BorderThickness="0,0,0,3"
-                             BorderBrush="black" Background="White" Foreground="Black" SelectionHighlightColor="#FF0077B6"/>
-            <Button x:ConnectionId='3' x:Name="send" Grid.Row="2"
-                            Margin="50,0,0,0"
-                            Content="Send"
-                            FontSize="21"
-                            Foreground="white"
-                            Background="#0077b6"
-                            CornerRadius="5"
-                            Padding="15,5,15,5" FocusVisualPrimaryBrush="Black"  IsDoubleTapEnabled="False" IsRightTapEnabled="False" IsHoldingEnabled="False"                   >
-                <Button.Resources>
-                    <ResourceDictionary>
-                        <ResourceDictionary.ThemeDictionaries>
-                            <ResourceDictionary x:Key="Dark">
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
-                            </ResourceDictionary>
-                            <ResourceDictionary x:Key="Light">
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerEntered" Color="Black"/>
-                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="Black"/>
-                            </ResourceDictionary>
-                        </ResourceDictionary.ThemeDictionaries>
-                    </ResourceDictionary>
-                </Button.Resources>
-            </Button>
-        </RelativePanel>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </ScrollViewer>
+            <!-- End of Chat block -->
 
+            <!-- Input field -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <!-- Rows of messages -->
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBox x:ConnectionId='2' x:Name="text" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
+                <Button x:ConnectionId='3' x:Name="send"
+                        Content=" Send"
+                                          
+                        FontSize="12"
+                        Margin="0,672,10,0"
+                        HorizontalAlignment="Right"
+                        Width="85"
+                        Foreground="white"
+                        CornerRadius="5"
+                        Padding="15,5,15,5" 
+                        FocusVisualPrimaryBrush="Black" Grid.RowSpan="2" VerticalAlignment="top" Height="38" Background="#33000000"  />
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
 

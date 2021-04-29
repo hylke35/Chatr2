@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-29T13:42:30.403</Modified>
+      <Modified>2021-04-29T14:26:05.666</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Test2.exe">
       <PackagePath>entrypoint\Test2.exe</PackagePath>
-      <Modified>2021-04-29T13:42:29.909</Modified>
+      <Modified>2021-04-29T14:26:05.211</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\easyencryption\1.0.2\lib\EasyEncryption.dll">
       <PackagePath>EasyEncryption.dll</PackagePath>
@@ -84,81 +84,81 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\bg.png">
       <PackagePath>Assets\bg.png</PackagePath>
-      <Modified>2021-04-29T10:28:30.799</Modified>
+      <Modified>2021-04-29T13:49:14.032</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\logo.png">
       <PackagePath>Assets\logo.png</PackagePath>
-      <Modified>2021-04-29T10:28:30.737</Modified>
+      <Modified>2021-04-29T13:49:13.940</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2021-04-29T10:28:30.735</Modified>
+      <Modified>2021-04-29T13:49:13.938</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-29T10:28:30.742</Modified>
+      <Modified>2021-04-29T13:49:13.940</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-29T10:28:30.807</Modified>
+      <Modified>2021-04-29T13:49:13.955</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-29T10:28:30.792</Modified>
+      <Modified>2021-04-29T13:49:13.942</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-29T10:28:30.798</Modified>
+      <Modified>2021-04-29T13:49:13.944</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-29T10:28:30.796</Modified>
+      <Modified>2021-04-29T13:49:13.943</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-29T10:28:30.799</Modified>
+      <Modified>2021-04-29T13:49:13.944</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\test720.mp4">
       <PackagePath>Assets\test720.mp4</PackagePath>
-      <Modified>2021-04-29T10:28:31.164</Modified>
+      <Modified>2021-04-29T13:49:14.530</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2021-04-29T10:28:31.121</Modified>
+      <Modified>2021-04-29T13:49:14.174</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Test2.xr.xml">
       <PackagePath>Test2.xr.xml</PackagePath>
-      <Modified>2021-04-29T13:42:29.706</Modified>
+      <Modified>2021-04-29T14:24:24.619</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-04-29T12:16:37.621</Modified>
+      <Modified>2021-04-29T14:18:03.961</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage1.xbf">
       <PackagePath>BlankPage1.xbf</PackagePath>
-      <Modified>2021-04-29T12:16:37.621</Modified>
+      <Modified>2021-04-29T14:18:03.962</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Chat.xbf">
       <PackagePath>Chat.xbf</PackagePath>
-      <Modified>2021-04-29T13:42:29.716</Modified>
+      <Modified>2021-04-29T14:26:05.010</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf">
       <PackagePath>Login.xbf</PackagePath>
-      <Modified>2021-04-29T12:16:37.621</Modified>
+      <Modified>2021-04-29T14:18:03.962</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\VideoLobby.xbf">
       <PackagePath>VideoLobby.xbf</PackagePath>
-      <Modified>2021-04-29T12:16:37.622</Modified>
+      <Modified>2021-04-29T14:18:03.962</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-04-29T12:16:37.622</Modified>
+      <Modified>2021-04-29T14:18:03.962</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -166,11 +166,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-04-29T10:30:03.943</Modified>
+      <Modified>2021-04-29T13:55:32.846</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Core\Test2.exe">
       <PackagePath>Test2.exe</PackagePath>
-      <Modified>2021-04-29T13:42:30.400</Modified>
+      <Modified>2021-04-29T14:26:05.662</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
