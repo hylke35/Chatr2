@@ -39,7 +39,7 @@
         Description="Test2"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png"  BackgroundColor="#0077B6"/>
       </uap:VisualElements>
     </Application>
   </Applications>
