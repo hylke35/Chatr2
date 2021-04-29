@@ -130,17 +130,17 @@ namespace Test2
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //base.OnNavigatedTo(e);
-            //var parameters = (LoginParams)e.Parameter;
-            //userID = parameters.UserID;
-            //username = parameters.UserName;
+            base.OnNavigatedTo(e);
+            var parameters = (LoginParams)e.Parameter;
+            userID = parameters.UserID;
+            username = parameters.UserName;
 
             Setup();
         }
 
         private void send_Click(object sender, RoutedEventArgs e)
         {
-            (Application.Current as App).Broadcast(new ChatMessage { Username = "bob", Message = text.Text });
+            (Application.Current as App).Broadcast(new ChatMessage { Username = username, Message = text.Text });
             text.Text = "";
         }
 

@@ -16,7 +16,7 @@
             <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Background="#0077b6" >
+        <StackPanel Background="#0077b6" Margin="-5,0,5,0" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40px"/>
@@ -30,7 +30,7 @@
                            Margin="10"
                            TextAlignment="Center"
                            Foreground="white"
-                           Text="Welcome Name!"/>
+                           Text="Welcome!"/>
                 <Button x:Name="joinLobby" Grid.Row="1"
                         Content=" Join Lobby"
                         Click="joinLobby_Click"
@@ -110,23 +110,27 @@
 
             <!-- Input field -->
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="240*"/>
+                    <ColumnDefinition Width="30*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <!-- Rows of messages -->
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="text" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
                 <Button x:Name="send"
                         Content=" Send"
                         Click="send_Click"
                         FontSize="12"
-                        Margin="0,672,10,0"
+                        Margin="0,638,10,0"
                         HorizontalAlignment="Right"
                         Width="85"
                         Foreground="white"
                         CornerRadius="5"
                         Padding="15,5,15,5" 
-                        FocusVisualPrimaryBrush="Black" Grid.RowSpan="2" VerticalAlignment="top" Height="38" Background="#33000000"  />
+                        FocusVisualPrimaryBrush="Black" VerticalAlignment="Top" Height="38" Background="#33000000" Grid.Row="1" Grid.Column="1"  />
+                <TextBox x:Name="text" HorizontalAlignment="Left" Margin="10,638,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="900" Height="38"/>
             </Grid>
         </Grid>
     </Grid>
