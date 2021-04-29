@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Test2.DB;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 

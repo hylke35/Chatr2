@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using Test2.DB;
 using Windows.UI.Core;
 using Windows.UI.Core.Preview;
 using Windows.UI.Popups;
@@ -60,6 +61,7 @@ namespace Test2
             // Open lobby via new window [X]
             // When leaving MainPage, delete videos [X]
             // implement Design [X]
+            // Check if inProgress is 0 after done with VideoParty [ ]
             // Clean up code (VideoLobby, MainPage, Chat) [ ]
 
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.testi;

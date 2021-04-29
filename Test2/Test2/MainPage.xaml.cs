@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Test2.DB;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -139,7 +140,7 @@ namespace Test2
 
                 List<object> test2 = list2.ToList();
 
-                foreach (Video l in test2)
+                foreach (DB.Video l in test2)
                 {
                     Debug.WriteLine("Paused: " + l.IsPaused.ToString());
                     await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
@@ -201,7 +202,7 @@ namespace Test2
 
                 List<object> test2 = list2.ToList();
 
-                foreach (Video l in test2)
+                foreach (DB.Video l in test2)
                 {
                     await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                     () =>
@@ -234,7 +235,7 @@ namespace Test2
 
             List<object> test2 = list2.ToList();
 
-            foreach (Video l in test2)
+            foreach (DB.Video l in test2)
             {
                 urls.Add(l.VideoId, l.Link);
             }

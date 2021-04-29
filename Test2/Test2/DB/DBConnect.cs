@@ -3,23 +3,31 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Test2.DB;
 
 namespace Test2
 {
     public class DBConnect
     {
-        //string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=20.52.146.90,1433;Initial Catalog=ChatrTestDB;User ID=hemran;Password=TestPassword!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
+        // Connection String of SQL Server
         string asyncConnectionString = new SqlConnectionStringBuilder(@"Data Source=51.116.224.130,1433;Initial Catalog=ChatrTestDB;User ID=chatr;Password=TestPassword1!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False").ToString();
+
         public string getConnectionString()
         {
             return asyncConnectionString;
         }
 
-
+        // Executes a given non query asynchonous 
+        /// <summary>
+        /// Executes a given non query asynchonous 
+        /// </summary>
+        /// <param name="query">Used to specify the query.</param>
+        /// <param name="addwithvalue">Used to specify variables (optional) that are needed to execute the query.</param>
         public async void runQueryAsync(string query, IDictionary<string, object> addwithvalue = null)
         {
             using (SqlConnection connection = new SqlConnection(asyncConnectionString))
             {
+                // Open asynchonrous connection
                 await connection.OpenAsync();
                 SqlCommand command = connection.CreateCommand();
 
@@ -29,12 +37,13 @@ namespace Test2
 
                     if (addwithvalue != null)
                     {
+                        // Adds values of query if necessary
                         foreach (KeyValuePair<string, object> kvp in addwithvalue)
                         {
                             command.Parameters.AddWithValue(kvp.Key, kvp.Value);
                         }
                     }
-
+                    // Executes specific command asynchronously
                     await command.ExecuteNonQueryAsync().ConfigureAwait(false);
 
                 }
@@ -45,15 +54,20 @@ namespace Test2
             }
         }
 
-
-
-
-
+        // Executes a given query asynchonous and returns its data.
+        /// <summary>
+        /// Executes a given query asynchonous and returns its data.
+        /// </summary>
+        /// <param name="query">Used to specify the query.</param>
+        /// <param name="table">Used to specify the database table.</param>
+        /// <param name="addwithvalue">Used to specify variables (optional) that are needed to execute the query.</param>
+        /// <returns>Returns a Task that contains an Enumrable object (User, Video, UserLobby, Lobby).</returns>
         public async Task<IEnumerable<object>> DataReader(string query, string table, IDictionary<string, object> addwithvalue = null)
         {
             var results = new List<object>();
             using (SqlConnection connection = new SqlConnection(asyncConnectionString))
             {
+                // Opens asynchonous connection
                 await connection.OpenAsync();
                 SqlCommand command = connection.CreateCommand();
 
@@ -64,9 +78,11 @@ namespace Test2
                     {
                         foreach (KeyValuePair<string, object> kvp in addwithvalue)
                         {
+                            // Adds values of query if necessary
                             command.Parameters.AddWithValue(kvp.Key, kvp.Value);
                         }
                     }
+                    // Returns results of table into a List
                     using (var reader = await command.ExecuteReaderAsync())
                     {
                         while (reader.Read())
@@ -74,21 +90,20 @@ namespace Test2
                             switch (table)
                             {
                                 case "Video":
-                                    results.Add(VideoBuilder(reader));
+                                    results.Add(Video.Builder(reader));
                                     break;
                                 case "Users":
-                                    results.Add(UserBuilder(reader));
+                                    results.Add(User.Builder(reader));
                                     break;
                                 case "User_Lobby":
-                                    results.Add(UserLobbyBuilder(reader));
+                                    results.Add(UserLobby.Builder(reader));
                                     break;
                                 case "Lobby":
-                                    results.Add(LobbyBuilder(reader));
+                                    results.Add(Lobby.Builder(reader));
                                     break;
                             }
 
                         }
-                        //return reader.Select(r => employeeBuilder(r)).ToList();
                     }
                 }
                 catch (Exception ex)
@@ -99,84 +114,5 @@ namespace Test2
 
             return results;
         }
-
-
-        private User UserBuilder(SqlDataReader reader)
-        {
-            return new User
-            {
-                UserId = int.Parse(reader["userID"].ToString()),
-                Username = reader["username"].ToString(),
-                Password = reader["password"].ToString(),
-                InLobby = int.Parse(reader["inLobby"].ToString()),
-                IsReady = int.Parse(reader["isReady"].ToString())
-            };
-        }
-
-        private Video VideoBuilder(SqlDataReader reader)
-        {
-            return new Video
-            {
-                VideoId = int.Parse(reader["videoID"].ToString()),
-                Title = reader["title"].ToString(),
-                Link = reader["link"].ToString(),
-                SyncTime = double.Parse(reader["syncTime"].ToString()),
-                IsPaused = int.Parse(reader["isPaused"].ToString())
-            };
-        }
-
-        private UserLobby UserLobbyBuilder(SqlDataReader reader)
-        {
-            return new UserLobby
-            {
-                UserLobbyId = int.Parse(reader["userLobbyID"].ToString()),
-                userId = int.Parse(reader["userID"].ToString()),
-                LobbyCode = reader["lobbyCode"].ToString(),
-                isReady = int.Parse(reader["isReady"].ToString()),
-                isLoaded = int.Parse(reader["isLoaded"].ToString()),
-            };
-        }
-
-        private Lobby LobbyBuilder(SqlDataReader reader)
-        {
-            return new Lobby
-            {
-                LobbyCode = reader["lobbyCode"].ToString(),
-                InProgress = int.Parse(reader["inProgress"].ToString()),
-            };
-        }
-    }
-
-    public class Lobby
-    {
-        public string LobbyCode { get; set; }
-        public int InProgress { get; set; }
-    }
-
-    public class User
-    {
-        public int UserId { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public int InLobby { get; set; }
-        public int IsReady { get; set; }
-    }
-
-    public class Video
-    {
-        public int VideoId { get; set; }
-        public string Title { get; set; }
-        public string Link { get; set; }
-        public double SyncTime { get; set; }
-        public int IsPaused { get; set; }
-    }
-
-    public class UserLobby
-    {
-        public int UserLobbyId { get; set; }
-        public int userId { get; set; }
-        public string LobbyCode { get; set; }
-        public int isReady { get; set; }
-        public int isLoaded { get; set; }
     }
 }
