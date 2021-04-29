@@ -12,11 +12,11 @@
         <ListView x:ConnectionId='2' x:Name="lv" ItemsSource="{Binding Messages}" Margin="70,50,260,135">
             <ListView.ItemTemplate>
                 <DataTemplate                               >
-                    <StackPanel x:ConnectionId='12' Orientation="Horizontal">
+                    <StackPanel x:ConnectionId='8' Orientation="Horizontal">
                         <TextBlock>
-                        <Run x:ConnectionId='13'                         ></Run>
+                        <Run x:ConnectionId='9'                         ></Run>
                         <Run Text=": "></Run>
-                        <Run x:ConnectionId='14'                        ></Run>
+                        <Run x:ConnectionId='10'                        ></Run>
                         </TextBlock>
 
                     </StackPanel>
@@ -29,17 +29,6 @@
         <Button x:ConnectionId='4' x:Name="send" Content="Send"                    Margin="1018,630,0,0" VerticalAlignment="Top"></Button>
         <Button x:ConnectionId='5' x:Name="createLobby" Content="Create Lobby" Margin="1027,141,0,0" VerticalAlignment="Top" Width="109"                          />
         <Button x:ConnectionId='6' x:Name="joinLobby" Content="Join Lobby" Margin="1027,208,0,0" VerticalAlignment="Top" Width="109"                        />
-        <ListView x:ConnectionId='7' x:Name="usersList" ItemsSource="{Binding Users}" Margin="1027,292,144,135">
-            <ListView.ItemTemplate>
-                <DataTemplate                         >
-                    <StackPanel x:ConnectionId='9' Orientation="Horizontal">
-                        <TextBlock>
-                        <Run x:ConnectionId='10'                         ></Run>
-                        </TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
     </Grid>
 </Page>
 

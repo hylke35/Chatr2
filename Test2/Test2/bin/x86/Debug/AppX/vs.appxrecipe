@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-4TP64DH</Machine>
-    <WindowsUser>hwest</WindowsUser>
+    <Machine>DESKTOP-C4UMP2O</Machine>
+    <WindowsUser>Sytze</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>f83e4742-5b69-45e0-92c1-a5b7047c2beb</PackageIdentityName>
     <PackageIdentityPublisher>CN=hwest</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>81B9E1FA5F0E042942D84D6A99BFD24CBA4BDE02BE8C971A9B1F971D915DD2F0</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>4681CC615D8EA1886CC51670F6DA578EAA875404DD2A751EB44DC342678A536E</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>f83e4742-5b69-45e0-92c1-a5b7047c2beb_1.0.0.0_x86__yg44zwkt2sx8t</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>f83e4742-5b69-45e0-92c1-a5b7047c2beb_yg44zwkt2sx8t!App</RegisteredUserModeAppID>
     <RegisteredPackageID>f83e4742-5b69-45e0-92c1-a5b7047c2beb</RegisteredPackageID>
@@ -27,150 +27,150 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-29T10:06:40.573</Modified>
+      <Modified>2021-04-29T11:52:37.764</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Test2.exe">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Test2.exe">
       <PackagePath>entrypoint\Test2.exe</PackagePath>
-      <Modified>2021-04-29T10:06:40.258</Modified>
+      <Modified>2021-04-29T11:52:37.282</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\easyencryption\1.0.2\lib\EasyEncryption.dll">
+    <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\easyencryption\1.0.2\lib\EasyEncryption.dll">
       <PackagePath>EasyEncryption.dll</PackagePath>
       <Modified>2016-05-09T10:29:18.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\microsoft.aspnet.signalr.client\2.4.1\lib\netstandard2.0\Microsoft.AspNet.SignalR.Client.dll">
+    <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\microsoft.aspnet.signalr.client\2.4.1\lib\netstandard2.0\Microsoft.AspNet.SignalR.Client.dll">
       <PackagePath>Microsoft.AspNet.SignalR.Client.dll</PackagePath>
       <Modified>2019-04-02T22:30:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\newtonsoft.json\12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\newtonsoft.json\12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2019-11-08T23:56:44.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\nito.asyncex.context\5.1.0\lib\netstandard2.0\Nito.AsyncEx.Context.dll">
+    <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\nito.asyncex.context\5.1.0\lib\netstandard2.0\Nito.AsyncEx.Context.dll">
       <PackagePath>Nito.AsyncEx.Context.dll</PackagePath>
       <Modified>2020-10-04T23:44:54.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\nito.asyncex.tasks\5.1.0\lib\netstandard2.0\Nito.AsyncEx.Tasks.dll">
+    <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\nito.asyncex.tasks\5.1.0\lib\netstandard2.0\Nito.AsyncEx.Tasks.dll">
       <PackagePath>Nito.AsyncEx.Tasks.dll</PackagePath>
       <Modified>2020-10-04T23:44:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\nito.disposables\2.2.0\lib\netstandard2.0\Nito.Disposables.dll">
+    <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\nito.disposables\2.2.0\lib\netstandard2.0\Nito.Disposables.dll">
       <PackagePath>Nito.Disposables.dll</PackagePath>
       <Modified>2020-10-02T22:56:36.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.10\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
-      <Modified>2020-02-27T18:16:04.000</Modified>
+      <Modified>2020-02-27T17:16:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\system.security.permissions\5.0.0\lib\netstandard2.0\System.Security.Permissions.dll">
+    <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\system.security.permissions\5.0.0\lib\netstandard2.0\System.Security.Permissions.dll">
       <PackagePath>System.Security.Permissions.dll</PackagePath>
       <Modified>2020-10-19T16:37:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\videolibrary\3.1.1\lib\netstandard1.1\libvideo.dll">
+    <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\videolibrary\3.1.1\lib\netstandard1.1\libvideo.dll">
       <PackagePath>libvideo.dll</PackagePath>
       <Modified>2021-04-15T18:39:00.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\.nuget\packages\youtubeextractor\0.10.11\lib\portable-net45+win8+wpa81+wp8\YoutubeExtractor.dll">
+    <AppxPackagedFile Include="C:\Users\Sytze\.nuget\packages\youtubeextractor\0.10.11\lib\portable-net45+win8+wpa81+wp8\YoutubeExtractor.dll">
       <PackagePath>YoutubeExtractor.dll</PackagePath>
       <Modified>2016-06-29T18:54:12.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
-      <Modified>2019-03-18T17:36:56.000</Modified>
+      <Modified>2019-03-18T16:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\bg.png">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\bg.png">
       <PackagePath>Assets\bg.png</PackagePath>
-      <Modified>2021-04-29T08:03:34.044</Modified>
+      <Modified>2021-04-29T10:28:30.799</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\logo.png">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\logo.png">
       <PackagePath>Assets\logo.png</PackagePath>
-      <Modified>2021-04-21T09:03:25.989</Modified>
+      <Modified>2021-04-29T10:28:30.737</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2021-04-21T09:02:54.401</Modified>
+      <Modified>2021-04-29T10:28:30.735</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-21T09:02:54.403</Modified>
+      <Modified>2021-04-29T10:28:30.742</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-21T09:02:54.407</Modified>
+      <Modified>2021-04-29T10:28:30.807</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-21T09:02:54.488</Modified>
+      <Modified>2021-04-29T10:28:30.792</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-21T09:02:54.538</Modified>
+      <Modified>2021-04-29T10:28:30.798</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-21T09:02:54.417</Modified>
+      <Modified>2021-04-29T10:28:30.796</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-21T09:02:54.418</Modified>
+      <Modified>2021-04-29T10:28:30.799</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Assets\test720.mp4">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Assets\test720.mp4">
       <PackagePath>Assets\test720.mp4</PackagePath>
-      <Modified>2021-04-21T09:02:54.685</Modified>
+      <Modified>2021-04-29T10:28:31.164</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2021-04-21T09:02:54.638</Modified>
+      <Modified>2021-04-29T10:28:31.121</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Test2.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Test2.xr.xml">
       <PackagePath>Test2.xr.xml</PackagePath>
-      <Modified>2021-04-29T08:03:34.092</Modified>
+      <Modified>2021-04-29T10:35:19.175</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-04-29T10:06:40.168</Modified>
+      <Modified>2021-04-29T11:46:51.280</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage1.xbf">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\BlankPage1.xbf">
       <PackagePath>BlankPage1.xbf</PackagePath>
-      <Modified>2021-04-29T10:06:40.168</Modified>
+      <Modified>2021-04-29T11:46:51.280</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Chat.xbf">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Chat.xbf">
       <PackagePath>Chat.xbf</PackagePath>
-      <Modified>2021-04-29T10:06:40.169</Modified>
+      <Modified>2021-04-29T11:46:51.280</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf">
       <PackagePath>Login.xbf</PackagePath>
-      <Modified>2021-04-29T10:06:40.169</Modified>
+      <Modified>2021-04-29T11:46:51.280</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\VideoLobby.xbf">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\VideoLobby.xbf">
       <PackagePath>VideoLobby.xbf</PackagePath>
-      <Modified>2021-04-29T10:06:40.169</Modified>
+      <Modified>2021-04-29T11:46:51.280</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2021-04-29T10:06:40.169</Modified>
+      <Modified>2021-04-29T11:46:51.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2019-03-18T16:33:42.000</Modified>
+      <Modified>2019-03-18T15:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-04-29T09:41:54.410</Modified>
+      <Modified>2021-04-29T10:30:03.943</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\hwest\Documents\GitKraken\Chatr2\Test2\Test2\bin\x86\Debug\Core\Test2.exe">
+    <AppxPackagedFile Include="C:\Users\Sytze\Documents\Github\Chatr2\Test2\Test2\bin\x86\Debug\Core\Test2.exe">
       <PackagePath>Test2.exe</PackagePath>
-      <Modified>2021-04-29T10:06:40.570</Modified>
+      <Modified>2021-04-29T11:52:37.755</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
