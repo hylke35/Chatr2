@@ -84,7 +84,7 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <!-- Messages -->
-                    <ListView x:Name="lv" ItemsSource="{Binding Messages}" MinHeight="600" Background="White" SelectionChanged="lv_SelectionChanged">
+                    <ListView x:Name="lv" ItemsSource="{Binding Messages}" MinHeight="600" Background="White">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="local:ChatMessage">
                                 <StackPanel Orientation="Horizontal">

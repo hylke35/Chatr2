@@ -13,7 +13,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Background="#0077b6" Margin="-5,0,5,0" >
@@ -84,12 +84,12 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <!-- Messages -->
-                    <ListView x:ConnectionId='4' x:Name="lv" ItemsSource="{Binding Messages}" MinHeight="600" Background="White"  Grid.RowSpan="9">
+                    <ListView x:ConnectionId='4' x:Name="lv" ItemsSource="{Binding Messages}" MinHeight="600" Background="White">
                         <ListView.ItemTemplate>
                             <DataTemplate                               >
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Username}" 
-                           Margin="10"                    
+                           Margin="0,10,0,0"                    
                            TextAlignment="right"
                            FontSize="18" 
                            FontStyle="Italic" 
