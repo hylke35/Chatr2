@@ -10,7 +10,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="780" d:DesignWidth="1718.904" Width="1600">
 
     <Grid Width="1280" Height="720">
-        <MediaElement x:ConnectionId='2' x:Name="mediaPlayer" 
+        <ProgressRing x:ConnectionId='2' x:Name="LoadingIndicator" IsActive="True" Height="200" Width="200" Foreground="Blue"/>
+        <MediaElement x:ConnectionId='3' x:Name="mediaPlayer" 
                       AutoPlay="False"
                        Canvas.ZIndex="1"
                       AreTransportControlsEnabled="True" Margin="165,0,-165,0" Width="1280" Height="720">
@@ -19,10 +20,10 @@
                                 IsPlaybackRateButtonVisible="False" IsFullWindowButtonVisible="False" IsFullWindowEnabled="False" IsPlaybackRateEnabled="False"/>
             </MediaElement.TransportControls>
         </MediaElement>
-        <Slider x:ConnectionId='3' 
+        <Slider x:ConnectionId='4' 
             x:Name="PositionSlider" Value="{Binding ElementName=mediaPlayer, Path=Position.TotalSeconds}"
             Width="1200" Canvas.ZIndex="5" Height="31" Margin="207,624,-127,65"/>
-        <ListBox x:ConnectionId='4' x:Name="playList" Margin="-159,0,1117,0" Width="320" Height="720">
+        <ListBox x:ConnectionId='5' x:Name="playList" Margin="-159,0,1117,0" Width="320" Height="720">
         </ListBox>
     </Grid>
 </Page>

@@ -154,6 +154,12 @@
       <RootProperty Name="MaxHeight" />
     </RootType>
     <RootType FullName="Test2.Login" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
+      <RootProperty Name="IsActive" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Foreground" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MediaElement">
       <RootProperty Name="AutoPlay" />
       <RootProperty Name="AreTransportControlsEnabled" />

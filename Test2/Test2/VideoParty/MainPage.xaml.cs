@@ -639,10 +639,15 @@ namespace Test2
             {
                 // Ask semaphore for entrance
                 await ss.WaitAsync().ConfigureAwait(false);
-                trackedTasks.Add(Task.Run(() =>
+                trackedTasks.Add(Task.Run(async () =>
                 {
                     try
                     {
+                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                        () =>
+                        {
+                            LoadingIndicator.IsActive = true;
+                        });
                         return DownloadVideo(item);
                     }
                     catch (Exception e)
@@ -681,7 +686,7 @@ namespace Test2
                 });
             }
 
-            
+            LoadingIndicator.IsActive = false;
 
             // Set MediaPlayers source to first video
             await SetMediaPlayerAsync(results[0]);

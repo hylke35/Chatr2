@@ -10,6 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="780" d:DesignWidth="1718.904" Width="1600">
 
     <Grid Width="1280" Height="720">
+        <ProgressRing x:Name="LoadingIndicator" IsActive="True" Height="200" Width="200" Foreground="Blue" Canvas.ZIndex="2"/>
         <MediaElement x:Name="mediaPlayer" 
                       AutoPlay="False"
                        Canvas.ZIndex="1"
