@@ -119,6 +119,13 @@
       <RootProperty Name="FontFamily" />
       <RootProperty Name="SelectionHighlightColor" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="IsDoubleTapEnabled" />
+      <RootEvent Name="DoubleTapped" />
+    </RootType>
     <RootType FullName="Test2.Chat" />
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
@@ -167,13 +174,6 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="Margin" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="IsDoubleTapEnabled" />
-      <RootEvent Name="DoubleTapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.MediaTransportControls">
       <RootProperty Name="IsZoomButtonVisible" />

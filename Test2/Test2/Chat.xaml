@@ -61,6 +61,7 @@
                            Foreground="white"
                            Text="Active lobbies:"/>
             </Grid>
+            <ListBox x:Name="activeLobbies" Height="387"/>
 
         </StackPanel>
         <Grid Grid.Column="1" >

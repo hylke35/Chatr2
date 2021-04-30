@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
-        <ImageBrush Stretch="UniformToFill" ImageSource="Assets/bg.png"/>
+        <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/bg.png"/>
     </Page.Background>
     <Grid Padding="50,0">
         <Grid.ColumnDefinitions>

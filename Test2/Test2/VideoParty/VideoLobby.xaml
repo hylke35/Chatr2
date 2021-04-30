@@ -5,6 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/bg.png"/>
+    </Page.Background>
     <Grid Padding="50,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="33*"/>

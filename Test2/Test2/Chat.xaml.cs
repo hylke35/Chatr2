@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using Test2.DB;
 using Windows.ApplicationModel.Core;
@@ -26,6 +27,7 @@ namespace Test2
         {
             this.InitializeComponent();
             this.DataContext = (Application.Current as App).ChatVM;
+            SqlDependency.Start(connection.GetConnectionString());
         }
 
         // Setting up the Join Lobby dialog
@@ -45,6 +47,78 @@ namespace Test2
             dialogInput.PrimaryButtonText = "Join";
             dialogInput.SecondaryButtonText = "Cancel";
             dialogInput.PrimaryButtonClick += OnJoinButtonClick_Event;
+        }
+
+        // Setting up the Active Lobbies Listbox
+        /// <summary>
+        ///  Setting up the Active Lobbies Listbox
+        /// </summary>
+        private async void ActiveLobbiesSetup()
+        {
+            activeLobbies.Items.Clear();
+            IEnumerable<object> getLobbies = await connection.DataReader("SELECT lobbyCode, inProgress FROM dbo.Lobby ORDER BY inProgress ASC", "Lobby");
+            List<object> getLobbiesList = getLobbies.ToList();
+            foreach (Lobby lobby in getLobbiesList)
+            {
+                var itemText = lobby.InProgress == 0 ? lobby.LobbyCode : lobby.LobbyCode + " - In Progress";
+                activeLobbies.Items.Add(itemText);
+            }
+
+            ChangeLobbyTable();
+        }
+
+        // DB Listener for checking if Lobbies changed
+        /// <summary>
+        /// DB Listener for checking if Lobbies changed
+        /// </summary>
+        public void ChangeLobbyTable()
+        {
+            using (SqlConnection conn = new SqlConnection(connection.GetConnectionString()))
+            {
+                conn.Open();
+                using (SqlCommand command = new SqlCommand("SELECT lobbyCode, inProgress FROM dbo.Lobby WHERE inProgress = 1 OR inProgress = 0", conn))
+                {
+
+                    // Create a dependency and associate it with the SqlCommand.
+                    SqlDependency dependency = new SqlDependency(command);
+                    // Maintain the reference in a class member.
+
+                    // Subscribe to the SqlDependency event.
+                    dependency.OnChange += new OnChangeEventHandler(OnChangeLobbyTable);
+
+                    //Execute the command.
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+
+                    }
+                }
+                conn.Close();
+            }
+        }
+
+        // Event, that gets triggerd when lobby properties change
+        /// <summary>
+        ///  Event, that gets triggerd when lobby properties change
+        /// </summary>
+        private async void OnChangeLobbyTable(object sender, SqlNotificationEventArgs e)
+        {
+            // If data updated, inserted or delted
+            if (e.Type == SqlNotificationType.Change && (e.Info == SqlNotificationInfo.Update || e.Info == SqlNotificationInfo.Insert || e.Info == SqlNotificationInfo.Delete))
+            {
+                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () => {
+                    activeLobbies.Items.Clear();
+                    // Get Lobbies from DB
+                    IEnumerable<object> getLobbies = await connection.DataReader("SELECT lobbyCode, inProgress FROM dbo.Lobby ORDER BY inProgress ASC", "Lobby");
+                    List<object> getLobbiesList = getLobbies.ToList();
+                    foreach (Lobby lobby in getLobbiesList)
+                    {
+                        var itemText = lobby.InProgress == 0 ? lobby.LobbyCode : lobby.LobbyCode + " - In Progress";
+                        activeLobbies.Items.Add(itemText);
+                    }
+                }).AsTask();
+            }
+            SqlDependency dependency = sender as SqlDependency;
+            ChangeLobbyTable();
         }
 
         // Event that gets triggered when Join Lobby button is clicked
@@ -145,6 +219,8 @@ namespace Test2
                         currentAV.Id,
                         ViewSizePreference.UseMinimum);
                 }).AsTask();
+
+            SqlDependency.Stop(connection.GetConnectionString());
         }
 
         // Event that gets triggered when navigated to this page
@@ -160,6 +236,7 @@ namespace Test2
             userID = parameters.UserID;
             username = parameters.UserName;
             LobbyDialogSetup();
+            ActiveLobbiesSetup();
         }
 
         // Event that gets triggered clicking on Create Lobby button
