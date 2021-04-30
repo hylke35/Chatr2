@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -29,42 +30,48 @@ namespace Test2
         string lobbyCode;
         int ready = 0;
         DBConnect connection = new DBConnect();
+        bool listeners = true;
 
         public VideoLobby()
         {
             this.InitializeComponent();
             // Starts SqlDependency for specific connection
             SqlDependency.Start(connection.GetConnectionString());
+            this.Unloaded += VideoLobby_Unloaded;
+            this.Loaded += VideoLobby_Loaded;
         }
 
-        // Event that gets triggered when navigated to this page
+        // Event that gets fired when Page is loaded
         /// <summary>
-        /// Event that gets triggered when navigated to this page 
+        ///  Event that gets fired when Page is loaded
         /// </summary>
         /// <param name="e">Event variable</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void VideoLobby_Loaded(object sender, RoutedEventArgs e)
         {
-            base.OnNavigatedTo(e);
-            // Maps the passed parameters to the page
-            var parameters = (Params)e.Parameter;
-            userID = parameters.UserId;
-            lobbyCode = parameters.LobbyCode;
-            // Event Handler for Closing the Window
-            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += OnClose;
-            // Initialize Lists and Listeners
-            ListInit();
-            ChangedState();
-            ChangedStateUsers();
-            ChangedStateReady();
-            lobbyCodeLabel.Text = this.lobbyCode;
+            Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Consolidated += VideoLobby_Consolidated;
         }
 
-        // Event that gets triggered when windows is closed
+        // Event that gets fired when Page is unloaded (closed)
         /// <summary>
-        /// Event that gets triggered when windows is closed
+        ///  Event that gets fired when Page is unloaded (closed)
         /// </summary>
-        public async void OnClose(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        /// <param name="e">Event variable</param>
+        private void VideoLobby_Unloaded(object sender, RoutedEventArgs e)
         {
+            listeners = false;
+            Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Consolidated -= VideoLobby_Consolidated;
+        }
+
+        // Event that gets fired when Page is closed
+        /// <summary>
+        ///  Event that gets fired when Page is closed
+        /// </summary>
+        /// <param name="e">Event variable</param>
+        private async void VideoLobby_Consolidated(Windows.UI.ViewManagement.ApplicationView sender, Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs args)
+        {
+            listeners = false;
+            SqlDependency.Stop(connection.GetConnectionString());
+            
             // Get all users within specified lobby
             IDictionary<string, object> userLobbyCheckDictionary = new Dictionary<string, object>();
             userLobbyCheckDictionary.Add("@code", lobbyCode);
@@ -87,10 +94,29 @@ namespace Test2
                 deleteUserLobbyDictionary.Add("@code", lobbyCode);
                 connection.RunQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", deleteUserLobbyDictionary);
             }
+            
+            Window.Current.Close();
+        }
 
+        // Event that gets triggered when navigated to this page
+        /// <summary>
+        /// Event that gets triggered when navigated to this page 
+        /// </summary>
+        /// <param name="e">Event variable</param>
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            // Maps the passed parameters to the page
+            var parameters = (Params)e.Parameter;
+            userID = parameters.UserId;
+            lobbyCode = parameters.LobbyCode;
 
-
-            SqlDependency.Stop(connection.GetConnectionString());
+            // Initialize Lists and Listeners
+            ListInit();
+            ChangedState();
+            ChangedStateUsers();
+            ChangedStateReady();
+            lobbyCodeLabel.Text = this.lobbyCode;
         }
 
         // Gets and puts Lobby information into User interface
@@ -240,93 +266,96 @@ namespace Test2
         /// </summary>
         private async void OnDependencyChangeReady(object sender, SqlNotificationEventArgs e)
         {
-            // If data updated
-            if (e.Type == SqlNotificationType.Change && e.Info == SqlNotificationInfo.Update)
+            if (listeners)
             {
-                // Gets users from Lobby
-                IDictionary<string, object> userLobbyReadyDictionary = new Dictionary<string, object>();
-                userLobbyReadyDictionary.Add("@code", this.lobbyCode);
-                IEnumerable<object> userLobbyReady = await connection.DataReader("SELECT * FROM User_Lobby WHERE lobbyCode = @code", "User_Lobby", userLobbyReadyDictionary);
-                List<object> userLobbyReadyList = userLobbyReady.ToList();
-
-                // Clears the userList ListBox
-                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { userList.Items.Clear(); }).AsTask();
-
-                bool allReady = true;
-                foreach (UserLobby ul in userLobbyReadyList)
+                // If data updated
+                if (e.Type == SqlNotificationType.Change && e.Info == SqlNotificationInfo.Update)
                 {
-                    // Gets infromation of user in lobby
-                    IDictionary<string, object> userReadyDictionary = new Dictionary<string, object>();
-                    userReadyDictionary.Add("@userID", ul.userId);
-                    IEnumerable<object> userReady = await connection.DataReader("SELECT * FROM Users WHERE userID = @userID", "Users", userReadyDictionary);
-                    List<object> userReadyList = userReady.ToList();
+                    // Gets users from Lobby
+                    IDictionary<string, object> userLobbyReadyDictionary = new Dictionary<string, object>();
+                    userLobbyReadyDictionary.Add("@code", this.lobbyCode);
+                    IEnumerable<object> userLobbyReady = await connection.DataReader("SELECT * FROM User_Lobby WHERE lobbyCode = @code", "User_Lobby", userLobbyReadyDictionary);
+                    List<object> userLobbyReadyList = userLobbyReady.ToList();
 
-                    User u = (User)userReadyList.First();
-                    // Check if user is ready
-                    if (ul.isReady == 0)
+                    // Clears the userList ListBox
+                    await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { userList.Items.Clear(); }).AsTask();
+
+                    bool allReady = true;
+                    foreach (UserLobby ul in userLobbyReadyList)
                     {
-                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                        () =>
-                        {
-                            userList.Items.Add(u.Username);
-                        }).AsTask();
+                        // Gets infromation of user in lobby
+                        IDictionary<string, object> userReadyDictionary = new Dictionary<string, object>();
+                        userReadyDictionary.Add("@userID", ul.userId);
+                        IEnumerable<object> userReady = await connection.DataReader("SELECT * FROM Users WHERE userID = @userID", "Users", userReadyDictionary);
+                        List<object> userReadyList = userReady.ToList();
 
-                        allReady = false;
-                    }
-                    else
-                    {
-                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                        () =>
+                        User u = (User)userReadyList.First();
+                        // Check if user is ready
+                        if (ul.isReady == 0)
                         {
-                            userList.Items.Add(u.Username + " - Ready");
-                        }).AsTask();
+                            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                            () =>
+                            {
+                                userList.Items.Add(u.Username);
+                            }).AsTask();
 
-                    }
-                }
-
-                if (allReady)
-                {
-                    if (videoList.Items.Count > 0)
-                    {
-                        // Get Lobbt with specific Lobby code
-                        IDictionary<string, object> lobbyDictionary = new Dictionary<string, object>();
-                        lobbyDictionary.Add("@code", this.lobbyCode);
-                        IEnumerable<object> lobby = await connection.DataReader("SELECT * FROM Lobby WHERE lobbyCode = @code", "Lobby", lobbyDictionary);
-                        Lobby lobbyObject = (Lobby)lobby.ToList().First();
-                        // If Lobby is in not in Progress, then continue
-                        if (lobbyObject.InProgress != 1)
-                        {
-                            // Update inProgress column from Lobby
-                            IDictionary<string, object> inProgressUpdateDictionary = new Dictionary<string, object>();
-                            inProgressUpdateDictionary.Add("@code", lobbyCode);
-                            connection.RunQueryAsync("UPDATE Lobby SET inProgress = 1 WHERE lobbyCode = @code", inProgressUpdateDictionary);
+                            allReady = false;
                         }
-
-                        // Redirect to VideoParty
-                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                        () =>
+                        else
                         {
-                            var parameters = new Params();
-                            parameters.LobbyCode = this.lobbyCode;
-                            parameters.UserId = this.userID;
-                            Frame.Navigate(typeof(MainPage), parameters);
-                        }).AsTask();
+                            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                            () =>
+                            {
+                                userList.Items.Add(u.Username + " - Ready");
+                            }).AsTask();
+
+                        }
                     }
-                    else
-                    {
-                        // Video List is empty, cant proceed
-                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                        async () =>
-                        {
-                            var dialog = new MessageDialog("Video list is empty!", "Error");
-                            await dialog.ShowAsync();
 
-                        });
+                    if (allReady)
+                    {
+                        if (videoList.Items.Count > 0)
+                        {
+                            // Get Lobbt with specific Lobby code
+                            IDictionary<string, object> lobbyDictionary = new Dictionary<string, object>();
+                            lobbyDictionary.Add("@code", this.lobbyCode);
+                            IEnumerable<object> lobby = await connection.DataReader("SELECT * FROM Lobby WHERE lobbyCode = @code", "Lobby", lobbyDictionary);
+                            Lobby lobbyObject = (Lobby)lobby.ToList().First();
+                            // If Lobby is in not in Progress, then continue
+                            if (lobbyObject.InProgress != 1)
+                            {
+                                // Update inProgress column from Lobby
+                                IDictionary<string, object> inProgressUpdateDictionary = new Dictionary<string, object>();
+                                inProgressUpdateDictionary.Add("@code", lobbyCode);
+                                connection.RunQueryAsync("UPDATE Lobby SET inProgress = 1 WHERE lobbyCode = @code", inProgressUpdateDictionary);
+                            }
+
+                            // Redirect to VideoParty
+                            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                            () =>
+                            {
+                                var parameters = new Params();
+                                parameters.LobbyCode = this.lobbyCode;
+                                parameters.UserId = this.userID;
+                                Frame.Navigate(typeof(MainPage), parameters);
+                            }).AsTask();
+                        }
+                        else
+                        {
+                            // Video List is empty, cant proceed
+                            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                            async () =>
+                            {
+                                var dialog = new MessageDialog("Video list is empty!", "Error");
+                                await dialog.ShowAsync();
+
+                            });
+                        }
                     }
                 }
+                SqlDependency dependency = sender as SqlDependency;
+                ChangedStateReady();
             }
-            SqlDependency dependency = sender as SqlDependency;
-            ChangedStateReady();
         }
 
         // Event, that gets triggered when change in User_Lobby table
@@ -335,30 +364,33 @@ namespace Test2
         /// </summary>
         private async void OnDependencyChangeUsers(object sender, SqlNotificationEventArgs e)
         {
-            if (e.Type == SqlNotificationType.Change && (e.Info == SqlNotificationInfo.Insert || e.Info == SqlNotificationInfo.Delete))
+            if (listeners)
             {
-                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                async () =>
+                if (e.Type == SqlNotificationType.Change && (e.Info == SqlNotificationInfo.Insert || e.Info == SqlNotificationInfo.Delete))
                 {
+                    await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
                     // Clears userList Listbox
                     this.userList.Items.Clear();
 
                     // Gets users in Lobby
                     IDictionary<string, object> userInLobbyDictionary = new Dictionary<string, object>();
-                    userInLobbyDictionary.Add("@code", lobbyCode);
-                    IEnumerable<object> userInLobby = await connection.DataReader("SELECT dbo.Users.* FROM dbo.User_Lobby, dbo.Users WHERE dbo.User_Lobby.lobbyCode = @code AND dbo.User_Lobby.userID = dbo.Users.userID", "Users", userInLobbyDictionary);
-                    List<object> userInLobbyList = userInLobby.ToList();
+                        userInLobbyDictionary.Add("@code", lobbyCode);
+                        IEnumerable<object> userInLobby = await connection.DataReader("SELECT dbo.Users.* FROM dbo.User_Lobby, dbo.Users WHERE dbo.User_Lobby.lobbyCode = @code AND dbo.User_Lobby.userID = dbo.Users.userID", "Users", userInLobbyDictionary);
+                        List<object> userInLobbyList = userInLobby.ToList();
 
-                    foreach (User u in userInLobbyList)
-                    {
+                        foreach (User u in userInLobbyList)
+                        {
                         // Adds all users from Lobby in ListBox
                         userList.Items.Add(u.Username);
+                        }
                     }
+                    ).AsTask();
                 }
-                ).AsTask();
+                SqlDependency dependency = sender as SqlDependency;
+                ChangedStateUsers();
             }
-            SqlDependency dependency = sender as SqlDependency;
-            ChangedStateUsers();
         }
 
         // Event, that gets triggered when change in Video table
@@ -367,34 +399,37 @@ namespace Test2
         /// </summary>
         private async void OnDependencyChange(object sender, SqlNotificationEventArgs e)
         {
-            if (e.Type == SqlNotificationType.Change && (e.Info == SqlNotificationInfo.Insert || e.Info == SqlNotificationInfo.Delete))
+            if (listeners)
             {
-                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                async () =>
+                if (e.Type == SqlNotificationType.Change && (e.Info == SqlNotificationInfo.Insert || e.Info == SqlNotificationInfo.Delete))
                 {
+                    await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
                     // Clears videoList Listbox
                     videoList.ItemsSource = null;
 
                     // Gets all videos from Lobby
                     IDictionary<string, object> selectVideoDictionary = new Dictionary<string, object>();
-                    selectVideoDictionary.Add("@code", this.lobbyCode);
-                    IEnumerable<object> selectVideo = await connection.DataReader("SELECT * FROM Video WHERE lobbyCode = @code", "Video", selectVideoDictionary);
-                    List<object> selectVideoList = selectVideo.ToList();
+                        selectVideoDictionary.Add("@code", this.lobbyCode);
+                        IEnumerable<object> selectVideo = await connection.DataReader("SELECT * FROM Video WHERE lobbyCode = @code", "Video", selectVideoDictionary);
+                        List<object> selectVideoList = selectVideo.ToList();
 
-                    Dictionary<string, string> videos = new Dictionary<string, string>();
-                    foreach (Video l in selectVideoList)
-                    {
-                        videos.Add(l.Link, l.Title);
-                    }
+                        Dictionary<string, string> videos = new Dictionary<string, string>();
+                        foreach (Video l in selectVideoList)
+                        {
+                            videos.Add(l.Link, l.Title);
+                        }
 
-                    videoList.ItemsSource = videos;
-                    videoList.SelectedValuePath = "Key";
-                    videoList.DisplayMemberPath = "Value";
-                }).AsTask();
+                        videoList.ItemsSource = videos;
+                        videoList.SelectedValuePath = "Key";
+                        videoList.DisplayMemberPath = "Value";
+                    }).AsTask();
 
+                }
+                SqlDependency dependency = sender as SqlDependency;
+                ChangedState();
             }
-            SqlDependency dependency = sender as SqlDependency;
-            ChangedState();
         }
 
         // Event, that gets triggered when the Add button is clicked
@@ -403,10 +438,11 @@ namespace Test2
         /// </summary>
         private async void addButton_Click(object sender, RoutedEventArgs e)
         {
-            // Gets all video from Lobby
+            // Gets specific Video from lobby
             IDictionary<string, object> addVideoDictionary = new Dictionary<string, object>();
             addVideoDictionary.Add("@link", linkBox.Text);
-            IEnumerable<object> addVideo = await connection.DataReader("SELECT * FROM dbo.Video WHERE link = @link", "Video", addVideoDictionary);
+            addVideoDictionary.Add("@code", lobbyCode);
+            IEnumerable<object> addVideo = await connection.DataReader("SELECT * FROM dbo.Video WHERE link = @link AND lobbyCode = @code", "Video", addVideoDictionary);
             List<object> addVideoList = addVideo.ToList();
 
             if (addVideoList.Count == 0)
@@ -497,39 +533,6 @@ namespace Test2
             IDictionary<string, object> doubleTappedDictionary = new Dictionary<string, object>();
             doubleTappedDictionary.Add("@link", link);
             connection.RunQueryAsync("DELETE FROM dbo.Video WHERE link = @link", doubleTappedDictionary);
-        }
-
-        // Event, that gets triggered when the leave button is clicked
-        /// <summary>
-        /// Event, that gets triggered when the leave button is clicked
-        /// </summary>
-        private async void leaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Gets all users from Lobbt
-            IDictionary<string, object> userLobbyDictionary = new Dictionary<string, object>();
-            userLobbyDictionary.Add("@code", this.lobbyCode);
-            IEnumerable<object> userLobby = await connection.DataReader("SELECT * FROM dbo.User_Lobby WHERE lobbyCode = @code", "User_Lobby", userLobbyDictionary);
-            List<object> userLobbyList = userLobby.ToList();
-
-            // If last user
-            if (userLobbyList.Count == 1)
-            {
-                // Deletes Lobby from DB
-                IDictionary<string, object> deleteLobbyDictionary = new Dictionary<string, object>();
-                deleteLobbyDictionary.Add("@code", lobbyCode);
-                connection.RunQueryAsync("DELETE FROM dbo.Lobby WHERE lobbyCode = @code", deleteLobbyDictionary);
-            }
-            else
-            {
-                // Deletes User From Lobby
-                IDictionary<string, object> deleteUserLobbyDictionary = new Dictionary<string, object>();
-                deleteUserLobbyDictionary.Add("@userID", userID);
-                deleteUserLobbyDictionary.Add("@code", lobbyCode);
-                connection.RunQueryAsync("DELETE FROM dbo.User_Lobby WHERE userID = @userID AND lobbyCode = @code", deleteUserLobbyDictionary);
-            }
-            SqlDependency.Stop(connection.GetConnectionString());
-            // Closes Window
-            Window.Current.Close();
         }
     }
 }

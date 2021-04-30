@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2021-04-29T17:57:02.620</Modified>
+      <Modified>2021-04-30T08:46:49.239</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Test2.exe">
       <PackagePath>entrypoint\Test2.exe</PackagePath>
-      <Modified>2021-04-29T17:57:01.898</Modified>
+      <Modified>2021-04-30T08:46:48.686</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\.nuget\packages\easyencryption\1.0.2\lib\EasyEncryption.dll">
       <PackagePath>EasyEncryption.dll</PackagePath>
@@ -154,23 +154,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2021-04-29T17:57:01.704</Modified>
+      <Modified>2021-04-30T08:46:48.553</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Chat.xbf">
       <PackagePath>Chat.xbf</PackagePath>
-      <Modified>2021-04-29T17:57:01.704</Modified>
+      <Modified>2021-04-30T08:46:48.553</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Login.xbf">
       <PackagePath>Login.xbf</PackagePath>
-      <Modified>2021-04-29T17:57:01.704</Modified>
+      <Modified>2021-04-30T08:46:48.553</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\VideoParty\MainPage.xbf">
       <PackagePath>VideoParty\MainPage.xbf</PackagePath>
-      <Modified>2021-04-29T17:57:01.705</Modified>
+      <Modified>2021-04-30T08:46:48.554</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\VideoParty\VideoLobby.xbf">
       <PackagePath>VideoParty\VideoLobby.xbf</PackagePath>
-      <Modified>2021-04-29T17:57:01.705</Modified>
+      <Modified>2021-04-30T08:46:48.554</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -178,11 +178,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2021-04-29T17:38:26.891</Modified>
+      <Modified>2021-04-30T06:14:07.466</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hemran\Desktop\Chatr2\Test2\Test2\bin\x86\Debug\Core\Test2.exe">
       <PackagePath>Test2.exe</PackagePath>
-      <Modified>2021-04-29T17:57:02.614</Modified>
+      <Modified>2021-04-30T08:46:49.233</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

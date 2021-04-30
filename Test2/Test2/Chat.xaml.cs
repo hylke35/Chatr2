@@ -126,6 +126,7 @@ namespace Test2
             // Creates new ApplicationView
             var currentAV = ApplicationView.GetForCurrentView();
             var newAV = CoreApplication.CreateNewView();
+            
             await newAV.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 async () =>
@@ -161,15 +162,6 @@ namespace Test2
             LobbyDialogSetup();
         }
 
-        // Creates a random string with a specified length for the Lobby Code
-        public static string RandomString(int length)
-        {
-            Random random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
         // Event that gets triggered clicking on Create Lobby button
         /// <summary>
         /// Event that gets triggered clicking on Create Lobby button which opens a new Lobby window
@@ -184,7 +176,7 @@ namespace Test2
             // Check if User has record in User_Lobby table, if not continue
             if (userLobbyCheck.ToList().Count == 0)
             {
-                var code = RandomString(6);
+                var code = App.RandomString(6);
 
                 // Inserts user into Lobby
                 IDictionary<string, object> insertUserLobbyDictionary = new Dictionary<string, object>();

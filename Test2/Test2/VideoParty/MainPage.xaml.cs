@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Test2.DB;
+using System.Security.Cryptography;
+using System.Text;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -49,14 +51,15 @@ namespace Test2
             mediaPlayer.CurrentStateChanged += Media_Change;
             mediaPlayer.MediaEnded += Media_Ended;
             // Add EventHandler to window close Listener
-            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += OnClose;
+            this.Unloaded += MainPage_Unloaded;
         }
 
-        // Event that gets triggered when closing this page
-        /// <summary>
-        /// Event that gets triggered when closing this page
-        /// </summary>
-        public async void OnClose(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        private void MainPage_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Consolidated -= MainPage_Consolidated;
+        }
+
+        private async void MainPage_Consolidated(Windows.UI.ViewManagement.ApplicationView sender, Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs args)
         {
             // Gets users from Lobby
             IDictionary<string, object> userLobbySelectDictionary = new Dictionary<string, object>();
@@ -82,11 +85,12 @@ namespace Test2
             }
 
             // Delete all videos from Storage
-            foreach(string file in videoQueue)
+            foreach (string file in videoQueue)
             {
                 File.Delete(file);
             }
             SqlDependency.Stop(connection.GetConnectionString());
+            Window.Current.Close();
         }
 
         // Event that gets triggered when app is navigated to this page
@@ -182,7 +186,6 @@ namespace Test2
         /// </summary>
         public void ChangeStateTime()
         {
-            Debug.WriteLine("Sync Time: " + videos.Keys.ToArray()[currentVideo]);
             using (SqlConnection conn = new SqlConnection(connection.GetConnectionString()))
             {
                 conn.Open();
@@ -248,12 +251,12 @@ namespace Test2
         {
             IDictionary<int, string> urls = new Dictionary<int, string>();
             IDictionary<string, object> getVideoDataDictionary = new Dictionary<string, object>();
-            getVideoDataDictionary.Add("@code", this.lobbyCode);
+            getVideoDataDictionary.Add("@code", lobbyCode);
             IEnumerable<object> getVideoData = await connection.DataReader("SELECT link, videoID, syncTime, isPaused, title FROM dbo.Video WHERE lobbyCode = @code", "Video", getVideoDataDictionary);
             List<object> getVideoDataList = getVideoData.ToList();
-            foreach (DB.Video l in getVideoDataList)
+            foreach (DB.Video videoItem in getVideoDataList)
             {
-                urls.Add(l.VideoId, l.Link);
+                urls.Add(videoItem.VideoId, videoItem.Link);
             }
             return urls;
         }
@@ -266,7 +269,6 @@ namespace Test2
         {
             StopTimer();
             PositionSlider.Value = 0.0;
-
             // Delete video from storage
             File.Delete((string)videoQueue.Peek());
             videoQueue.Dequeue();
@@ -278,6 +280,9 @@ namespace Test2
             }
             else
             {
+                mediaPlayer.Stop();
+                mediaPlayer.Source = null;
+
                 // No video in queue
                 // Go back to lobby screen
                 IDictionary<string, object> updateInProgressDictionary = new Dictionary<string, object>();
@@ -288,7 +293,6 @@ namespace Test2
                 updateUserReadyState.Add("@code", lobbyCode);
                 updateUserReadyState.Add("@userID", userID);
                 connection.RunQueryAsync("UPDATE User_Lobby SET isReady = 0, isLoaded = 0 WHERE lobbyCode = @code AND userID = @userID", updateUserReadyState);
-
 
                 // Redirect to Lobby
                 var parameters = new Params();
@@ -304,6 +308,7 @@ namespace Test2
         /// </summary>
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
+            Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Consolidated += MainPage_Consolidated;
             // Add EventHandlers to Slider Listeners
             PositionSlider.ValueChanged += TimelineSlider_ValueChanged;
             PointerEventHandler pointerpressedhandler = new PointerEventHandler(Slider_PointerEntered);
@@ -478,7 +483,6 @@ namespace Test2
             //Sets temp path for download location of videos
             string tempDirectory = Path.Combine(Path.GetTempPath());
             Directory.CreateDirectory(tempDirectory);
-            Debug.WriteLine(tempDirectory);
             return tempDirectory;
         }
 
@@ -598,7 +602,8 @@ namespace Test2
             Debug.WriteLine("Begnin"); // Semaphore Debugging Test
             var youTube = YouTube.Default; // starting point for YouTube actions
             var video = youTube.GetVideo(link); // gets a Video object with info about the video
-            var path = tempDir + video.FullName;
+            var fileName = App.RandomString(50) + ".mp4";
+            var path = tempDir + fileName;
             File.WriteAllBytes(path, video.GetBytes()); // Saves video
             Debug.WriteLine("END"); // Semaphore Debugging Test
             return path;
@@ -645,17 +650,20 @@ namespace Test2
             }
 
             //Add each video into playlist
-            foreach (var q in videoQueue)
+            IDictionary<string, object> getVideoTitleDictionary = new Dictionary<string, object>();
+            getVideoTitleDictionary.Add("@code", lobbyCode);
+            IEnumerable<object> getVideoTitle = await connection.DataReader("SELECT link, videoID, syncTime, isPaused, title FROM dbo.Video WHERE lobbyCode = @code", "Video", getVideoTitleDictionary);
+            List<object> getVideoTitleList = getVideoTitle.ToList();
+            foreach (DB.Video videoItem in getVideoTitleList)
             {
-                var r = q.ToString();
-                var mp4 = r.Substring(r.LastIndexOf('\\') + 1);
-                var result = mp4.Substring(0, mp4.Length - 4);
                 await Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                 () =>
                 {
-                    playList.Items.Add(result);
+                    playList.Items.Add(videoItem.Title);
                 });
             }
+
+            
 
             // Set MediaPlayers source to first video
             await SetMediaPlayerAsync(results[0]);
