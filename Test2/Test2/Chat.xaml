@@ -13,7 +13,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Background="#0077b6" Margin="-5,0,5,0" >
@@ -84,12 +84,12 @@
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <!-- Messages -->
-                    <ListView x:Name="lv" ItemsSource="{Binding Messages}" MinHeight="600" Background="White"  Grid.RowSpan="9">
+                    <ListView x:Name="lv" ItemsSource="{Binding Messages}" MinHeight="600" Background="White" SelectionChanged="lv_SelectionChanged">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="local:ChatMessage">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Username}" 
-                           Margin="10"                    
+                           Margin="0,10,0,0"                    
                            TextAlignment="right"
                            FontSize="18" 
                            FontStyle="Italic" 
@@ -112,8 +112,8 @@
             <!-- Input field -->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="110"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <!-- Rows of messages -->
@@ -124,14 +124,14 @@
                         Content=" Send"
                         Click="send_Click"
                         FontSize="12"
-                        Margin="0,638,10,0"
+                        Margin="10,638,10,0"
                         HorizontalAlignment="Right"
                         Width="85"
                         Foreground="white"
                         CornerRadius="5"
                         Padding="15,5,15,5" 
                         FocusVisualPrimaryBrush="Black" VerticalAlignment="Top" Height="38" Background="#33000000" Grid.Row="1" Grid.Column="1"  />
-                <TextBox x:Name="text" HorizontalAlignment="Left" Margin="10,638,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="900" Height="38"/>
+                <TextBox x:Name="text" HorizontalAlignment="Stretch" Margin="10,638,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top"  Height="38"/>
             </Grid>
         </Grid>
     </Grid>

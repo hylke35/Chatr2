@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\ChatClient.csproj": {}
+    "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\ChatClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\ChatClient.csproj": {
+    "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\ChatClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\ChatClient.csproj",
+        "projectUniqueName": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\ChatClient.csproj",
         "projectName": "ChatClient",
-        "projectPath": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\ChatClient.csproj",
-        "packagesPath": "C:\\Users\\Hemran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hemran\\Desktop\\Chatr2\\Test2\\Test2\\obj\\",
+        "projectPath": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\ChatClient.csproj",
+        "packagesPath": "C:\\Users\\hwest\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hwest\\Documents\\GitKraken\\Chatr2\\Test2\\Test2\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Hemran\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\hwest\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

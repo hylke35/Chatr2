@@ -112,8 +112,8 @@
             <!-- Input field -->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="110"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <!-- Rows of messages -->
@@ -124,14 +124,14 @@
                         Content=" Send"
                                           
                         FontSize="12"
-                        Margin="0,638,10,0"
+                        Margin="10,638,10,0"
                         HorizontalAlignment="Right"
                         Width="85"
                         Foreground="white"
                         CornerRadius="5"
                         Padding="15,5,15,5" 
                         FocusVisualPrimaryBrush="Black" VerticalAlignment="Top" Height="38" Background="#33000000" Grid.Row="1" Grid.Column="1"  />
-                <TextBox x:ConnectionId='3' x:Name="text" HorizontalAlignment="Left" Margin="10,638,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="900" Height="38"/>
+                <TextBox x:ConnectionId='3' x:Name="text" HorizontalAlignment="Stretch" Margin="10,638,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top"  Height="38"/>
             </Grid>
         </Grid>
     </Grid>
