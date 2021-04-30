@@ -162,6 +162,8 @@ namespace Test2
             List<object> videoLobbyList = videoLobby.ToList();
 
             Dictionary<string, string> videos = new Dictionary<string, string>();
+            videoList.Items.Clear();
+            videoList.ItemsSource = null;
             foreach (Video v in videoLobbyList)
             {
                 videos.Add(v.Link, v.Title);
