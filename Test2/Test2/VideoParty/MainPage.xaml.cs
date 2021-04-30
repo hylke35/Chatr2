@@ -35,7 +35,7 @@ namespace Test2
         string tempDir;
         string lobbyCode;
         int userID;
-        IDictionary<int, string> videos;
+        IDictionary<int, string> videos = new Dictionary<int, string>();
         int currentVideo = 0;
         Queue videoQueue;
         public delegate void timerTick();
@@ -54,11 +54,36 @@ namespace Test2
             this.Unloaded += MainPage_Unloaded;
         }
 
+        // Event that gets triggered when page is loaded
+        /// <summary>
+        /// Event that gets triggered when page is loaded
+        /// </summary>
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Consolidated += MainPage_Consolidated;
+            // Add EventHandlers to Slider Listeners
+            PositionSlider.ValueChanged += TimelineSlider_ValueChanged;
+            PointerEventHandler pointerpressedhandler = new PointerEventHandler(Slider_PointerEntered);
+            PositionSlider.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);
+            PointerEventHandler pointerreleasedhandler = new PointerEventHandler(Slider_PointerCaptureLost);
+            PositionSlider.AddHandler(Control.PointerCaptureLostEvent, pointerreleasedhandler, true);
+        }
+
+        // Event that gets fired when Page is unloaded (closed)
+        /// <summary>
+        ///  Event that gets fired when Page is unloaded (closed)
+        /// </summary>
+        /// <param name="e">Event variable</param>
         private void MainPage_Unloaded(object sender, RoutedEventArgs e)
         {
             Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Consolidated -= MainPage_Consolidated;
         }
 
+        // Event that gets fired when Page is closed
+        /// <summary>
+        ///  Event that gets fired when Page is closed
+        /// </summary>
+        /// <param name="e">Event variable</param>
         private async void MainPage_Consolidated(Windows.UI.ViewManagement.ApplicationView sender, Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs args)
         {
             // Gets users from Lobby
@@ -105,11 +130,17 @@ namespace Test2
             userID = parameters.UserId;
 
             // Get URLs from Lobby and save them in videos var
-            videos = await GetURLs();
-            List<string> urls = videos.Values.ToList();
+            if (videos != null)
+            {
+                if (videos.Count == 0)
+                {
+                    videos = await GetURLs();
+                    List<string> urls = videos.Values.ToList();
 
-            // Download all videos
-            DownloadVideoList(urls);
+                    // Download all videos
+                    DownloadVideoList(urls);
+                }
+            }
 
             // Initiate listeners
             ChangeStateTime();
@@ -302,22 +333,8 @@ namespace Test2
             }
         }
 
-        // Event that gets triggered when page is loaded
-        /// <summary>
-        /// Event that gets triggered when page is loaded
-        /// </summary>
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Consolidated += MainPage_Consolidated;
-            // Add EventHandlers to Slider Listeners
-            PositionSlider.ValueChanged += TimelineSlider_ValueChanged;
-            PointerEventHandler pointerpressedhandler = new PointerEventHandler(Slider_PointerEntered);
-            PositionSlider.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);
-            PointerEventHandler pointerreleasedhandler = new PointerEventHandler(Slider_PointerCaptureLost);
-            PositionSlider.AddHandler(Control.PointerCaptureLostEvent, pointerreleasedhandler, true);
-        }
-
         // ------------------ Custom TimeLine --------------------
+        #region Custom Timeline
         private void SetupTimer()
         {
             _timer = new DispatcherTimer();
@@ -408,6 +425,7 @@ namespace Test2
                 mediaPlayer.Position = TimeSpan.FromSeconds(e.NewValue);
             }
         }
+        #endregion
         // ------------------ Custom TimeLine --------------------
 
 
