@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNet.SignalR.Client;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using Test2.DB;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
@@ -20,6 +23,7 @@ namespace Test2
         public ChatMessageViewModel ChatVM { get; set; } = new ChatMessageViewModel();
         public HubConnection conn { get; set; }
         public IHubProxy proxy { get; set; }
+        public DBConnect connection = new DBConnect();
         public App()
         {
             this.InitializeComponent();
@@ -27,13 +31,38 @@ namespace Test2
             SignalR();
         }
 
-        public void SignalR()
+        public async void SignalR()
         {
             conn = new HubConnection("http://localhost:5000");
             proxy = conn.CreateHubProxy("MyHub");
-            conn.Start();
+            await conn.Start();
 
             proxy.On<ChatMessage>("broadcastMessage", OnMessage);
+
+
+
+            IEnumerable<object> messageEnumerable = await connection.DataReader("SELECT messageID, senderID, message FROM dbo.Message", "Message");
+            List<object> messageList = messageEnumerable.ToList();
+
+            if (messageList.Count != 0)
+            {
+                foreach (Message msg in messageList)
+                {
+                    IDictionary<string, object> userDictionary = new Dictionary<string, object>();
+                    userDictionary.Add("@userID", msg.SenderId);
+                    IEnumerable<object> userEnumerable = await connection.DataReader("SELECT * FROM dbo.Users WHERE userID = @userID", "Users", userDictionary);
+                    List<object> userList = userEnumerable.ToList();
+                    User sender = (User)userList.First();
+
+                    string message = msg.MessageText;
+                    string username = sender.Username;
+
+                    ChatMessage chatMessage = new ChatMessage();
+                    chatMessage.Username = username;
+                    chatMessage.Message = message;
+                    ChatVM.Messages.Add(chatMessage);
+                }
+            }
         }
 
         public void Broadcast(ChatMessage msg)
@@ -43,10 +72,29 @@ namespace Test2
 
         private async void OnMessage(ChatMessage msg)
         {
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
             {
-                Console.WriteLine(msg);
+                Debug.WriteLine(msg.Message);
+                Console.WriteLine(msg.Message);
                 ChatVM.Messages.Add(msg);
+
+                IDictionary<string, object> userDict = new Dictionary<string, object>();
+                userDict.Add("@username", msg.Username);
+                IEnumerable<object> userEnumerable = await connection.DataReader("SELECT * FROM dbo.Users WHERE username = @username", "Users", userDict);
+
+                List<object> userList = userEnumerable.ToList();
+                int userID = 0;
+
+                foreach (User u in userList)
+                {
+                    userID = u.UserId;
+                }
+
+                IDictionary<string, object> insertMessageDict = new Dictionary<string, object>();
+                insertMessageDict.Add("@senderID", userID);
+                insertMessageDict.Add("@message", msg.Message);
+                insertMessageDict.Add("@timestamp", DateTime.Now);
+                connection.RunQueryAsync("INSERT INTO dbo.Message (senderID, message, timestamp) VALUES (@senderID, @message, @timestamp)", insertMessageDict);
             });
         }
 

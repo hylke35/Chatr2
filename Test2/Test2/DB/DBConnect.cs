@@ -101,6 +101,9 @@ namespace Test2
                                 case "Lobby":
                                     results.Add(Lobby.Builder(reader));
                                     break;
+                                case "Message":
+                                    results.Add(Message.Builder(reader));
+                                    break;
                             }
 
                         }

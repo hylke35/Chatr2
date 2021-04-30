@@ -29,7 +29,7 @@ namespace ChatServer
         public void Send(ChatMessage message)
         {
             Clients.All.broadcastMessage(message);
-            Console.WriteLine(message);
+            Console.WriteLine(message.Message);
         }
     }
 }

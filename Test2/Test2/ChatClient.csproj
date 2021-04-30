@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="ChatMessage.cs" />
     <Compile Include="ChatMessageViewModel.cs" />
+    <Compile Include="DB\Message.cs" />
     <Compile Include="VideoParty\ClassHelper\WebRequestExtension.cs" />
     <Compile Include="VideoParty\ClassHelper\YouTubeJSON.cs" />
     <Compile Include="VideoParty\ClassHelper\Params.cs" />
